@@ -1,0 +1,1498 @@
+[
+    {
+        "en": "Dongyang Junior High School",
+        "cn": "东阳初级中学",
+        "pinyin": "Dōngyáng Chūjí Zhōngxué",
+        "type": "Place",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Songyang High School",
+        "cn": "嵩阳高中",
+        "pinyin": "Sōngyáng Gāozhōng",
+        "type": "Place",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Songyang City",
+        "cn": "嵩阳市",
+        "pinyin": "Sōngyáng Shì",
+        "type": "Place",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Zhang Yu",
+        "cn": "张羽",
+        "pinyin": "Zhāng Yǔ",
+        "type": "Person",
+        "gender": "Male",
+        "file": 1
+    },
+    {
+        "en": "Dao heart",
+        "cn": "道心",
+        "pinyin": "dàoxīn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Primordial Yin Qi Refining Art",
+        "cn": "元阴炼气之术",
+        "pinyin": "yuányīn liànqì zhī shù",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "specialized soul cultivator",
+        "cn": "魂修特长生",
+        "pinyin": "hún xiū tècháng shēng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "soul cultivator",
+        "cn": "魂修",
+        "pinyin": "hún xiū",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Ten Thousand Souls Banner",
+        "cn": "万魂幡",
+        "pinyin": "wàn hún fān",
+        "type": "Artifact",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "intellect-enhancement agent",
+        "cn": "促智剂",
+        "pinyin": "cùzhìjì",
+        "type": "Item",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "level-five focus",
+        "cn": "五级专注状态",
+        "pinyin": "wǔjí zhuānzhù zhuàngtài",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "class advisor",
+        "cn": "班主任",
+        "pinyin": "bānzhǔrèn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "ox demon",
+        "cn": "牛妖",
+        "pinyin": "niú yāo",
+        "type": "Creature",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "neuro-stimulant",
+        "cn": "神经兴奋填充剂",
+        "pinyin": "shénjīng xīngfèn tiánchōngjì",
+        "type": "Item",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "performance-enhancing supplement",
+        "cn": "功能增强补充药剂",
+        "pinyin": "gōngnéng zēngqiáng bǔchōng yàojì",
+        "type": "Item",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "magical artifact",
+        "cn": "法器",
+        "pinyin": "fǎqì",
+        "type": "Artifact",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Immortal Dao",
+        "cn": "仙道",
+        "pinyin": "xiāndào",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Immortal Dao tutoring class",
+        "cn": "仙道补习班",
+        "pinyin": "xiāndào bǔxíbān",
+        "type": "Place",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "demonic beast",
+        "cn": "妖兽",
+        "pinyin": "yāoshòu",
+        "type": "Creature",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "spiritual root",
+        "cn": "灵根",
+        "pinyin": "línggēn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "civilian-grade children's flying sword",
+        "cn": "民用级的儿童飞剑",
+        "pinyin": "mínyòng jí de értóng fēijiàn",
+        "type": "Item",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "civilian-grade",
+        "cn": "民用级",
+        "pinyin": "mínyòng jí",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "children's flying sword",
+        "cn": "儿童飞剑",
+        "pinyin": "értóng fēijiàn",
+        "type": "Item",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "flying sword",
+        "cn": "飞剑",
+        "pinyin": "fēijiàn",
+        "type": "Item",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "tutoring center",
+        "cn": "补习班",
+        "pinyin": "bǔxíbān",
+        "type": "Place",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Heavenly Spiritual Root",
+        "cn": "天灵根",
+        "pinyin": "tiān línggēn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "mana",
+        "cn": "法力",
+        "pinyin": "fǎlì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "cultivation technique",
+        "cn": "功法",
+        "pinyin": "gōngfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Advanced Immortal Dao technology",
+        "cn": "发达的仙道技术",
+        "pinyin": "fādá de xiāndào jìshù",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Kunxu",
+        "cn": "昆墟",
+        "pinyin": "Kūnxū",
+        "type": "Place",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Foundation Establishment",
+        "cn": "筑基",
+        "pinyin": "zhùjī",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 1
+    },
+    {
+        "en": "Songyang Advanced Immortal Arts High School",
+        "cn": "嵩阳高级仙道中学",
+        "pinyin": "Sōngyáng Gāojí Xiāndào Zhōngxué",
+        "type": "Place",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Bai Zhenzhen",
+        "cn": "白真真",
+        "pinyin": "Bái Zhēnzhēn",
+        "type": "Person",
+        "gender": "Female",
+        "file": 2
+    },
+    {
+        "en": "Yu-boy",
+        "cn": "羽子",
+        "pinyin": "Yǔzi",
+        "type": "Person",
+        "gender": "Male",
+        "file": 2
+    },
+    {
+        "en": "Pill Cauldron Pharmacy",
+        "cn": "丹鼎药房",
+        "pinyin": "Dāndǐng Yàofáng",
+        "type": "Place",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Time and Tide Meditation Chamber",
+        "cn": "时不待我静室",
+        "pinyin": "Shí bù dài wǒ Jìngshì",
+        "type": "Place",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "breathing exercise",
+        "cn": "吐纳",
+        "pinyin": "tǔnà",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Qi Refinement",
+        "cn": "炼气",
+        "pinyin": "liànqì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Ten Great Sects",
+        "cn": "十大宗门",
+        "pinyin": "Shí Dà Zōngmén",
+        "type": "Group",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Shuixiu Catering Services",
+        "cn": "水秀餐饮服务有限公司",
+        "pinyin": "Shuǐxiù Cānyǐn Fúwù Yǒuxiàn Gōngsī",
+        "type": "Group",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "spiritual energy",
+        "cn": "灵机",
+        "pinyin": "língjī",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Immortal Dao elements",
+        "cn": "仙道要素",
+        "pinyin": "xiāndào yàosù",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "dietary supplement",
+        "cn": "食补",
+        "pinyin": "shíbǔ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Longxiang Education Services Co., Ltd.",
+        "cn": "龙翔教育服务有限公司",
+        "pinyin": "Lóngxiáng Jiàoyù Fúwù Yǒuxiàn Gōngsī",
+        "type": "Group",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "model class",
+        "cn": "示范班",
+        "pinyin": "shìfàn bān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 2
+    },
+    {
+        "en": "Wang Hai",
+        "cn": "王海",
+        "pinyin": "Wáng Hǎi",
+        "type": "Person",
+        "gender": "Male",
+        "file": 3
+    },
+    {
+        "en": "ten great realms",
+        "cn": "十大境界",
+        "pinyin": "shí dà jìngjiè",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Dao heart level",
+        "cn": "道心等级",
+        "pinyin": "dàoxīn děngjí",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "mana level",
+        "cn": "法力水平",
+        "pinyin": "fǎlì shuǐpíng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "mana growth",
+        "cn": "法力提升",
+        "pinyin": "fǎlì tíshēng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Qian Shen",
+        "cn": "钱深",
+        "pinyin": "Qián Shēn",
+        "type": "Person",
+        "gender": "Male",
+        "file": 3
+    },
+    {
+        "en": "He Dayou",
+        "cn": "何大有",
+        "pinyin": "Hé Dàyǒu",
+        "type": "Person",
+        "gender": "Male",
+        "file": 3
+    },
+    {
+        "en": "functional enhancer",
+        "cn": "功能增强剂",
+        "pinyin": "gōngnéng zēngqiáng jì",
+        "type": "Item",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Dragon-Elephant Preparation",
+        "cn": "龙象制剂",
+        "pinyin": "lóng xiàng zhìjì",
+        "type": "Item",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Taotie-Gain",
+        "cn": "饕餮利",
+        "pinyin": "tāotiè lì",
+        "type": "Item",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Zhao Tianxing",
+        "cn": "赵天行",
+        "pinyin": "Zhào Tiānxíng",
+        "type": "Person",
+        "gender": "Male",
+        "file": 3
+    },
+    {
+        "en": "Divine Elephant Force",
+        "cn": "神象力",
+        "pinyin": "shénxiàng lì",
+        "type": "Item",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Vajra Sect",
+        "cn": "金刚宗",
+        "pinyin": "Jīngāng Zōng",
+        "type": "Group",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Zhou Tianyi",
+        "cn": "周天翊",
+        "pinyin": "Zhōu Tiānyì",
+        "type": "Person",
+        "gender": "Male",
+        "file": 3
+    },
+    {
+        "en": "body tempering",
+        "cn": "炼体",
+        "pinyin": "liàntǐ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Thirty-Six Body-Strengthening Forms",
+        "cn": "健体三十六式",
+        "pinyin": "jiàntǐ sānshíliù shì",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "body tempering cultivation technique",
+        "cn": "炼体功法",
+        "pinyin": "liàntǐ gōngfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "Immortal Dao framework",
+        "cn": "仙道框架",
+        "pinyin": "xiāndào kuàngjià",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 3
+    },
+    {
+        "en": "god-invoking ritual",
+        "cn": "请神仪式",
+        "pinyin": "qǐng shén yíshì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 4
+    },
+    {
+        "en": "righteous god",
+        "cn": "正神",
+        "pinyin": "zhèng shén",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 4
+    },
+    {
+        "en": "evil god",
+        "cn": "邪神",
+        "pinyin": "xié shén",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 4
+    },
+    {
+        "en": "Feathered Tome",
+        "cn": "羽书",
+        "pinyin": "Yǔ shū",
+        "type": "Item",
+        "gender": null,
+        "file": 5
+    },
+    {
+        "en": "Freehand Combat",
+        "cn": "散手",
+        "pinyin": "sǎn shǒu",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 5
+    },
+    {
+        "en": "Basic Breathing Technique",
+        "cn": "基础吐纳法",
+        "pinyin": "jīchǔ tǔnà fǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 5
+    },
+    {
+        "en": "Basic Heart Tempering Art",
+        "cn": "基础炼心法",
+        "pinyin": "jīchǔ liàn xīn fǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 5
+    },
+    {
+        "en": "booster",
+        "cn": "丹药",
+        "pinyin": "dānyào",
+        "type": "Item",
+        "gender": null,
+        "file": 5
+    },
+    {
+        "en": "magical treasure",
+        "cn": "法宝",
+        "pinyin": "fǎbǎo",
+        "type": "Item",
+        "gender": null,
+        "file": 6
+    },
+    {
+        "en": "artifact spirit",
+        "cn": "器灵",
+        "pinyin": "qìlíng",
+        "type": "Creature",
+        "gender": null,
+        "file": 6
+    },
+    {
+        "en": "acupuncture",
+        "cn": "扎针",
+        "pinyin": "zhā zhēn",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 6
+    },
+    {
+        "en": "sea of qi",
+        "cn": "气海",
+        "pinyin": "qì hǎi",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 7
+    },
+    {
+        "en": "dantian",
+        "cn": "丹田",
+        "pinyin": "dāntián",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 7
+    },
+    {
+        "en": "specialized skill",
+        "cn": "专精的技能",
+        "pinyin": "zhuānjīng de jìnnéng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 7
+    },
+    {
+        "en": "Zhen",
+        "cn": "阿真",
+        "pinyin": "Ā Zhēn",
+        "type": "Person",
+        "gender": "Female",
+        "file": 7
+    },
+    {
+        "en": "Lu Chao",
+        "cn": "卢超",
+        "pinyin": "Lú Chāo",
+        "type": "Person",
+        "gender": "Male",
+        "file": 7
+    },
+    {
+        "en": "Ten Greats",
+        "cn": "十大",
+        "pinyin": "Shí Dà",
+        "type": "Group",
+        "gender": null,
+        "file": 7
+    },
+    {
+        "en": "Su Haifeng",
+        "cn": "苏海峰",
+        "pinyin": "Sū Hǎifēng",
+        "type": "Person",
+        "gender": "Male",
+        "file": 8
+    },
+    {
+        "en": "Basic High School Swordplay Level 0",
+        "cn": "高中基础剑法",
+        "pinyin": "gāozhōng jīchǔ jiànfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 9
+    },
+    {
+        "en": "Old Wang",
+        "cn": "老王",
+        "pinyin": "Lǎo Wáng",
+        "type": "Person",
+        "gender": "Male",
+        "file": 9
+    },
+    {
+        "en": "Immortal Resonance Group",
+        "cn": "仙韵集团",
+        "pinyin": "Xiānyùn Jítuán",
+        "type": "Group",
+        "gender": null,
+        "file": 10
+    },
+    {
+        "en": "Myriad Laws Sect",
+        "cn": "万法宗",
+        "pinyin": "Wàn Fǎ Zōng",
+        "type": "Group",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "Experimental Technique 113",
+        "cn": "试验功法113号",
+        "pinyin": "shìyàn gōngfǎ 113 hào",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "mana circuit",
+        "cn": "法力的循环",
+        "pinyin": "fǎlì de xúnhuán",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "auxiliary circulation device",
+        "cn": "辅助运功设备",
+        "pinyin": "fǔzhù yùn gōng shèbèi",
+        "type": "Item",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "mana-detecting patch",
+        "cn": "法力检测贴片",
+        "pinyin": "fǎlì jiǎncè tiēpiàn",
+        "type": "Item",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "Primordial Magnetism Needles",
+        "cn": "元磁针",
+        "pinyin": "yuán cí zhēn",
+        "type": "Item",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "auto-pathing system",
+        "cn": "自动寻路",
+        "pinyin": "zìdòng xún lù",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "auto-circulation system",
+        "cn": "自动寻功",
+        "pinyin": "zìdòng xún gōng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "Celestial Cycle Qi-Gathering Method",
+        "cn": "周天采气法",
+        "pinyin": "Zhōutiān Cǎiqì Fǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 11
+    },
+    {
+        "en": "Calming Agent",
+        "cn": "静心剂",
+        "pinyin": "jìngxīnjì",
+        "type": "Item",
+        "gender": null,
+        "file": 14
+    },
+    {
+        "en": "Mana Competition",
+        "cn": "法赛",
+        "pinyin": "fǎsài",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 14
+    },
+    {
+        "en": "neural filler",
+        "cn": "神经填充剂",
+        "pinyin": "shénjīng tiánchōngjì",
+        "type": "Item",
+        "gender": null,
+        "file": 14
+    },
+    {
+        "en": "Purple Cloud Company",
+        "cn": "紫云公司",
+        "pinyin": "Zǐyún Gōngsī",
+        "type": "Group",
+        "gender": null,
+        "file": 14
+    },
+    {
+        "en": "Li Xuelian",
+        "cn": "李雪莲",
+        "pinyin": "Lǐ Xuělián",
+        "type": "Person",
+        "gender": "Female",
+        "file": 14
+    },
+    {
+        "en": "Xuelian",
+        "cn": "雪莲",
+        "pinyin": "Xuělián",
+        "type": "Person",
+        "gender": "Female",
+        "file": 14
+    },
+    {
+        "en": "Cloudfall Hall",
+        "cn": "云中厅",
+        "pinyin": "Yúnzhōng Tīng",
+        "type": "Place",
+        "gender": null,
+        "file": 14
+    },
+    {
+        "en": "True Monarch",
+        "cn": "真人",
+        "pinyin": "zhēnrén",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 14
+    },
+    {
+        "en": "Golden Core",
+        "cn": "金丹",
+        "pinyin": "jīndān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 14
+    },
+    {
+        "en": "True Monarch Xinghou",
+        "cn": "星火真人",
+        "pinyin": "xīnghuǒ zhēnrén",
+        "type": "Person",
+        "gender": "Male",
+        "file": 15
+    },
+    {
+        "en": "Xinghou",
+        "cn": "星火",
+        "pinyin": "xīnghuǒ",
+        "type": "Person",
+        "gender": "Male",
+        "file": 15
+    },
+    {
+        "en": "Celestial Paragon’s Martial Demonstration Scroll",
+        "cn": "天人演武图",
+        "pinyin": "tiān rén yǎn wǔ tú",
+        "type": "Item",
+        "gender": null,
+        "file": 15
+    },
+    {
+        "en": "formation array",
+        "cn": "阵法",
+        "pinyin": "zhènfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 15
+    },
+    {
+        "en": "Songyang City Director",
+        "cn": "嵩阳市总监",
+        "pinyin": "Sōngyáng Shì Zǒngjiān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 16
+    },
+    {
+        "en": "Arcane Frame",
+        "cn": "法骸",
+        "pinyin": "fǎhái",
+        "type": "Item",
+        "gender": null,
+        "file": 16
+    },
+    {
+        "en": "Myriad Laws University",
+        "cn": "万法大学",
+        "pinyin": "Wànfǎ Dàxué",
+        "type": "Place",
+        "gender": null,
+        "file": 16
+    },
+    {
+        "en": "Lian Tianji",
+        "cn": "炼天极",
+        "pinyin": "Liàn Tiānjí",
+        "type": "Person",
+        "gender": "Male",
+        "file": 16
+    },
+    {
+        "en": "Ziyun High School",
+        "cn": "紫云高中",
+        "pinyin": "Zǐyún Gāozhōng",
+        "type": "Place",
+        "gender": null,
+        "file": 16
+    },
+    {
+        "en": "funerary urn",
+        "cn": "骨灰盒",
+        "pinyin": "gǔhuīhé",
+        "type": "Item",
+        "gender": null,
+        "file": 16
+    },
+    {
+        "en": "Li Xingyu",
+        "cn": "李星宇",
+        "pinyin": "Lǐ Xīngyǔ",
+        "type": "Person",
+        "gender": "Male",
+        "file": 16
+    },
+    {
+        "en": "Mangshan High School",
+        "cn": "邙山高中",
+        "pinyin": "Mángshān Gāozhōng",
+        "type": "Place",
+        "gender": null,
+        "file": 16
+    },
+    {
+        "en": "martial will",
+        "cn": "武道意念",
+        "pinyin": "wǔdào yìniàn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 18
+    },
+    {
+        "en": "Heavenly Net",
+        "cn": "天网",
+        "pinyin": "Tiānwǎng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 18
+    },
+    {
+        "en": "god-worshipping technique",
+        "cn": "拜神心法",
+        "pinyin": "bài shén xīnfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 19
+    },
+    {
+        "en": "Heavenly Diligence Art",
+        "cn": "天勤心法",
+        "pinyin": "tiān qín xīnfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 19
+    },
+    {
+        "en": "ascetic training",
+        "cn": "苦修",
+        "pinyin": "kǔ xiū",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 19
+    },
+    {
+        "en": "sword intent",
+        "cn": "剑意",
+        "pinyin": "jiàn yì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 21
+    },
+    {
+        "en": "fist intent",
+        "cn": "拳意",
+        "pinyin": "quán yì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 21
+    },
+    {
+        "en": "saber intent",
+        "cn": "刀意",
+        "pinyin": "dāo yì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 21
+    },
+    {
+        "en": "Martial Ascension Heart-Tempering Art",
+        "cn": "天武炼心诀",
+        "pinyin": "Tiān Wǔ Liàn Xīn Jué",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 21
+    },
+    {
+        "en": "celestial caliber",
+        "cn": "天纵之资",
+        "pinyin": "tiān zòng zhī zī",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 21
+    },
+    {
+        "en": "Wu Qingqing",
+        "cn": "武青青",
+        "pinyin": "Wǔ Qīngqīng",
+        "type": "Person",
+        "gender": "Female",
+        "file": 22
+    },
+    {
+        "en": "Saintess Academy",
+        "cn": "圣女子学院",
+        "pinyin": "Shèng Nǚzǐ Xuéyuàn",
+        "type": "Place",
+        "gender": null,
+        "file": 22
+    },
+    {
+        "en": "devil incarnate",
+        "cn": "出生",
+        "pinyin": "chūshēng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 23
+    },
+    {
+        "en": "On the Application Prospects of Electric Shock in High School Education",
+        "cn": "论电击在高中教学中的应用前景",
+        "pinyin": "Lùn diànjí zài gāozhōng jiàoxué zhōng de yìngyòng qiánjǐng",
+        "type": "Item",
+        "gender": null,
+        "file": 23
+    },
+    {
+        "en": "demon king",
+        "cn": "魔王",
+        "pinyin": "mówáng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 23
+    },
+    {
+        "en": "Myriad Stars Education Group",
+        "cn": "万星教育集团",
+        "pinyin": "Wànxīng Jiàoyù Jítuán",
+        "type": "Group",
+        "gender": null,
+        "file": 23
+    },
+    {
+        "en": "Exploration of Student Humiliation in High School Pedagogy",
+        "cn": "论侮辱学生在高中教学中的探索",
+        "pinyin": "Lùn wǔrǔ xuéshēng zài gāozhōng jiàoxué zhōng de tànsuǒ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 24
+    },
+    {
+        "en": "Divine Spiritual Root",
+        "cn": "神灵根",
+        "pinyin": "shén línggēn",
+        "type": "Item",
+        "gender": null,
+        "file": 24
+    },
+    {
+        "en": "Immortal Spiritual Root",
+        "cn": "仙灵根",
+        "pinyin": "xiān línggēn",
+        "type": "Item",
+        "gender": null,
+        "file": 24
+    },
+    {
+        "en": "Host Spiritual Root",
+        "cn": "寄灵根",
+        "pinyin": "jì línggēn",
+        "type": "Item",
+        "gender": null,
+        "file": 24
+    },
+    {
+        "en": "Muscle-Growth Spiritual Root",
+        "cn": "增肌灵根",
+        "pinyin": "zēng jī línggēn",
+        "type": "Item",
+        "gender": null,
+        "file": 24
+    },
+    {
+        "en": "Primordial Yang Spiritual Root",
+        "cn": "元阳灵根",
+        "pinyin": "yuányáng línggēn",
+        "type": "Item",
+        "gender": null,
+        "file": 25
+    },
+    {
+        "en": "primordial yang essence",
+        "cn": "元阳精气",
+        "pinyin": "yuányáng jīngqì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 25
+    },
+    {
+        "en": "Sea of Qi Spiritual Root",
+        "cn": "气海灵根",
+        "pinyin": "qì hǎi línggēn",
+        "type": "Item",
+        "gender": null,
+        "file": 25
+    },
+    {
+        "en": "King of Phasing",
+        "cn": "穿墙王",
+        "pinyin": "chuān qiáng wáng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 25
+    },
+    {
+        "en": "spirit-gathering talisman",
+        "cn": "聚灵符箓",
+        "pinyin": "jù líng fúlù",
+        "type": "Item",
+        "gender": null,
+        "file": 25
+    },
+    {
+        "en": "Wei Xin",
+        "cn": "魏馨",
+        "pinyin": "Wèi Xīn",
+        "type": "Person",
+        "gender": "Female",
+        "file": 25
+    },
+    {
+        "en": "Prospective Platinum Member",
+        "cn": "白金会员种子",
+        "pinyin": "báijīn huìyuán zhǒngzǐ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 25
+    },
+    {
+        "en": "Zhang Yu (Prospective Platinum Member)",
+        "cn": "张羽（白金会员种子）",
+        "pinyin": "Zhāng Yǔ (báijīn huìyuán zhǒngzǐ)",
+        "type": "Person",
+        "gender": "Male",
+        "file": 25
+    },
+    {
+        "en": "synthetic food",
+        "cn": "合成食物",
+        "pinyin": "héchéng shíwù",
+        "type": "Item",
+        "gender": null,
+        "file": 27
+    },
+    {
+        "en": "Oasis Corporation",
+        "cn": "绿洲公司",
+        "pinyin": "Lǜzhōu Gōngsī",
+        "type": "Group",
+        "gender": null,
+        "file": 27
+    },
+    {
+        "en": "municipal government",
+        "cn": "市政府",
+        "pinyin": "shìzhèngfǔ",
+        "type": "Group",
+        "gender": null,
+        "file": 27
+    },
+    {
+        "en": "God of Myriad Roads and Unimpeded Passage",
+        "cn": "万行四通大神",
+        "pinyin": "Wànxíng Sìtōng Dàshén",
+        "type": "Person",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Department of Transportation",
+        "cn": "交通部",
+        "pinyin": "Jiāotōng Bù",
+        "type": "Group",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "divine ministry",
+        "cn": "神职部门",
+        "pinyin": "shénzhí bùmén",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Vehicle Surveillance Talisman",
+        "cn": "车辆监控符",
+        "pinyin": "Chēliàng Jiānkòng Fú",
+        "type": "Item",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Reporting Talisman",
+        "cn": "举报符",
+        "pinyin": "Jǔbào Fú",
+        "type": "Item",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Health Check Talisman",
+        "cn": "体检符",
+        "pinyin": "Tǐjiǎn Fú",
+        "type": "Item",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "God of Health and Verdant Spring",
+        "cn": "健康春生大神",
+        "pinyin": "Jiànkāng Chūnshēng Dàshén",
+        "type": "Person",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Ministry of Health",
+        "cn": "卫生部",
+        "pinyin": "Wèishēng Bù",
+        "type": "Group",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Detainment Talisman",
+        "cn": "拘役符",
+        "pinyin": "Jūyì Fú",
+        "type": "Item",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Eight Great Divine Ministries",
+        "cn": "八大神职部门",
+        "pinyin": "Bādà Shénzhí Bùmén",
+        "type": "Group",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Great Divine Ministries",
+        "cn": "神职部门",
+        "pinyin": "Shénzhí Bùmén",
+        "type": "Group",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Eight Ministries of Righteous Gods",
+        "cn": "八部正神",
+        "pinyin": "Bābù Zhèngshén",
+        "type": "Group",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Talisman Tome",
+        "cn": "箓书",
+        "pinyin": "Lùshū",
+        "type": "Item",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "faith level",
+        "cn": "信仰等级",
+        "pinyin": "xìnyǎng děngjí",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "divine-guided talisman debugging",
+        "cn": "正神指导的符咒报错",
+        "pinyin": "zhèngshén zhǐdǎo de fúzhòu bàocuò",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "talisman optimization",
+        "cn": "符咒优化",
+        "pinyin": "fúzhòu yōuhuà",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Answer Talisman",
+        "cn": "解答符",
+        "pinyin": "Jiědá Fú",
+        "type": "Item",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "God of Celestial Knowledge and Myriad Questions",
+        "cn": "天知万问大神",
+        "pinyin": "Tiānzhī Wànwèn Dàshén",
+        "type": "Person",
+        "gender": null,
+        "file": 28
+    },
+    {
+        "en": "Lei Jun",
+        "cn": "雷钧",
+        "pinyin": "Léi Jūn",
+        "type": "Person",
+        "gender": "Male",
+        "file": 29
+    },
+    {
+        "en": "Yellow Turban Strongmen",
+        "cn": "黄巾力士",
+        "pinyin": "Huángjīn Lìshì",
+        "type": "Creature",
+        "gender": null,
+        "file": 29
+    },
+    {
+        "en": "Lesser Heavenly Star Palm",
+        "cn": "小天星掌",
+        "pinyin": "Xiǎo Tiānxīng Zhǎng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 29
+    },
+    {
+        "en": "spiritual interface mask",
+        "cn": "灵界面罩",
+        "pinyin": "língjiè miànzhào",
+        "type": "Item",
+        "gender": null,
+        "file": 30
+    },
+    {
+        "en": "Spirit Realm",
+        "cn": "灵界",
+        "pinyin": "Língjiè",
+        "type": "Place",
+        "gender": null,
+        "file": 31
+    },
+    {
+        "en": "heart art",
+        "cn": "心法",
+        "pinyin": "xīnfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 31
+    },
+    {
+        "en": "Quiet the mind, focus the spirit, endure in silence, persevere with patience, constant dripping wears away the stone",
+        "cn": "静心凝神，默默忍耐，默默坚持，水滴石穿",
+        "pinyin": "jìngxīn níngshén, mòmò rěnnài, mòmò jiānchí, shuǐdīshíchuān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 31
+    },
+    {
+        "en": "Dao heart buffer",
+        "cn": "道心缓冲剂",
+        "pinyin": "dàoxīn huǎnchōngjì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 32
+    },
+    {
+        "en": "neurotransmitter",
+        "cn": "神经递质",
+        "pinyin": "shénjīng dìzhì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 32
+    },
+    {
+        "en": "mana circulation efficiency",
+        "cn": "法力运转效率",
+        "pinyin": "fǎlì yùnzhuǎn xiàolǜ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 32
+    },
+    {
+        "en": "Vajra Ghee",
+        "cn": "金刚酥油",
+        "pinyin": "Jīngāng Sūyóu",
+        "type": "Item",
+        "gender": null,
+        "file": 33
+    },
+    {
+        "en": "demonic beast drug",
+        "cn": "妖兽药",
+        "pinyin": "yāoshòu yào",
+        "type": "Item",
+        "gender": null,
+        "file": 33
+    },
+    {
+        "en": "drug",
+        "cn": "药品",
+        "pinyin": "yàopǐn",
+        "type": "Item",
+        "gender": null,
+        "file": 33
+    },
+    {
+        "en": "Zhang Pianpian",
+        "cn": "张翩翩",
+        "pinyin": "Zhāng Piānpiān",
+        "type": "Person",
+        "gender": "Female",
+        "file": 35
+    },
+    {
+        "en": "White Dragon High School",
+        "cn": "白龙高中",
+        "pinyin": "Bái Lóng Gāozhōng",
+        "type": "Place",
+        "gender": null,
+        "file": 35
+    },
+    {
+        "en": "Pianbao",
+        "cn": "翩宝",
+        "pinyin": "Piānbǎo",
+        "type": "Person",
+        "gender": "Female",
+        "file": 35
+    },
+    {
+        "en": "pauper’s special",
+        "cn": "穷鬼套餐",
+        "pinyin": "qióng guǐ tàocān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 35
+    },
+    {
+        "en": "talisman technique",
+        "cn": "符咒技巧",
+        "pinyin": "fúzhòu jìqiǎo",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 35
+    },
+    {
+        "en": "Yin Maiden Grand Art (Unisex Version)",
+        "cn": "姹女大法男女通用版",
+        "pinyin": "Chànǚ Dàfǎ Nánnǚ Tōngyòng Bǎn",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 35
+    },
+    {
+        "en": "Yin Maiden Grand Art",
+        "cn": "姹女大法",
+        "pinyin": "Chànǚ Dàfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 35
+    },
+    {
+        "en": "Great Dream Heart Sutra: Cultivate in Your Sleep",
+        "cn": "大梦心经睡觉也能练功",
+        "pinyin": "Dà Mèng Xīnjīng Shuìjiào Yě Néng Liàngōng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 35
+    },
+    {
+        "en": "Great Dream Heart Sutra",
+        "cn": "大梦心经",
+        "pinyin": "Dà Mèng Xīnjīng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 35
+    },
+    {
+        "en": "Nine Heavens Crash Course in Eight-Part Talismans",
+        "cn": "九天速成八部符箓",
+        "pinyin": "Jiǔtiān Sùchéng Bā Bù Fúlù",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 35
+    }
+]
