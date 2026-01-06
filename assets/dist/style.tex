@@ -1,0 +1,54 @@
+\usepackage{polyglossia}
+
+% --- COLOR THEME ---
+\usepackage[HTML]{xcolor}
+
+% --- GEOMETRY & PAGE LAYOUT (A4 E-VIEWING) ---
+\usepackage[
+  a4paper,
+  margin=1in
+]{geometry}
+\usepackage{fancyhdr} % For custom headers and footers
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[C]{\itshape \nouppercase{\leftmark}} % Section title in center header
+\fancyfoot[C]{\thepage} % Page number in center footer
+\renewcommand{\headrulewidth}{0pt} % No line under header
+\renewcommand{\footrulewidth}{0pt} % No line over footer
+
+% --- LINE SPACING ---
+\usepackage{setspace}
+\setstretch{1.25} % Good for readability
+
+% Set the page background color to sepia
+\pagecolor[HTML]{FBF0D9}
+
+% Set the default text color to a dark sepia/brown
+\color[HTML]{453823}
+
+% --- LOAD FONTSPEC AND SET FONT ---
+\usepackage{fontspec}
+
+% --- FONTS ---
+\usepackage{fontspec}
+\setmainfont{Bookerly}[
+  Path           = assets/dist/,           % Force looking in the current folder
+  Extension      = .ttf,                   % Automatically add .ttf to names below
+  UprightFont    = Bookerly,               % Looks for "Bookerly.ttf"
+  BoldFont       = {Bookerly-Bold},        % Looks for "Bookerly Bold.ttf"
+  ItalicFont     = {Bookerly-LCD-Italic},  % Looks for "Bookerly LCD Italic.ttf"
+  BoldItalicFont = {Bookerly-Bold-Italic}, % Looks for "Bookerly Bold Italic.ttf"
+  % --- Features ---
+  Ligatures      = {Common, TeX},
+  Numbers        = {OldStyle},
+  Kerning        = On
+]
+
+% --- TYPOGRAPHIC REFINEMENTS ---
+\usepackage{microtype} % Improves justification and text "color"
+\usepackage[all]{foreign} % Better handling of foreign words
+
+% Prevent lonely lines at the top/bottom of a page
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000 % For lines before equations
