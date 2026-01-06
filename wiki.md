@@ -1,3 +1,7 @@
+This file is used to track things that need a wiki page.
+
+---
+
 # 19
 
 Heavenly Diligence Art
