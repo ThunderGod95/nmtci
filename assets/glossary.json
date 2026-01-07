@@ -816,7 +816,7 @@
         "file": 14
     },
     {
-        "en": "True Monarch Xinghou",
+        "en": "True Monarch Xinghuo",
         "cn": "星火真人",
         "pinyin": "xīnghuǒ zhēnrén",
         "type": "Person",
@@ -824,7 +824,7 @@
         "file": 15
     },
     {
-        "en": "Xinghou",
+        "en": "Xinghuo",
         "cn": "星火",
         "pinyin": "xīnghuǒ",
         "type": "Person",
@@ -3054,5 +3054,189 @@
         "type": "Concept/Term",
         "gender": null,
         "file": 97
+    },
+    {
+        "en": "Thunderclap True Body",
+        "cn": "雷殛真体",
+        "pinyin": "Léi Jí Zhēn Tǐ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 98
+    },
+    {
+        "en": "Li Yong",
+        "cn": "李勇",
+        "pinyin": "Lǐ Yǒng",
+        "type": "Person",
+        "gender": "Male",
+        "file": 99
+    },
+    {
+        "en": "Ye Haitao",
+        "cn": "叶海桃",
+        "pinyin": "Yè Hǎitáo",
+        "type": "Person",
+        "gender": "Female",
+        "file": 99
+    },
+    {
+        "en": "Heavenly Demon Needle Art",
+        "cn": "天妖针法",
+        "pinyin": "Tiān Yāo Zhēn Fǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 100
+    },
+    {
+        "en": "Blood Corpse Needle Art",
+        "cn": "血尸针法",
+        "pinyin": "Xuè Shī Zhēn Fǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 100
+    },
+    {
+        "en": "Nine Dragons Acupuncture Technique",
+        "cn": "九龙针法",
+        "pinyin": "Jiǔ Lóng Zhēnfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "Spirit Realm temple",
+        "cn": "灵界神殿",
+        "pinyin": "Língjiè Shéndiàn",
+        "type": "Place",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "god-to-human training",
+        "cn": "神对人培训",
+        "pinyin": "shén duì rén péixùn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "god-companion mode",
+        "cn": "神陪人模式",
+        "pinyin": "shén péi rén móshì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "divine-son package",
+        "cn": "神子套餐",
+        "pinyin": "shénzǐ tàocān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "talisman bestowal",
+        "cn": "授符",
+        "pinyin": "shòu fú",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "thirty-six heavens",
+        "cn": "三十六层天",
+        "pinyin": "sānshíliù céng tiān",
+        "type": "Place",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "Red Pagoda",
+        "cn": "红塔",
+        "pinyin": "Hóng Tǎ",
+        "type": "Place",
+        "gender": null,
+        "file": 101
+    },
+    {
+        "en": "athletics meet",
+        "cn": "体赛",
+        "pinyin": "tǐ sài",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 102
+    },
+    {
+        "en": "demonic muscle",
+        "cn": "仿妖筋肉",
+        "pinyin": "fǎng yāo jīn ròu",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 104
+    },
+    {
+        "en": "Red Pagoda Husbandry",
+        "cn": "红塔牧业",
+        "pinyin": "Hóng Tǎ Mùyè",
+        "type": "Group",
+        "gender": null,
+        "file": 105
+    },
+    {
+        "en": "black creature",
+        "cn": "黑色生物",
+        "pinyin": "hēisè shēngwù",
+        "type": "Creature",
+        "gender": null,
+        "file": 105
+    },
+    {
+        "en": "Black Dragon bloodline",
+        "cn": "黑龙血脉",
+        "pinyin": "hēilóng xuèmài",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 105
+    },
+    {
+        "en": "Black Dragon",
+        "cn": "黑龙",
+        "pinyin": "Hēilóng",
+        "type": "Creature",
+        "gender": null,
+        "file": 105
+    },
+    {
+        "en": "Le Jingchen",
+        "cn": "乐景辰",
+        "pinyin": "Lè Jǐngchén",
+        "type": "Person",
+        "gender": "Male",
+        "file": 106
+    },
+    {
+        "en": "Gang Shan",
+        "cn": "刚山",
+        "pinyin": "Gāng Shān",
+        "type": "Person",
+        "gender": "Male",
+        "file": 106
+    },
+    {
+        "en": "super-metabolism surgery",
+        "cn": "超级代谢手术",
+        "pinyin": "chāojí dàixiè shǒushù",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 106
+    },
+    {
+        "en": "demonic muscle surgery",
+        "cn": "仿妖筋肉手术",
+        "pinyin": "fǎng yāo jīn ròu shǒushù",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 108
     }
 ]

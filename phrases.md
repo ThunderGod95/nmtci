@@ -13,3 +13,17 @@ This file is used to ensure consistency for some sentences which AI will not be 
 5. It was a technique that targeted an enemy's mana, allowing for mana redirection and reflection.
 
 6. Grade One Study Demon, Songyang School Traitor, the Impure, Moocher
+
+7. The disciple Zhang Yu, with a heart devoted to the Dao, of sincere piety and superior aptitude… is hereby granted this talisman. It is hoped that you will practice it diligently in the days to come and spread the divine way far and wide.
+
+8. Concealment Talisman Upgrade to Advanced Version, Basic Version
+
+Conceal component function, √, √
+
+Component color-change function, √, X
+
+Individually hide components, √, X
+
+Personalized camouflage signature, √, X
+
+Forced display function, √, X
