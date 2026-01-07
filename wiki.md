@@ -14,7 +14,7 @@ The party.
 
 spiritual roots
 
-# 26 
+# 26
 
 mastered body tempering
 
@@ -146,4 +146,10 @@ Black Crow
 # 95-100
 
 True Spiritual root
-Th
+Thunderclap True Body
+
+# 106-112
+
+New body tempering methods
+Sixteen families of Songyang
+Yu Xinghan
