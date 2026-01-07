@@ -23,6 +23,20 @@ This repository **does not contain the full novel**. It is a fan translation foc
 
 ---
 
+## Chapters
+
+{% assign chapters = site.static_files | where: "dir", "/translations/" | sort: 'name' %}
+<ul>
+{% for chapter in chapters %}
+  {% if chapter.extname == '.md' %}
+    <li><a href="{{ chapter.path | replace: '.md', '.html' }}">{{ chapter.name | replace: '.md', '' | replace: '_', ' ' }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+
+---
+
 ## How to Read
 
 There are three ways to read this translation:
