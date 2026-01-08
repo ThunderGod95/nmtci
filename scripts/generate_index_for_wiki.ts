@@ -24,6 +24,7 @@ async function generateIndex() {
                 chapters.push({
                     num: chapterNum,
                     title: chapterTitle,
+                    fileName: file, // Store the actual filename here
                 });
             }
         }
@@ -31,8 +32,9 @@ async function generateIndex() {
         chapters.sort((a, b) => a.num - b.num);
 
         for (const chapter of chapters) {
+            // Use chapter.fileName in the URL instead of chapter.num
             console.log(
-                `|${chapter.num} = [https://github.com/ThunderGod95/nmtci/blob/main/translations/${chapter.num}.md Chapter ${chapter.num}: ${chapter.title}]`,
+                `|${chapter.num} = [https://github.com/ThunderGod95/nmtci/blob/main/translations/${chapter.fileName} Chapter ${chapter.num}: ${chapter.title}]`,
             );
         }
     } catch (error) {

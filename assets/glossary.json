@@ -3238,5 +3238,165 @@
         "type": "Technique/Art/Method/Incantation/Spell",
         "gender": null,
         "file": 108
+    },
+    {
+        "en": "Sky Pillar",
+        "cn": "天空柱",
+        "pinyin": "Tiānkōng Zhù",
+        "type": "Item",
+        "gender": null,
+        "file": 113
+    },
+    {
+        "en": "weak-poor-clown theory",
+        "cn": "弱穷小丑理论",
+        "pinyin": "ruò qióng xiǎo chǒu lǐ lùn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 114
+    },
+    {
+        "en": "Songyang Demonic Beast Park",
+        "cn": "嵩阳妖兽园",
+        "pinyin": "Sōngyáng Yāoshòu Yuán",
+        "type": "Place",
+        "gender": null,
+        "file": 118
+    },
+    {
+        "en": "Prodigy Class",
+        "cn": "天骄班",
+        "pinyin": "Tiānjiāo Bān",
+        "type": "Group",
+        "gender": null,
+        "file": 120
+    },
+    {
+        "en": "Myriad Stars Group",
+        "cn": "万星集团",
+        "pinyin": "Wànxīng Jítuán",
+        "type": "Group",
+        "gender": null,
+        "file": 120
+    },
+    {
+        "en": "Foundation Establishment certificate program",
+        "cn": "筑基资格证计划",
+        "pinyin": "zhùjī zīgé zhèng jìhuà",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 121
+    },
+    {
+        "en": "Nascent Soul",
+        "cn": "元婴",
+        "pinyin": "Yuányīng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 120
+    },
+    {
+        "en": "Nascent Soul great cultivator",
+        "cn": "元婴大能",
+        "pinyin": "Yuányīng Dànéng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 121
+    },
+    {
+        "en": "Spirit Transformation",
+        "cn": "化神",
+        "pinyin": "Huàshén",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 121
+    },
+    {
+        "en": "Void Refinement",
+        "cn": "炼虚",
+        "pinyin": "Liànxū",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 121
+    },
+    {
+        "en": "Heavenly Court",
+        "cn": "天庭",
+        "pinyin": "Tiāntíng",
+        "type": "Group",
+        "gender": null,
+        "file": 121
+    },
+    {
+        "en": "Immortal Venerable",
+        "cn": "仙尊",
+        "pinyin": "xiān zūn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 122
+    },
+    {
+        "en": "Foundation Establishment curriculum",
+        "cn": "筑基课程",
+        "pinyin": "zhù jī kè chéng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 122
+    },
+    {
+        "en": "Immortal Capital",
+        "cn": "仙都",
+        "pinyin": "xiān dū",
+        "type": "Place",
+        "gender": null,
+        "file": 122
+    },
+    {
+        "en": "clown relativity",
+        "cn": "小丑相对论",
+        "pinyin": "xiǎo chǒu xiāng duì lùn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 123
+    },
+    {
+        "en": "Great Sun Sea of Qi",
+        "cn": "大日气海",
+        "pinyin": "dà rì qì hǎi",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 123
+    },
+    {
+        "en": "essence of the sun and moon",
+        "cn": "日月精华",
+        "pinyin": "rì yuè jīng huá",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 123
+    },
+    {
+        "en": "Fu Ji",
+        "cn": "福姬",
+        "pinyin": "fú jī",
+        "type": "Person",
+        "gender": "Female",
+        "file": 123
+    },
+    {
+        "en": "Crippled Ox Body-Sacrifice Heart Art",
+        "cn": "残牛舍身心诀",
+        "pinyin": "cán niú shě shēn xīn jué",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 124
+    },
+    {
+        "en": "Divine Dao",
+        "cn": "神道",
+        "pinyin": "shén dào",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 124
     }
 ]

@@ -153,3 +153,15 @@ Thunderclap True Body
 New body tempering methods
 Sixteen families of Songyang
 Yu Xinghan
+
+# 119-124
+
+Yu Xinghan
+Foundation Establishment Certificate Exam
+Divine Dao
+Great Sun Sea of Qi
+
+# 125-127
+
+Great Sun Sea of Qi
+Great Sun Circulation
