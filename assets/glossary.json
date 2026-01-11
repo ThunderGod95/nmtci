@@ -3398,5 +3398,221 @@
         "type": "Concept/Term",
         "gender": null,
         "file": 124
+    },
+    {
+        "en": "force-channeling technique",
+        "cn": "运劲技巧",
+        "pinyin": "yùn jìn jìqiǎo",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 129
+    },
+    {
+        "en": "Dragon-Elephant Mountain-Shattering Palm",
+        "cn": "龙象崩山掌",
+        "pinyin": "Lóng Xiàng Bēng Shān Zhǎng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 129
+    },
+    {
+        "en": "elephant demon",
+        "cn": "象妖",
+        "pinyin": "xiàng yāo",
+        "type": "Creature",
+        "gender": null,
+        "file": 129
+    },
+    {
+        "en": "flood dragon",
+        "cn": "蛟龙",
+        "pinyin": "jiāo lóng",
+        "type": "Creature",
+        "gender": null,
+        "file": 129
+    },
+    {
+        "en": "dragon-elephant",
+        "cn": "龙象",
+        "pinyin": "lóng xiàng",
+        "type": "Creature",
+        "gender": null,
+        "file": 129
+    },
+    {
+        "en": "Great Sun mana",
+        "cn": "大日法力",
+        "pinyin": "dà rì fǎlì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 130
+    },
+    {
+        "en": "Formless Sword Art",
+        "cn": "无形剑术",
+        "pinyin": "wúxíng jiànshù",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 130
+    },
+    {
+        "en": "spirit vein",
+        "cn": "灵脉",
+        "pinyin": "língmài",
+        "type": "Place",
+        "gender": null,
+        "file": 130
+    },
+    {
+        "en": "grotto-heaven",
+        "cn": "洞天",
+        "pinyin": "dòngtiān",
+        "type": "Place",
+        "gender": null,
+        "file": 130
+    },
+    {
+        "en": "blessed land",
+        "cn": "福地",
+        "pinyin": "fúdì",
+        "type": "Place",
+        "gender": null,
+        "file": 130
+    },
+    {
+        "en": "spiritual energy ecosystem protected area",
+        "cn": "灵机生态系统类保护区",
+        "pinyin": "língjī shēngtài xìtǒng lèi bǎohùqū",
+        "type": "Place",
+        "gender": null,
+        "file": 130
+    },
+    {
+        "en": "Purple Cloud",
+        "cn": "紫云",
+        "pinyin": "Zǐyún",
+        "type": "Place",
+        "gender": null,
+        "file": 130
+    },
+    {
+        "en": "Fetal Muscle Enhancement Class",
+        "cn": "胎儿增肌班",
+        "pinyin": "Tāi'ér Zēngjī Bān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "Elderly Longevity Class",
+        "cn": "老年增寿班",
+        "pinyin": "Lǎonián Zēngshòu Bān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "Health Insurance Buster Training Class",
+        "cn": "医保克星培训班",
+        "pinyin": "Yībǎo Kèxīng Péixùn Bān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "Secret Scrolls of the True God of Talismans",
+        "cn": "符咒真神密卷",
+        "pinyin": "Fúzhòu Zhēnshén Mìjuàn",
+        "type": "Item",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "Eastern District",
+        "cn": "东区",
+        "pinyin": "Dōng Qū",
+        "type": "Place",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "Eastern District's 12-city joint examination",
+        "cn": "东区12城联考",
+        "pinyin": "Dōng Qū shí'èr chéng liánkǎo",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "divine spirit",
+        "cn": "神灵",
+        "pinyin": "shénlíng",
+        "type": "Creature",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "12-city joint exam",
+        "cn": "12城联考",
+        "pinyin": "shí'èr chéng liánkǎo",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 131
+    },
+    {
+        "en": "Reporting Talisman",
+        "cn": "举报符",
+        "pinyin": "Jǔbào Fú",
+        "type": "Item",
+        "gender": null,
+        "file": 132
+    },
+    {
+        "en": "Sacred Bodies of Borrowing",
+        "cn": "借贷圣体",
+        "pinyin": "Jièdài Shèngtǐ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 132
+    },
+    {
+        "en": "divine official",
+        "cn": "神职人员",
+        "pinyin": "shénzhí rényuán",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 132
+    },
+    {
+        "en": "divine post",
+        "cn": "神职",
+        "pinyin": "shénzhí",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 132
+    },
+    {
+        "en": "divine post arrangement",
+        "cn": "神职安排",
+        "pinyin": "shénzhí ānpái",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 132
+    },
+    {
+        "en": "Miao Yun",
+        "cn": "妙云",
+        "pinyin": "Miào Yún",
+        "type": "Person",
+        "gender": "Female",
+        "file": 132
+    },
+    {
+        "en": "body hardening technique",
+        "cn": "横练功法",
+        "pinyin": "héng liàn gōngfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 132
     }
 ]
