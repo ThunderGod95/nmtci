@@ -181,3 +181,15 @@ info about Divine Dao
 # 134-136
 
 Bone and Flesh Enhancement Serum
+
+# 140-145
+
+ranking of mortals
+foundation establishment test
+
+# 146-148
+
+Primeval Heart Grand Seal
+Lion’s Roar
+Frost Heaven Freezing Qi Field
+Frost Prison Art

@@ -29,3 +29,5 @@ Personalized camouflage signature, √, X
 Forced display function, √, X
 
 9. Hand in hand, we create the future together. The light of a father's love shines on you and me.
+
+10. Dust, Ant, Beasts of Burden, Human.

@@ -1656,14 +1656,6 @@
         "file": 37
     },
     {
-        "en": "vital energy",
-        "cn": "血肉",
-        "pinyin": "xuèròu",
-        "type": "Concept/Term",
-        "gender": null,
-        "file": 38
-    },
-    {
         "en": "Martial Combat Tournament",
         "cn": "武道实战赛",
         "pinyin": "Wǔdào Shízhàn Sài",
@@ -3614,5 +3606,325 @@
         "type": "Technique/Art/Method/Incantation/Spell",
         "gender": null,
         "file": 132
+    },
+    {
+        "en": "An'an",
+        "cn": "安安",
+        "pinyin": "Ān'ān",
+        "type": "Person",
+        "gender": "Female",
+        "file": 137
+    },
+    {
+        "en": "Freezing Talisman",
+        "cn": "冻结符",
+        "pinyin": "dòngjié fú",
+        "type": "Item",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "Thunderclap Talisman",
+        "cn": "雷鸣符",
+        "pinyin": "léimíng fú",
+        "type": "Item",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "Godspeed Talisman",
+        "cn": "神行符",
+        "pinyin": "shénxíng fú",
+        "type": "Item",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "minor earth god",
+        "cn": "土地小神",
+        "pinyin": "tǔdì xiǎo shén",
+        "type": "Creature",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "special assistant",
+        "cn": "特聘助理",
+        "pinyin": "tèpìn zhùlǐ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "ascension platform",
+        "cn": "飞升台",
+        "pinyin": "fēishēng tái",
+        "type": "Place",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "Intercity Train Station",
+        "cn": "城际火车站",
+        "pinyin": "chéngjì huǒchē zhàn",
+        "type": "Place",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "Tiantai City",
+        "cn": "天泰城",
+        "pinyin": "Tiāntài Chéng",
+        "type": "Place",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "Upper City",
+        "cn": "上城",
+        "pinyin": "shàng chéng",
+        "type": "Place",
+        "gender": null,
+        "file": 138
+    },
+    {
+        "en": "Foundation Establishment Test",
+        "cn": "筑基测试",
+        "pinyin": "zhùjī cèshì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 139
+    },
+    {
+        "en": "Kunxu First Level High School Student Foundation Establishment Exam Registration Form",
+        "cn": "昆墟一层高中生筑基考试登记表",
+        "pinyin": "Kūnxū yī céng gāozhōngshēng zhùjī kǎoshì dēngjì biǎo",
+        "type": "Item",
+        "gender": null,
+        "file": 139
+    },
+    {
+        "en": "Dao of saving money",
+        "cn": "省钱之道",
+        "pinyin": "shěng qián zhī dào",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 139
+    },
+    {
+        "en": "Dao of acquiring money",
+        "cn": "要钱之道",
+        "pinyin": "yào qián zhī dào",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 139
+    },
+    {
+        "en": "Ye Lingxiao",
+        "cn": "夜凌霄",
+        "pinyin": "Yè Língxiāo",
+        "type": "Person",
+        "gender": "Male",
+        "file": 139
+    },
+    {
+        "en": "Red Envelope Talisman",
+        "cn": "红包符",
+        "pinyin": "hóngbāo fú",
+        "type": "Item",
+        "gender": null,
+        "file": 139
+    },
+    {
+        "en": "Favorability Talisman",
+        "cn": "好感符",
+        "pinyin": "hǎogǎn fú",
+        "type": "Item",
+        "gender": null,
+        "file": 139
+    },
+    {
+        "en": "Ministry of Finance",
+        "cn": "财部银行",
+        "pinyin": "cáibù yínháng",
+        "type": "Group",
+        "gender": null,
+        "file": 139
+    },
+    {
+        "en": "Yun Jing",
+        "cn": "云景",
+        "pinyin": "Yún Jǐng",
+        "type": "Person",
+        "gender": "Male",
+        "file": 140
+    },
+    {
+        "en": "Immortal Cloud High",
+        "cn": "仙云高中",
+        "pinyin": "Xiān Yún Gāozhōng",
+        "type": "Place",
+        "gender": null,
+        "file": 140
+    },
+    {
+        "en": "Anti-Fraud Talisman",
+        "cn": "防诈符",
+        "pinyin": "fáng zhà fú",
+        "type": "Item",
+        "gender": null,
+        "file": 140
+    },
+    {
+        "en": "Deng Bingding",
+        "cn": "邓丙丁",
+        "pinyin": "Dèng Bǐngdīng",
+        "type": "Person",
+        "gender": "Female",
+        "file": 140
+    },
+    {
+        "en": "Sifang Youshen",
+        "cn": "四方游神",
+        "pinyin": "Sìfāng Yóushén",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 140
+    },
+    {
+        "en": "divine spirit",
+        "cn": "神灵",
+        "pinyin": "shénlíng",
+        "type": "Creature",
+        "gender": null,
+        "file": 140
+    },
+    {
+        "en": "High Immortal",
+        "cn": "上仙",
+        "pinyin": "shàng xiān",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 140
+    },
+    {
+        "en": "Divine Lord",
+        "cn": "神君",
+        "pinyin": "shén jūn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 140
+    },
+    {
+        "en": "Huang Zichou",
+        "cn": "黄子丑",
+        "pinyin": "Huáng Zichǒu",
+        "type": "Person",
+        "gender": "Male",
+        "file": 140
+    },
+    {
+        "en": "Disfavor Talisman",
+        "cn": "恶感符",
+        "pinyin": "è gǎn fú",
+        "type": "Item",
+        "gender": null,
+        "file": 140
+    },
+    {
+        "en": "cultivation-cauldron partner",
+        "cn": "练功炉鼎伴侣",
+        "pinyin": "liàngōng lúdǐng bànlǚ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 141
+    },
+    {
+        "en": "training skin",
+        "cn": "练功皮",
+        "pinyin": "liàn gōng pí",
+        "type": "Item",
+        "gender": null,
+        "file": 144
+    },
+    {
+        "en": "Zhou Ke",
+        "cn": "周轲",
+        "pinyin": "Zhōu Kē",
+        "type": "Person",
+        "gender": "Male",
+        "file": 145
+    },
+    {
+        "en": "Primeval Heart Grand Seal",
+        "cn": "心元大手印",
+        "pinyin": "Xīnyuán Dà Shǒuyìn",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 146
+    },
+    {
+        "en": "Lion’s Roar",
+        "cn": "狮吼功",
+        "pinyin": "Shī Hǒu Gōng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 146
+    },
+    {
+        "en": "Frost Heaven Freezing Qi Field",
+        "cn": "霜天冻气场",
+        "pinyin": "Shuāng Tiān Dòng Qì Chǎng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 147
+    },
+    {
+        "en": "Frost Prison Art",
+        "cn": "霜狱诀",
+        "pinyin": "Shuāng Yù Jué",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 147
+    },
+    {
+        "en": "yin-cold baleful qi",
+        "cn": "阴寒煞气",
+        "pinyin": "yīn hán shà qì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 147
+    },
+    {
+        "en": "death-resentment",
+        "cn": "死亡怨念",
+        "pinyin": "sǐwáng yuànniàn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 147
+    },
+    {
+        "en": "Electric Flash Step",
+        "cn": "电光步",
+        "pinyin": "Diànguāng Bù",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 152
+    },
+    {
+        "en": "Songyang Emperors",
+        "cn": "嵩阳帝王",
+        "pinyin": "Sōngyáng Dìwáng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 152
+    },
+    {
+        "en": "Dao-Querying Hall",
+        "cn": "问道堂",
+        "pinyin": "Wèndào Táng",
+        "type": "Place",
+        "gender": null,
+        "file": 152
     }
 ]
