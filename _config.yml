@@ -1,0 +1,9 @@
+title: No Money To Cultivate Immortality
+description: Unofficial Fan Translation
+theme: jekyll-theme-primer
+
+defaults:
+    - scope:
+          path: "translations"
+      values:
+          layout: "chapter"

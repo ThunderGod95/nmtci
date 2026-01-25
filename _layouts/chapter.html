@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ page.title }} | NMTCI</title>
+        <style>
+            /* Container to make reading comfortable on desktop */
+            body {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fdfdfd;
+                color: #333;
+            }
+            img {
+                max-width: 100%;
+            }
+            .nav-links {
+                margin: 20px 0;
+                text-align: center;
+            }
+            .nav-links a {
+                margin: 0 10px;
+                text-decoration: none;
+                color: #0066cc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav-links">
+            <a href="{{ site.baseurl }}/">← Back to Index</a>
+        </div>
+
+        {{ content }}
+
+        <div class="nav-links">
+            <a href="{{ site.baseurl }}/">Back to Index</a>
+        </div>
+    </body>
+</html>
