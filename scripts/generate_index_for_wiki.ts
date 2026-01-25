@@ -1,6 +1,6 @@
 import { readdir } from "node:fs/promises";
 
-const TARGET_DIR = "./translations";
+const TARGET_DIR = "../translations";
 
 async function generateIndex() {
     try {

@@ -2176,7 +2176,7 @@
         "file": 53
     },
     {
-        "en": "Pauper's Alliance",
+        "en": "Paupers' Alliance",
         "cn": "穷鬼联盟",
         "pinyin": "qióng guǐ liánméng",
         "type": "Group",
@@ -3926,5 +3926,93 @@
         "type": "Place",
         "gender": null,
         "file": 152
+    },
+    {
+        "en": "Cold Soul Ice Heart Art",
+        "cn": "寒魄冰心诀",
+        "pinyin": "hánpò bīngxīn jué",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 153
+    },
+    {
+        "en": "Shadowcurse Ritual",
+        "cn": "咒影仪式",
+        "pinyin": "zhòuyǐng yíshì",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 155
+    },
+    {
+        "en": "Divine power network",
+        "cn": "神力网络",
+        "pinyin": "shénlì wǎngluò",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 155
+    },
+    {
+        "en": "Song Xu",
+        "cn": "宋虚",
+        "pinyin": "Sòng Xū",
+        "type": "Person",
+        "gender": "Male",
+        "file": 153
+    },
+    {
+        "en": "Paupers' Alliance",
+        "cn": "穷人联盟",
+        "pinyin": "qióngrén liánméng",
+        "type": "Group",
+        "gender": null,
+        "file": 154
+    },
+    {
+        "en": "Shadow Gu",
+        "cn": "影蛊",
+        "pinyin": "yǐng gǔ",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 156
+    },
+    {
+        "en": "Dai Xingzhi",
+        "cn": "戴行之",
+        "pinyin": "Dài Xíngzhī",
+        "type": "Person",
+        "gender": "Male",
+        "file": 157
+    },
+    {
+        "en": "Limitless Sea of Qi",
+        "cn": "气海无涯",
+        "pinyin": "qì hǎi wú yá",
+        "type": "Item",
+        "gender": null,
+        "file": 158
+    },
+    {
+        "en": "Thunder-Rending Astral Qi",
+        "cn": "霹雳天罡气",
+        "pinyin": "Pīlì Tiāngāng Qì",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 160
+    },
+    {
+        "en": "Surging Waves Nine Revolutions",
+        "cn": "惊涛九转",
+        "pinyin": "Jīngtāo Jiǔzhuǎn",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 159
+    },
+    {
+        "en": "Battle of Gluttony",
+        "cn": "暴食之争",
+        "pinyin": "Bàoshí Zhī Zhēng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 160
     }
 ]

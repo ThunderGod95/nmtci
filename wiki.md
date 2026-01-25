@@ -193,3 +193,14 @@ Primeval Heart Grand Seal
 Lion’s Roar
 Frost Heaven Freezing Qi Field
 Frost Prison Art
+
+# 153-155
+
+Cold Soul Ice Heart Art
+Shadowcurse Ritual
+Divine power network
+Heart arts
+
+# 156-158
+
+Sea of Qi Limitless
