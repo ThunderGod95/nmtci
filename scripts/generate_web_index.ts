@@ -9,22 +9,26 @@ async function generateWebIndex() {
         const mdFiles = files.filter((file) => file.endsWith(".md"));
         const chapters = [];
 
-        console.log(mdFiles.length);
+        console.log(`Found ${mdFiles.length} markdown files.`);
 
         for (const file of mdFiles) {
             const content = await Bun.file(`${TARGET_DIR}/${file}`).text();
-            // Extract title from the first line, e.g., "# Chapter 1: The Title"
-            const firstLine = content.split("\n")[0].trim();
-            const match = firstLine.match(/^#\s+Chapter\s+(\d+):\s*(.+?)$/);
+
+            // FIX 1: Use the 'm' (multiline) flag to find the header anywhere in the text
+            // This ignores the lines at the top
+            const match = content.match(/^#\s+Chapter\s+(\d+):\s*(.+?)$/m);
 
             if (match) {
+                const chapterNum = parseInt(match[1]);
+                const chapterTitle = match[2].trim(); // trim to remove trailing whitespace
+
                 chapters.push({
-                    num: parseInt(match[1]),
-                    title: match[2],
-                    link: `translations/${file.replace(".md", ".html")}`,
+                    num: chapterNum,
+                    title: chapterTitle,
+                    fileName: file,
+                    // FIX 2: Create the 'link' property needed for the output loop later
+                    link: `${TARGET_DIR}/${file}`,
                 });
-            } else {
-                console.log(`No match in ${TARGET_DIR}/${file}`);
             }
         }
 
@@ -40,6 +44,7 @@ title: Table of Contents
         outputContent += `## Chapter List\n\n`;
 
         for (const chap of chapters) {
+            // Now 'chap.link' is defined and points to the correct path
             outputContent += `- [Chapter ${chap.num}: ${chap.title}](${chap.link})\n`;
         }
 
