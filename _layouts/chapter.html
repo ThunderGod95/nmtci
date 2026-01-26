@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>No Money to Cultivate Immortality</title>
+        <title>{{ page.title }} | No Money to Cultivate Immortality</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -272,6 +272,50 @@
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             }
 
+            .chapter-nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 40px 0;
+                gap: 20px;
+                user-select: none;
+            }
+
+            .nav-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 24px;
+                border: 1px solid var(--border-color);
+                border-radius: 50px;
+                color: var(--text-color);
+                text-decoration: none;
+                transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                font-weight: 600;
+                font-size: 0.9rem;
+                letter-spacing: 0.5px;
+                background-color: transparent;
+                min-width: 120px;
+            }
+
+            .nav-link:not(.disabled):hover {
+                background-color: var(--text-color);
+                color: var(--bg-color);
+                border-color: var(--text-color);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px var(--shadow-color);
+            }
+
+            .nav-link:active {
+                transform: scale(0.95);
+            }
+
+            .nav-link.disabled {
+                opacity: 0;
+                pointer-events: none;
+                visibility: hidden;
+            }
+
             @media (max-width: 600px) {
                 body {
                     padding: 20px 20px 80px 20px;
@@ -279,6 +323,14 @@
 
                 .settings-menu {
                     width: calc(100vw - 40px);
+                }
+
+                .chapter-nav {
+                    margin: 30px 0;
+                }
+                .nav-link {
+                    padding: 14px 20px;
+                    flex: 1;
                 }
             }
         </style>
@@ -289,7 +341,17 @@
             <div id="progress-bar"></div>
         </div>
 
+        <nav class="chapter-nav">
+            <a class="nav-link nav-prev">← Previous</a>
+            <a class="nav-link nav-next">Next →</a>
+        </nav>
+
         <div id="content">{{ content }}</div>
+
+        <nav class="chapter-nav">
+            <a class="nav-link nav-prev">← Previous</a>
+            <a class="nav-link nav-next">Next →</a>
+        </nav>
 
         <div class="fab-container">
             <div class="settings-menu" id="settingsMenu">
@@ -554,8 +616,11 @@
             window.addEventListener("scroll", updateProgress);
             window.addEventListener("resize", updateProgress);
 
-            const prevChapterUrl = "";
-            const nextChapterUrl = "";
+            const prevNum = "{{ page.prev }}";
+            const nextNum = "{{ page.next }}";
+
+            const prevChapterUrl = prevNum ? `${prevNum}.html` : "";
+            const nextChapterUrl = nextNum ? `${nextNum}.html` : "";
 
             document.addEventListener("keydown", (e) => {
                 switch (e.key) {
@@ -593,6 +658,32 @@
                 }
             }
 
+            function updateNavigation() {
+                const prevLinks = document.querySelectorAll(".nav-prev");
+                const nextLinks = document.querySelectorAll(".nav-next");
+
+                prevLinks.forEach((link) => {
+                    if (prevChapterUrl && prevChapterUrl.trim() !== "") {
+                        link.href = prevChapterUrl;
+                        link.classList.remove("disabled");
+                    } else {
+                        link.removeAttribute("href");
+                        link.classList.add("disabled");
+                    }
+                });
+
+                nextLinks.forEach((link) => {
+                    if (nextChapterUrl && nextChapterUrl.trim() !== "") {
+                        link.href = nextChapterUrl;
+                        link.classList.remove("disabled");
+                    } else {
+                        link.removeAttribute("href");
+                        link.classList.add("disabled");
+                    }
+                });
+            }
+
+            updateNavigation();
             loadSettings();
         </script>
     </body>
