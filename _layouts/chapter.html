@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Coming+Soon&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Bitter:ital,wght@0,100..900;1,100..900&family=Caveat:wght@400..700&family=Coming+Soon&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Indie+Flower&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Merriweather:ital,wght@0,300..900;1,300..900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Patrick+Hand&display=swap"
             rel="stylesheet"
         />
         <script>
@@ -19,10 +19,13 @@
                         theme = JSON.parse(savedSettings).theme || "light";
                     }
 
-                    var themes = {
+                    const themes = {
                         light: { bg: "#fdfdfd", text: "#333333" },
                         sepia: { bg: "#f4ecd8", text: "#5b4636" },
                         dark: { bg: "#222222", text: "#d1d1d1" },
+                        midnight: { bg: "#2b323b", text: "#c4cdd5" },
+                        forest: { bg: "#e8f5e9", text: "#2d3b2d" },
+                        amoled: { bg: "#000000", text: "#b3b3b3" },
                     };
 
                     var activeTheme = themes[theme] || themes.light;
@@ -45,9 +48,14 @@
                 --bg-color: #fdfdfd;
                 --text-color: #333;
                 --accent-color: #333;
-                --menu-bg: #ffffff;
+                --menu-bg: #f5f5f7;
                 --shadow-color: rgba(0, 0, 0, 0.1);
                 --border-color: #e0e0e0;
+                --hover-bg: rgba(0, 0, 0, 0.05);
+                --content-width: 800px;
+                --letter-spacing: 0px;
+                --para-indent: 0;
+                --para-margin: 1em;
             }
 
             [data-theme="dark"] {
@@ -55,12 +63,44 @@
                 --shadow-color: rgba(0, 0, 0, 0.5);
                 --border-color: #444;
                 --accent-color: #fff;
+                --hover-bg: rgba(255, 255, 255, 0.1);
             }
 
             [data-theme="sepia"] {
-                --menu-bg: #f4ecd8;
-                --border-color: #d3c4a9;
+                --menu-bg: #fff9ea;
+                --border-color: #dccfb7;
                 --accent-color: #5b4636;
+                --hover-bg: rgba(91, 70, 54, 0.1);
+            }
+
+            [data-theme="midnight"] {
+                --bg-color: #2b323b;
+                --menu-bg: #36404a;
+                --text-color: #c4cdd5;
+                --border-color: #4a5563;
+                --accent-color: #8ab4f8;
+                --hover-bg: rgba(255, 255, 255, 0.1);
+                --shadow-color: rgba(0, 0, 0, 0.4);
+            }
+
+            [data-theme="forest"] {
+                --bg-color: #e8f5e9;
+                --menu-bg: #dceddc;
+                --text-color: #2d3b2d;
+                --border-color: #b8daba;
+                --accent-color: #2e7d32;
+                --hover-bg: rgba(46, 125, 50, 0.1);
+                --shadow-color: rgba(45, 59, 45, 0.15);
+            }
+
+            [data-theme="amoled"] {
+                --bg-color: #000000;
+                --menu-bg: #1a1a1a;
+                --text-color: #b3b3b3;
+                --border-color: #333333;
+                --accent-color: #ffffff;
+                --hover-bg: rgba(255, 255, 255, 0.15);
+                --shadow-color: rgba(255, 255, 255, 0.1);
             }
 
             * {
@@ -76,6 +116,7 @@
                 font-size: var(--text-size);
                 line-height: var(--line-height);
                 font-family: var(--font-family);
+                letter-spacing: var(--letter-spacing);
                 transition:
                     font-size 0.1s ease-in-out,
                     line-height 0.1s ease-in-out,
@@ -89,6 +130,12 @@
                 max-width: 800px;
                 margin: 0 auto;
                 padding: 40px 20px;
+            }
+
+            #content p {
+                text-indent: var(--para-indent);
+                margin-bottom: var(--para-margin);
+                margin-top: 0;
             }
 
             /* --- Progress Bar --- */
@@ -135,8 +182,8 @@
                 background-color: var(--text-color);
                 color: var(--bg-color);
                 border: none;
-                width: 56px;
-                height: 56px;
+                width: 48px;
+                height: 48px;
                 border-radius: 50%;
                 box-shadow: 0 4px 12px var(--shadow-color);
                 cursor: pointer;
@@ -349,7 +396,7 @@
 
             .bottom-nav {
                 padding-top: 20px;
-                padding-bottom: 60px; /* Extra space for FAB */
+                padding-bottom: 60px;
             }
 
             .sticky-bar.stuck {
@@ -423,6 +470,16 @@
                 box-shadow: 0 4px 6px -4px var(--shadow-color);
             }
 
+            .page-footer {
+                text-align: center;
+                padding: 0 20px 60px;
+                margin-top: -30px;
+                font-size: 0.85rem;
+                color: var(--text-color);
+                opacity: 0.7;
+                font-family: var(--font-family);
+            }
+
             @media (max-width: 600px) {
                 body {
                     padding-top: 20px;
@@ -494,6 +551,10 @@
             <a class="nav-link nav-next">Next →</a>
         </nav>
 
+        <footer class="page-footer">
+            Translated with ❤️ by Nameless &amp; Thundergod95
+        </footer>
+
         <div class="fab-container">
             <div class="settings-menu" id="settingsMenu">
                 <div class="setting-item">
@@ -527,6 +588,35 @@
 
                 <div class="setting-item">
                     <div class="setting-header">
+                        <label>Letter Spacing</label>
+                        <span id="spacing-val" class="value-display">0px</span>
+                    </div>
+                    <input
+                        type="range"
+                        id="input-spacing"
+                        min="-1"
+                        max="3"
+                        step="0.5"
+                        value="0"
+                    />
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-header">
+                        <label>Paragraph Style</label>
+                    </div>
+                    <div class="select-wrapper">
+                        <select id="input-para-style">
+                            <option value="block">Block (Web Default)</option>
+                            <option value="indent">
+                                Indented (Classic Book)
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-header">
                         <label for="input-font">Typeface</label>
                     </div>
                     <div class="select-wrapper">
@@ -534,17 +624,38 @@
                             <option value="'Open Sans', sans-serif">
                                 Open Sans (Sans)
                             </option>
+                            <option value="'Merriweather Sans', sans-serif">
+                                Merriweather Sans (Sans)
+                            </option>
+                            <option value="'Nunito Sans', sans-serif">
+                                Nunito Sans (Sans)
+                            </option>
+
                             <option value="'Baskervville', serif">
                                 Baskervville (Serif)
                             </option>
-                            <option value="'Merriweather Sans', sans-serif">
-                                Merriweather (Sans)
+                            <option value="'Bitter', serif">
+                                Bitter (Serif)
                             </option>
-                            <option value="'Nunito Sans', sans-serif">
-                                Nunito (Sans)
+                            <option value="'EB Garamond', serif">
+                                EB Garamond (Serif)
                             </option>
+                            <option value="'Literata', serif">
+                                Literata (Serif)
+                            </option>
+                            <option value="'Merriweather', serif">
+                                Merriweather (Serif)
+                            </option>
+
                             <option value="'Coming Soon', cursive">
-                                Handwritten
+                                Coming Soon
+                            </option>
+                            <option value="'Caveat', cursive">Caveat</option>
+                            <option value="'Indie Flower', cursive">
+                                Indie Flower
+                            </option>
+                            <option value="'Patrick Hand', cursive">
+                                Patrick Hand
                             </option>
                         </select>
                     </div>
@@ -559,24 +670,41 @@
                             class="theme-btn"
                             data-theme="light"
                             style="background-color: #fdfdfd"
-                            title="Light"
-                            aria-label="Light Theme"
+                            aria-label="Light"
                         ></button>
-
                         <button
                             class="theme-btn"
                             data-theme="sepia"
                             style="background-color: #f4ecd8"
-                            title="Sepia"
-                            aria-label="Sepia Theme"
+                            aria-label="Sepia"
                         ></button>
-
                         <button
                             class="theme-btn"
                             data-theme="dark"
                             style="background-color: #222222"
-                            title="Dark"
-                            aria-label="Dark Theme"
+                            aria-label="Dark"
+                        ></button>
+
+                        <button
+                            class="theme-btn"
+                            data-theme="midnight"
+                            style="background-color: #2b323b"
+                            aria-label="Midnight"
+                        ></button>
+                        <button
+                            class="theme-btn"
+                            data-theme="forest"
+                            style="background-color: #e8f5e9"
+                            aria-label="Forest"
+                        ></button>
+                        <button
+                            class="theme-btn"
+                            data-theme="amoled"
+                            style="
+                                background-color: #000000;
+                                border: 1px solid #444;
+                            "
+                            aria-label="AMOLED"
                         ></button>
                     </div>
                 </div>
@@ -601,48 +729,116 @@
         </div>
 
         <script>
-            const root = document.documentElement;
-            const menu = document.getElementById("settingsMenu");
-            const btn = document.getElementById("toggleSettings");
-            const inputFs = document.getElementById("input-fontsize");
-            const inputLh = document.getElementById("input-lineheight");
-            const displayFs = document.getElementById("fs-val");
-            const displayLh = document.getElementById("lh-val");
-            const progressBar = document.getElementById("progress-bar");
-            const inputFont = document.getElementById("input-font");
-
-            const scrollKey =
-                "reader-scroll-" +
+            const STORAGE_KEY_SETTINGS = "reader-settings";
+            const STORAGE_KEY_SCROLL_PREFIX = "reader-scroll-";
+            const SCROLL_KEY =
+                STORAGE_KEY_SCROLL_PREFIX +
                 window.location.pathname +
                 window.location.search;
 
-            const themes = {
+            const THEMES = {
                 light: { bg: "#fdfdfd", text: "#333333" },
                 sepia: { bg: "#f4ecd8", text: "#5b4636" },
                 dark: { bg: "#222222", text: "#d1d1d1" },
+                midnight: { bg: "#2b323b", text: "#c4cdd5" },
+                forest: { bg: "#e8f5e9", text: "#2d3b2d" },
+                amoled: { bg: "#000000", text: "#b3b3b3" },
             };
 
-            function updateThemeUI(activeTheme) {
-                document.querySelectorAll(".theme-btn").forEach((btn) => {
-                    if (btn.dataset.theme === activeTheme) {
+            const PREV_CHAPTER_NUM = "{{ page.prev }}";
+            const NEXT_CHAPTER_NUM = "{{ page.next }}";
+            const PREV_CHAPTER_URL = PREV_CHAPTER_NUM
+                ? `${PREV_CHAPTER_NUM}.html`
+                : "";
+            const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM
+                ? `${NEXT_CHAPTER_NUM}.html`
+                : "";
+
+            const root = document.documentElement;
+            const fabContainer = document.querySelector(".fab-container");
+
+            // Navigation
+            const navBar = document.getElementById("topNav");
+            const sentinel = document.getElementById("sentinel");
+            const prevLinks = document.querySelectorAll(".nav-prev");
+            const nextLinks = document.querySelectorAll(".nav-next");
+
+            // Settings Menu UI
+            const menu = document.getElementById("settingsMenu");
+            const toggleBtn = document.getElementById("toggleSettings");
+            const themeBtns = document.querySelectorAll(".theme-btn");
+            const progressBar = document.getElementById("progress-bar");
+
+            // Inputs & Displays
+            const inputs = {
+                fontSize: document.getElementById("input-fontsize"),
+                lineHeight: document.getElementById("input-lineheight"),
+                fontFamily: document.getElementById("input-font"),
+                spacing: document.getElementById("input-spacing"),
+                paraStyle: document.getElementById("input-para-style"),
+            };
+
+            const displays = {
+                fontSize: document.getElementById("fs-val"),
+                lineHeight: document.getElementById("lh-val"),
+                spacing: document.getElementById("spacing-val"),
+            };
+
+            let lastScrollTop = 0;
+
+            function applyTheme(themeName) {
+                const theme = THEMES[themeName] || THEMES.light;
+
+                root.style.setProperty("--bg-color", theme.bg);
+                root.style.setProperty("--text-color", theme.text);
+                root.setAttribute("data-theme", themeName);
+
+                themeBtns.forEach((btn) => {
+                    if (btn.dataset.theme === themeName) {
                         btn.classList.add("active");
                     } else {
                         btn.classList.remove("active");
                     }
                 });
-            }
 
-            function applyTheme(themeName) {
-                const theme = themes[themeName] || themes.light;
-                root.style.setProperty("--bg-color", theme.bg);
-                root.style.setProperty("--text-color", theme.text);
-                root.setAttribute("data-theme", themeName);
-                updateThemeUI(themeName);
                 return themeName;
             }
 
+            function applyParaStyle(style) {
+                if (style === "indent") {
+                    root.style.setProperty("--para-indent", "2em");
+                    root.style.setProperty("--para-margin", "0");
+                } else {
+                    root.style.setProperty("--para-indent", "0");
+                    root.style.setProperty("--para-margin", "1em");
+                }
+            }
+
+            function saveSettings() {
+                const activeBtn = document.querySelector(".theme-btn.active");
+                const currentTheme = activeBtn
+                    ? activeBtn.dataset.theme
+                    : "light";
+
+                const settings = {
+                    fontSize: inputs.fontSize.value,
+                    lineHeight: inputs.lineHeight.value,
+                    theme: currentTheme,
+                    fontFamily: inputs.fontFamily.value,
+                    letterSpacing: inputs.spacing.value,
+                    paraStyle: inputs.paraStyle.value,
+                };
+
+                localStorage.setItem(
+                    STORAGE_KEY_SETTINGS,
+                    JSON.stringify(settings),
+                );
+            }
+
             function loadSettings() {
-                const savedSettings = localStorage.getItem("reader-settings");
+                const savedSettings =
+                    localStorage.getItem(STORAGE_KEY_SETTINGS);
+
                 if (savedSettings) {
                     const settings = JSON.parse(savedSettings);
 
@@ -660,20 +856,35 @@
                             "--font-family",
                             settings.fontFamily,
                         );
-                        inputFont.value = settings.fontFamily;
+                        inputs.fontFamily.value = settings.fontFamily;
                     }
 
-                    inputFs.value = settings.fontSize;
-                    inputLh.value = settings.lineHeight;
-                    displayFs.textContent = settings.fontSize + "px";
-                    displayLh.textContent = settings.lineHeight;
+                    if (settings.letterSpacing) {
+                        root.style.setProperty(
+                            "--letter-spacing",
+                            settings.letterSpacing + "px",
+                        );
+                        inputs.spacing.value = settings.letterSpacing;
+                        displays.spacing.textContent =
+                            settings.letterSpacing + "px";
+                    }
+
+                    if (settings.paraStyle) {
+                        inputs.paraStyle.value = settings.paraStyle;
+                        applyParaStyle(settings.paraStyle);
+                    }
+
+                    inputs.fontSize.value = settings.fontSize;
+                    inputs.lineHeight.value = settings.lineHeight;
+                    displays.fontSize.textContent = settings.fontSize + "px";
+                    displays.lineHeight.textContent = settings.lineHeight;
 
                     applyTheme(settings.theme || "light");
                 } else {
                     applyTheme("light");
                 }
 
-                const savedScroll = localStorage.getItem(scrollKey);
+                const savedScroll = localStorage.getItem(SCROLL_KEY);
                 if (savedScroll) {
                     setTimeout(() => {
                         window.scrollTo(0, parseInt(savedScroll));
@@ -681,22 +892,34 @@
                 }
             }
 
-            function saveSettings() {
-                const activeBtn = document.querySelector(".theme-btn.active");
-                const currentTheme = activeBtn
-                    ? activeBtn.dataset.theme
-                    : "light";
+            function changeFontSize(delta) {
+                const currentVal = parseInt(inputs.fontSize.value);
+                const minVal = parseInt(inputs.fontSize.min);
+                const maxVal = parseInt(inputs.fontSize.max);
 
-                const settings = {
-                    fontSize: inputFs.value,
-                    lineHeight: inputLh.value,
-                    theme: currentTheme,
-                    fontFamily: inputFont.value,
+                let newVal = currentVal + delta;
+
+                if (newVal >= minVal && newVal <= maxVal) {
+                    inputs.fontSize.value = newVal;
+                    inputs.fontSize.dispatchEvent(new Event("input"));
+                }
+            }
+
+            function updateNavigation() {
+                const updateLinks = (links, url) => {
+                    links.forEach((link) => {
+                        if (url && url.trim() !== "") {
+                            link.href = url;
+                            link.classList.remove("disabled");
+                        } else {
+                            link.removeAttribute("href");
+                            link.classList.add("disabled");
+                        }
+                    });
                 };
-                localStorage.setItem(
-                    "reader-settings",
-                    JSON.stringify(settings),
-                );
+
+                updateLinks(prevLinks, PREV_CHAPTER_URL);
+                updateLinks(nextLinks, NEXT_CHAPTER_URL);
             }
 
             function updateProgress() {
@@ -704,19 +927,68 @@
                 const docHeight =
                     document.body.scrollHeight - window.innerHeight;
                 const scrollPercent = (scrollTop / docHeight) * 100;
+
                 progressBar.style.width = scrollPercent + "%";
-                localStorage.setItem(scrollKey, scrollTop);
+                localStorage.setItem(SCROLL_KEY, scrollTop);
             }
 
-            document.querySelectorAll(".theme-btn").forEach((btn) => {
+            function handleScrollFAB() {
+                const scrollTop =
+                    window.scrollY || document.documentElement.scrollTop;
+
+                if (Math.abs(scrollTop - lastScrollTop) < 10) return;
+
+                const isScrollingDown = scrollTop > lastScrollTop;
+                const isMenuOpen = menu.classList.contains("active");
+
+                if (isScrollingDown && scrollTop > 50 && !isMenuOpen) {
+                    fabContainer.classList.add("fab-hidden");
+                } else if (!isScrollingDown) {
+                    fabContainer.classList.remove("fab-hidden");
+                }
+
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+
+            inputs.fontSize.addEventListener("input", (e) => {
+                const val = e.target.value;
+                root.style.setProperty("--text-size", val + "px");
+                displays.fontSize.textContent = val + "px";
+                saveSettings();
+            });
+
+            inputs.lineHeight.addEventListener("input", (e) => {
+                const val = e.target.value;
+                root.style.setProperty("--line-height", val);
+                displays.lineHeight.textContent = val;
+                saveSettings();
+            });
+
+            inputs.spacing.addEventListener("input", (e) => {
+                const val = e.target.value;
+                root.style.setProperty("--letter-spacing", val + "px");
+                displays.spacing.textContent = val + "px";
+                saveSettings();
+            });
+
+            inputs.fontFamily.addEventListener("change", (e) => {
+                root.style.setProperty("--font-family", e.target.value);
+                saveSettings();
+            });
+
+            inputs.paraStyle.addEventListener("change", (e) => {
+                applyParaStyle(e.target.value);
+                saveSettings();
+            });
+
+            themeBtns.forEach((btn) => {
                 btn.addEventListener("click", (e) => {
-                    const themeName = e.target.dataset.theme;
-                    applyTheme(themeName);
+                    applyTheme(e.target.dataset.theme);
                     saveSettings();
                 });
             });
 
-            btn.addEventListener("click", (e) => {
+            toggleBtn.addEventListener("click", (e) => {
                 e.stopPropagation();
                 menu.classList.toggle("active");
             });
@@ -734,46 +1006,15 @@
                 e.stopPropagation();
             });
 
-            inputFs.addEventListener("input", (e) => {
-                const val = e.target.value;
-                root.style.setProperty("--text-size", val + "px");
-                displayFs.textContent = val + "px";
-                saveSettings();
-            });
-
-            inputLh.addEventListener("input", (e) => {
-                const val = e.target.value;
-                root.style.setProperty("--line-height", val);
-                displayLh.textContent = val;
-                saveSettings();
-            });
-
-            inputFont.addEventListener("change", (e) => {
-                const val = e.target.value;
-                root.style.setProperty("--font-family", val);
-                saveSettings();
-            });
-
-            window.addEventListener("scroll", updateProgress);
-            window.addEventListener("resize", updateProgress);
-
-            const prevNum = "{{ page.prev }}";
-            const nextNum = "{{ page.next }}";
-
-            const prevChapterUrl = prevNum ? `${prevNum}.html` : "";
-            const nextChapterUrl = nextNum ? `${nextNum}.html` : "";
-
             document.addEventListener("keydown", (e) => {
                 switch (e.key) {
                     case "ArrowLeft":
-                        if (prevChapterUrl && prevChapterUrl.trim() !== "") {
-                            window.location.href = prevChapterUrl;
-                        }
+                        if (PREV_CHAPTER_URL)
+                            window.location.href = PREV_CHAPTER_URL;
                         break;
                     case "ArrowRight":
-                        if (nextChapterUrl && nextChapterUrl.trim() !== "") {
-                            window.location.href = nextChapterUrl;
-                        }
+                        if (NEXT_CHAPTER_URL)
+                            window.location.href = NEXT_CHAPTER_URL;
                         break;
                     case "-":
                     case "_":
@@ -786,84 +1027,32 @@
                 }
             });
 
-            function changeFontSize(delta) {
-                const currentVal = parseInt(inputFs.value);
-                const minVal = parseInt(inputFs.min);
-                const maxVal = parseInt(inputFs.max);
-
-                let newVal = currentVal + delta;
-
-                if (newVal >= minVal && newVal <= maxVal) {
-                    inputFs.value = newVal;
-                    inputFs.dispatchEvent(new Event("input"));
-                }
-            }
-
-            function updateNavigation() {
-                const prevLinks = document.querySelectorAll(".nav-prev");
-                const nextLinks = document.querySelectorAll(".nav-next");
-
-                prevLinks.forEach((link) => {
-                    if (prevChapterUrl && prevChapterUrl.trim() !== "") {
-                        link.href = prevChapterUrl;
-                        link.classList.remove("disabled");
-                    } else {
-                        link.removeAttribute("href");
-                        link.classList.add("disabled");
-                    }
-                });
-
-                nextLinks.forEach((link) => {
-                    if (nextChapterUrl && nextChapterUrl.trim() !== "") {
-                        link.href = nextChapterUrl;
-                        link.classList.remove("disabled");
-                    } else {
-                        link.removeAttribute("href");
-                        link.classList.add("disabled");
-                    }
-                });
-            }
-
-            updateNavigation();
-            loadSettings();
-
-            const nav = document.getElementById("topNav");
-            const sentinel = document.getElementById("sentinel");
-
-            const observer = new IntersectionObserver((entries) => {
-                if (!entries[0].isIntersecting) {
-                    nav.classList.add("stuck");
-                } else {
-                    nav.classList.remove("stuck");
-                }
-            });
-
-            observer.observe(sentinel);
-
-            const fabContainer = document.querySelector(".fab-container");
-            let lastScrollTop = 0;
-
             window.addEventListener(
                 "scroll",
                 () => {
-                    const scrollTop =
-                        window.scrollY || document.documentElement.scrollTop;
-
-                    if (Math.abs(scrollTop - lastScrollTop) < 10) return;
-
-                    const isScrollingDown = scrollTop > lastScrollTop;
-                    const isMenuOpen = menu.classList.contains("active");
-
-                    if (isScrollingDown && scrollTop > 50 && !isMenuOpen) {
-                        fabContainer.classList.add("fab-hidden");
-                    } else if (!isScrollingDown) {
-                        fabContainer.classList.remove("fab-hidden");
-                    }
-
-                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                    updateProgress();
+                    handleScrollFAB();
                 },
                 { passive: true },
             );
+
+            window.addEventListener("resize", updateProgress);
+
+            const navObserver = new IntersectionObserver((entries) => {
+                if (!entries[0].isIntersecting) {
+                    navBar.classList.add("stuck");
+                } else {
+                    navBar.classList.remove("stuck");
+                }
+            });
+
+            function init() {
+                updateNavigation();
+                loadSettings();
+                navObserver.observe(sentinel);
+            }
+
+            init();
         </script>
     </body>
 </html>

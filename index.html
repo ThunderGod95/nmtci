@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Table of Contents - No Money to Cultivate Immortality</title>
+        <title>No Money to Cultivate Immortality</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -17,7 +17,7 @@
                 --bg-color: #fdfdfd;
                 --text-color: #333;
                 --accent-color: #333;
-                --menu-bg: #ffffff;
+                --menu-bg: #f5f5f7;
                 --shadow-color: rgba(0, 0, 0, 0.1);
                 --border-color: #e0e0e0;
                 --hover-bg: rgba(0, 0, 0, 0.05);
@@ -32,10 +32,40 @@
             }
 
             [data-theme="sepia"] {
-                --menu-bg: #f4ecd8;
-                --border-color: #d3c4a9;
+                --menu-bg: #fff9ea;
+                --border-color: #dccfb7;
                 --accent-color: #5b4636;
                 --hover-bg: rgba(91, 70, 54, 0.1);
+            }
+
+            [data-theme="midnight"] {
+                --bg-color: #2b323b;
+                --menu-bg: #36404a;
+                --text-color: #c4cdd5;
+                --border-color: #4a5563;
+                --accent-color: #8ab4f8;
+                --hover-bg: rgba(255, 255, 255, 0.1);
+                --shadow-color: rgba(0, 0, 0, 0.4);
+            }
+
+            [data-theme="forest"] {
+                --bg-color: #e8f5e9;
+                --menu-bg: #dceddc;
+                --text-color: #2d3b2d;
+                --border-color: #b8daba;
+                --accent-color: #2e7d32;
+                --hover-bg: rgba(46, 125, 50, 0.1);
+                --shadow-color: rgba(45, 59, 45, 0.15);
+            }
+
+            [data-theme="amoled"] {
+                --bg-color: #000000;
+                --menu-bg: #1a1a1a;
+                --text-color: #b3b3b3;
+                --border-color: #333333;
+                --accent-color: #ffffff;
+                --hover-bg: rgba(255, 255, 255, 0.15);
+                --shadow-color: rgba(255, 255, 255, 0.1);
             }
 
             * {
@@ -48,7 +78,7 @@
                 padding: 40px 20px 100px 20px;
                 background-color: var(--bg-color);
                 color: var(--text-color);
-                font-family: var(--font-family);
+                font-family: "Open Sans", serif;
                 transition:
                     background-color 0.2s,
                     color 0.2s;
@@ -82,12 +112,115 @@
                 letter-spacing: 1px;
             }
 
+            .book-cover {
+                margin: 32px auto;
+                width: 240px;
+                max-width: 100%;
+                aspect-ratio: 2 / 3;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px -10px var(--shadow-color);
+                background-color: var(--hover-bg);
+                overflow: hidden;
+            }
+
+            .book-cover img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
             .book-description {
                 max-width: 600px;
                 margin: 0 auto;
                 font-style: italic;
                 line-height: 1.6;
                 opacity: 0.9;
+            }
+
+            .book-credits {
+                max-width: 600px;
+                margin: 40px auto 0;
+                padding-top: 30px;
+                border-top: 1px solid var(--border-color);
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .credit-item {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                align-items: center;
+            }
+
+            .credit-label {
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                opacity: 0.6;
+                font-weight: 700;
+            }
+
+            .credit-value {
+                font-size: 0.95rem;
+                font-family: inherit;
+            }
+
+            .book-links {
+                text-align: center;
+                margin-top: 48px;
+                padding-top: 24px;
+                border-top: 1px solid var(--border-color);
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .book-links-inner {
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 600;
+                opacity: 0.6;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .book-link {
+                text-decoration: none;
+                transition: all 0.2s ease;
+                border-bottom: 1px solid transparent;
+            }
+
+            .book-link:hover {
+                color: var(--text-color);
+                border-bottom-color: var(--text-color);
+                opacity: 1;
+            }
+
+            .book-links .dot {
+                opacity: 0.3;
+                font-size: 1.2em;
+                line-height: 0;
+            }
+
+            @media (max-width: 500px) {
+                .book-credits {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                    gap: 20px;
+                }
+
+                .book-links {
+                    width: 100%;
+                    padding-top: 30px;
+                }
             }
 
             /* --- Controls Toolbar --- */
@@ -222,8 +355,8 @@
                 background-color: var(--text-color);
                 color: var(--bg-color);
                 border: none;
-                width: 56px;
-                height: 56px;
+                width: 48px;
+                height: 48px;
                 border-radius: 50%;
                 box-shadow: 0 4px 12px var(--shadow-color);
                 cursor: pointer;
@@ -334,6 +467,20 @@
                 .book-title {
                     font-size: 2rem;
                 }
+
+                .search-box {
+                    flex: 1 1 100%;
+                }
+
+                .range-select {
+                    flex: 1 1 auto;
+                    width: auto;
+                }
+
+                .sort-btn {
+                    flex: 1 1 auto;
+                    justify-content: center;
+                }
             }
         </style>
     </head>
@@ -342,6 +489,9 @@
         <header class="book-header">
             <h1 class="book-title">No Money to Cultivate Immortality</h1>
             <div class="book-meta">By Bear Wolf Dog (熊狼狗)</div>
+            <div class="book-cover">
+                <img src="./assets/nmtci.jpg" alt="Book Cover" />
+            </div>
             <div class="book-description">
                 <p>The old man asked, “Do you want revenge?"</p>
 
@@ -394,6 +544,37 @@
                 <p>...</p>
 
                 <p>Zhang Yu snorted coldly and closed the advertisement.</p>
+            </div>
+            <div class="book-credits">
+                <div class="credit-item">
+                    <span class="credit-label">Author</span>
+                    <span class="credit-value">Bear Wolf Dog (熊狼狗)</span>
+                </div>
+
+                <div class="credit-item">
+                    <span class="credit-label">Translator</span>
+                    <span class="credit-value">Nameless</span>
+                </div>
+            </div>
+
+            <div class="book-links">
+                <div class="book-links-inner">
+                    <a href="https://discord.gg/4BwyjtMQSe" class="book-link"
+                        >Discord</a
+                    >
+                    <span class="dot">&bull;</span>
+                    <a
+                        href="https://no-money-to-cultivate-immortality.fandom.com/wiki/No_Money_to_Cultivate_Immortality%3F_Wiki"
+                        class="book-link"
+                        >Fandom Wiki</a
+                    >
+                    <span class="dot">&bull;</span>
+                    <a
+                        href="https://www.qidian.com/book/1042256511/"
+                        class="book-link"
+                        >Raws</a
+                    >
+                </div>
             </div>
         </header>
 
@@ -454,6 +635,28 @@
                             style="background-color: #222222"
                             aria-label="Dark"
                         ></button>
+
+                        <button
+                            class="theme-btn"
+                            data-theme="midnight"
+                            style="background-color: #2b323b"
+                            aria-label="Midnight"
+                        ></button>
+                        <button
+                            class="theme-btn"
+                            data-theme="forest"
+                            style="background-color: #e8f5e9"
+                            aria-label="Forest"
+                        ></button>
+                        <button
+                            class="theme-btn"
+                            data-theme="amoled"
+                            style="
+                                background-color: #000000;
+                                border: 1px solid #444;
+                            "
+                            aria-label="AMOLED"
+                        ></button>
                     </div>
                 </div>
             </div>
@@ -479,6 +682,9 @@
                     light: { bg: "#fdfdfd", text: "#333333" },
                     sepia: { bg: "#f4ecd8", text: "#5b4636" },
                     dark: { bg: "#222222", text: "#d1d1d1" },
+                    midnight: { bg: "#2b323b", text: "#c4cdd5" },
+                    forest: { bg: "#e8f5e9", text: "#2d3b2d" },
+                    amoled: { bg: "#000000", text: "#b3b3b3" },
                 };
 
                 function updateThemeUI(activeTheme) {
