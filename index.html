@@ -802,7 +802,7 @@
                             );
                         }
                         allChapters = await response.json();
-
+                        allChapters.sort((a, b) => a.id - b.id);
                         updateUI();
                     } catch (error) {
                         console.error("Unable to fetch data:", error);
@@ -828,26 +828,32 @@
                     );
 
                     for (let i = 0; i < totalRanges; i++) {
-                        const start = i * CHAPTERS_PER_PAGE + 1;
-                        const end = Math.min(
-                            (i + 1) * CHAPTERS_PER_PAGE,
-                            allChapters.length,
-                        );
-                        const opt = document.createElement("option");
-                        opt.value = i;
-                        opt.text = `Ch. ${start} - ${end}`;
-                        if (i === state.currentRange) opt.selected = true;
-                        rangeSelect.add(opt);
+                        const startIndex = i * CHAPTERS_PER_PAGE;
+                        const endIndex =
+                            Math.min(
+                                (i + 1) * CHAPTERS_PER_PAGE,
+                                allChapters.length,
+                            ) - 1;
+
+                        const startChapter = allChapters[startIndex];
+                        const endChapter = allChapters[endIndex];
+
+                        if (startChapter && endChapter) {
+                            const opt = document.createElement("option");
+                            opt.value = i;
+                            opt.text = `Ch. ${startChapter.id} - ${endChapter.id}`;
+
+                            if (i === state.currentRange) opt.selected = true;
+                            rangeSelect.add(opt);
+                        }
                     }
                 }
 
                 function renderChapters() {
                     chapterList.innerHTML = "";
 
-                    // Default to the full list
                     let filtered = allChapters;
 
-                    // A. Filter by Search
                     if (state.searchQuery) {
                         const q = state.searchQuery.toLowerCase();
                         filtered = allChapters.filter(
@@ -856,13 +862,11 @@
                                 ch.title.toLowerCase().includes(q),
                         );
                     } else {
-                        // B. Slice by Range (only if not searching)
                         const start = state.currentRange * CHAPTERS_PER_PAGE;
                         const end = start + CHAPTERS_PER_PAGE;
                         filtered = allChapters.slice(start, end);
                     }
 
-                    // Create a copy to sort so we don't mutate the original
                     const displayList = [...filtered];
 
                     if (state.sortDesc) {
