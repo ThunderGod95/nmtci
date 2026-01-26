@@ -1,670 +1,646 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Table of Contents - No Money to Cultivate Immortality</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Coming+Soon&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-            rel="stylesheet"
-        />
-        <style>
-            :root {
-                --font-family: "Open Sans", sans-serif;
-                --text-size: 16px;
-                --bg-color: #fdfdfd;
-                --text-color: #333;
-                --accent-color: #333;
-                --menu-bg: #ffffff;
-                --shadow-color: rgba(0, 0, 0, 0.1);
-                --border-color: #e0e0e0;
-                --hover-bg: rgba(0, 0, 0, 0.05);
-            }
 
-            [data-theme="dark"] {
-                --menu-bg: #2d2d2d;
-                --shadow-color: rgba(0, 0, 0, 0.5);
-                --border-color: #444;
-                --accent-color: #fff;
-                --hover-bg: rgba(255, 255, 255, 0.1);
-            }
-            [data-theme="sepia"] {
-                --menu-bg: #f4ecd8;
-                --border-color: #d3c4a9;
-                --accent-color: #5b4636;
-                --hover-bg: rgba(91, 70, 54, 0.1);
-            }
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table of Contents - No Money to Cultivate Immortality</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Coming+Soon&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --font-family: "Open Sans", sans-serif;
+            --text-size: 16px;
+            --bg-color: #fdfdfd;
+            --text-color: #333;
+            --accent-color: #333;
+            --menu-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: #e0e0e0;
+            --hover-bg: rgba(0, 0, 0, 0.05);
+        }
 
-            * {
-                box-sizing: border-box;
-            }
+        [data-theme="dark"] {
+            --menu-bg: #2d2d2d;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --border-color: #444;
+            --accent-color: #fff;
+            --hover-bg: rgba(255, 255, 255, 0.1);
+        }
 
-            body {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 40px 20px 100px 20px;
-                background-color: var(--bg-color);
-                color: var(--text-color);
-                font-family: var(--font-family);
-                transition:
-                    background-color 0.2s,
-                    color 0.2s;
-            }
+        [data-theme="sepia"] {
+            --menu-bg: #f4ecd8;
+            --border-color: #d3c4a9;
+            --accent-color: #5b4636;
+            --hover-bg: rgba(91, 70, 54, 0.1);
+        }
 
-            a {
-                text-decoration: none;
-                color: inherit;
-            }
+        * {
+            box-sizing: border-box;
+        }
 
-            .book-header {
-                text-align: center;
-                margin-bottom: 60px;
-                padding-bottom: 40px;
-                border-bottom: 1px solid var(--border-color);
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 100px 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            transition:
+                background-color 0.2s,
+                color 0.2s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .book-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            font-family: "Baskervville", serif;
+        }
+
+        .book-meta {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .book-description {
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* --- Controls Toolbar --- */
+        .controls-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+            background: var(--menu-bg);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            box-shadow: 0 4px 20px -5px var(--shadow-color);
+        }
+
+        .search-box {
+            flex: 1 1 200px;
+            position: relative;
+        }
+
+        .control-input {
+            width: 100%;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .control-input:focus {
+            outline: none;
+            border-color: var(--text-color);
+            box-shadow: 0 0 0 2px var(--shadow-color);
+        }
+
+        .range-select {
+            flex: 0 1 180px;
+            cursor: pointer;
+        }
+
+        .sort-btn {
+            padding: 0 20px;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.1s;
+        }
+
+        .sort-btn:active {
+            transform: scale(0.95);
+        }
+
+        .chapter-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .chapter-item a {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: var(--bg-color);
+            min-width: 0;
+        }
+
+        .chapter-item a:hover {
+            background-color: var(--hover-bg);
+            transform: translateY(-2px);
+            border-color: var(--text-color);
+        }
+
+        .chapter-num {
+            font-size: 0.85em;
+            opacity: 0.6;
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 60px;
+        }
+
+        .chapter-title {
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            opacity: 0.6;
+            font-style: italic;
+        }
+
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .settings-btn {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .settings-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .settings-btn svg {
+            fill: var(--bg-color);
+            width: 24px;
+            height: 24px;
+        }
+
+        .settings-menu {
+            background: var(--menu-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 40px -10px var(--shadow-color);
+            width: 300px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px) scale(0.98);
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-origin: bottom right;
+        }
+
+        .settings-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .setting-item {
+            margin-bottom: 20px;
+        }
+
+        .setting-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .setting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .setting-item label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+        }
+
+        .theme-selector {
+            display: flex;
+            gap: 12px;
+            background: var(--border-color);
+            padding: 6px;
+            border-radius: 50px;
+            width: fit-content;
+        }
+
+        .theme-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .theme-btn.active {
+            transform: scale(1.1);
+            border-color: var(--text-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .hidden-on-toc {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .chapter-list {
+                grid-template-columns: 1fr;
             }
 
             .book-title {
-                font-size: 2.5rem;
-                font-weight: 800;
-                margin-bottom: 10px;
-                line-height: 1.2;
-                font-family: "Baskervville", serif;
+                font-size: 2rem;
             }
+        }
+    </style>
+</head>
 
-            .book-meta {
-                opacity: 0.7;
-                font-size: 0.9rem;
-                margin-bottom: 20px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-            }
-
-            .book-description {
-                max-width: 600px;
-                margin: 0 auto;
-                font-style: italic;
-                line-height: 1.6;
-                opacity: 0.9;
-            }
-
-            /* --- Controls Toolbar --- */
-            .controls-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 12px;
-                margin-bottom: 24px;
-                background: var(--menu-bg);
-                padding: 16px;
-                border-radius: 12px;
-                border: 1px solid var(--border-color);
-                position: sticky;
-                top: 20px;
-                z-index: 100;
-                box-shadow: 0 4px 20px -5px var(--shadow-color);
-            }
-
-            .search-box {
-                flex: 1 1 200px;
-                position: relative;
-            }
-
-            .control-input {
-                width: 100%;
-                padding: 10px 16px;
-                border-radius: 8px;
-                border: 1px solid var(--border-color);
-                background-color: var(--input-bg);
-                color: var(--text-color);
-                font-family: inherit;
-                font-size: 14px;
-                transition: border-color 0.2s;
-            }
-
-            .control-input:focus {
-                outline: none;
-                border-color: var(--text-color);
-                box-shadow: 0 0 0 2px var(--shadow-color);
-            }
-
-            .range-select {
-                flex: 0 1 180px;
-                cursor: pointer;
-            }
-
-            .sort-btn {
-                padding: 0 20px;
-                background-color: var(--text-color);
-                color: var(--bg-color);
-                border: none;
-                border-radius: 8px;
-                font-weight: 600;
-                font-size: 13px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                transition: transform 0.1s;
-            }
-
-            .sort-btn:active {
-                transform: scale(0.95);
-            }
-
-            .chapter-list {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 12px;
-                list-style: none;
-                padding: 0;
-            }
-
-            .chapter-item a {
-                display: flex;
-                align-items: baseline;
-                gap: 10px;
-                padding: 14px 18px;
-                border: 1px solid var(--border-color);
-                border-radius: 8px;
-                transition: all 0.2s ease;
-                background: var(--bg-color);
-            }
-
-            .chapter-item a:hover {
-                background-color: var(--hover-bg);
-                transform: translateY(-2px);
-                border-color: var(--text-color);
-            }
-
-            .chapter-num {
-                font-size: 0.85em;
-                opacity: 0.6;
-                font-weight: 700;
-                white-space: nowrap;
-                min-width: 60px;
-            }
-
-            .chapter-title {
-                font-weight: 500;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .empty-state {
-                text-align: center;
-                padding: 40px;
-                opacity: 0.6;
-                font-style: italic;
-            }
-
-            .fab-container {
-                position: fixed;
-                bottom: 30px;
-                right: 30px;
-                z-index: 1000;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-            }
-
-            .settings-btn {
-                background-color: var(--text-color);
-                color: var(--bg-color);
-                border: none;
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                box-shadow: 0 4px 12px var(--shadow-color);
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: transform 0.2s
-                    cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            }
-
-            .settings-btn:hover {
-                transform: scale(1.1);
-            }
-            .settings-btn svg {
-                fill: var(--bg-color);
-                width: 24px;
-                height: 24px;
-            }
-
-            .settings-menu {
-                background: var(--menu-bg);
-                color: var(--text-color);
-                border: 1px solid var(--border-color);
-                padding: 24px;
-                border-radius: 16px;
-                margin-bottom: 16px;
-                box-shadow: 0 10px 40px -10px var(--shadow-color);
-                width: 300px;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(10px) scale(0.98);
-                transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                transform-origin: bottom right;
-            }
-
-            .settings-menu.active {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0) scale(1);
-            }
-
-            .setting-item {
-                margin-bottom: 20px;
-            }
-
-            .setting-item:last-child {
-                margin-bottom: 0;
-            }
-
-            .setting-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 8px;
-            }
-
-            .setting-item label {
-                font-size: 13px;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                opacity: 0.8;
-            }
-
-            .theme-selector {
-                display: flex;
-                gap: 12px;
-                background: var(--border-color);
-                padding: 6px;
-                border-radius: 50px;
-                width: fit-content;
-            }
-
-            .theme-btn {
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                border: 2px solid transparent;
-                cursor: pointer;
-                transition: all 0.2s;
-            }
-
-            .theme-btn.active {
-                transform: scale(1.1);
-                border-color: var(--text-color);
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            }
-
-            .hidden-on-toc {
-                display: none;
-            }
-
-            @media (max-width: 600px) {
-                .chapter-list {
-                    grid-template-columns: 1fr;
-                }
-                .book-title {
-                    font-size: 2rem;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <header class="book-header">
-            <h1 class="book-title">No Money to Cultivate Immortality</h1>
-            <div class="book-meta">By Bear Wolf Dog (熊狼狗)</div>
-            <div class="book-description">
-                <p>
-                    Enlightenment used to mean seclusion in a mist-wreathed
-                    cave. In Kunxu City, it means taking out a Mana Loan with
-                    29.9 % karmic interest. Spirit-root transplants come with
-                    payment plans, breathing techniques are locked behind
-                    paywalls, and your first meridian won’t open unless you
-                    swipe a “QiCard.”
-                </p>
-                <p>
-                    That’s the brutal marketplace Zhang Yu wakes up to after his
-                    soul is shoved into the body of a penniless
-                    high-schooler—one already drowning in soul-devouring debt.
-                    With only thirty days before the collectors start carving
-                    repayments from his flesh, Zhang Yu must monetize every
-                    heartbeat just to stay alive. He livestreams back-alley
-                    ­sparring matches, peddles black-market talismans between
-                    classes, and negotiates mid-fight sponsorship deals to
-                    afford tomorrow’s cultivation pills.
-                </p>
-                <p>
-                    Yet the higher he claws—from broke freshman to
-                    headline-making “High-School Saint”—the more he uncovers the
-                    engines grinding his classmates into golden dust: predatory
-                    fintech sects, exam-hall death matches, and an influencer
-                    economy that feeds on shattered dreams.
-                </p>
-                <p>
-                    No Money to Cultivate Immortality? fuses shōnen-style
-                    tournament heat with razor-sharp social satire. It lampoons
-                    student-loan anxiety, hustle culture, and pay-to-win
-                    gaming—only here the DLC is literal longevity. If you’ve
-                    ever felt the squeeze of tuition bills or the rush of a
-                    last-second power-up, Zhang Yu’s frantic hustle through
-                    monetized immortality will feel all too hilariously—and
-                    terrifyingly—familiar.
-                </p>
-            </div>
-        </header>
-
-        <div class="controls-container">
-            <div class="search-box">
-                <input
-                    type="text"
-                    id="searchInput"
-                    class="control-input"
-                    placeholder="Seach chapter..."
-                    aria-label="Seach Chapters"
-                />
-            </div>
-            <select
-                id="rangeSelect"
-                class="control-input range-select"
-                aria-label="Select Chapter Range"
-            ></select>
-            <button id="sortBtn" class="sort-btn">
-                <span id="sortLabel">Oldest First</span>
-                <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                >
-                    <path d="M7 10l5 5 5-5z" />
-                </svg>
-            </button>
+<body>
+    <header class="book-header">
+        <h1 class="book-title">No Money to Cultivate Immortality</h1>
+        <div class="book-meta">By Bear Wolf Dog (熊狼狗)</div>
+        <div class="book-description">
+            <p>
+                Enlightenment used to mean seclusion in a mist-wreathed
+                cave. In Kunxu City, it means taking out a Mana Loan with
+                29.9 % karmic interest. Spirit-root transplants come with
+                payment plans, breathing techniques are locked behind
+                paywalls, and your first meridian won’t open unless you
+                swipe a “QiCard.”
+            </p>
+            <p>
+                That’s the brutal marketplace Zhang Yu wakes up to after his
+                soul is shoved into the body of a penniless
+                high-schooler—one already drowning in soul-devouring debt.
+                With only thirty days before the collectors start carving
+                repayments from his flesh, Zhang Yu must monetize every
+                heartbeat just to stay alive. He livestreams back-alley
+                ­sparring matches, peddles black-market talismans between
+                classes, and negotiates mid-fight sponsorship deals to
+                afford tomorrow’s cultivation pills.
+            </p>
+            <p>
+                Yet the higher he claws—from broke freshman to
+                headline-making “High-School Saint”—the more he uncovers the
+                engines grinding his classmates into golden dust: predatory
+                fintech sects, exam-hall death matches, and an influencer
+                economy that feeds on shattered dreams.
+            </p>
+            <p>
+                No Money to Cultivate Immortality? fuses shōnen-style
+                tournament heat with razor-sharp social satire. It lampoons
+                student-loan anxiety, hustle culture, and pay-to-win
+                gaming—only here the DLC is literal longevity. If you’ve
+                ever felt the squeeze of tuition bills or the rush of a
+                last-second power-up, Zhang Yu’s frantic hustle through
+                monetized immortality will feel all too hilariously—and
+                terrifyingly—familiar.
+            </p>
         </div>
+    </header>
 
-        <div id="toc-container">
-            <ul class="chapter-list" id="chapterList"></ul>
+    <div class="controls-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="control-input" placeholder="Seach chapter..."
+                aria-label="Seach Chapters" />
         </div>
+        <select id="rangeSelect" class="control-input range-select" aria-label="Select Chapter Range"></select>
+        <button id="sortBtn" class="sort-btn">
+            <span id="sortLabel">Oldest First</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z" />
+            </svg>
+        </button>
+    </div>
 
-        <div class="fab-container">
-            <div class="settings-menu" id="settingsMenu">
-                <div class="setting-item">
-                    <div class="setting-header">
-                        <label>Theme</label>
-                    </div>
-                    <div class="theme-selector">
-                        <button
-                            class="theme-btn"
-                            data-theme="light"
-                            style="background-color: #fdfdfd"
-                            aria-label="Light"
-                        ></button>
-                        <button
-                            class="theme-btn"
-                            data-theme="sepia"
-                            style="background-color: #f4ecd8"
-                            aria-label="Sepia"
-                        ></button>
-                        <button
-                            class="theme-btn"
-                            data-theme="dark"
-                            style="background-color: #222222"
-                            aria-label="Dark"
-                        ></button>
-                    </div>
+    <div id="toc-container">
+        <ul class="chapter-list" id="chapterList"></ul>
+    </div>
+
+    <div class="fab-container">
+        <div class="settings-menu" id="settingsMenu">
+            <div class="setting-item">
+                <div class="setting-header">
+                    <label>Theme</label>
+                </div>
+                <div class="theme-selector">
+                    <button class="theme-btn" data-theme="light" style="background-color: #fdfdfd"
+                        aria-label="Light"></button>
+                    <button class="theme-btn" data-theme="sepia" style="background-color: #f4ecd8"
+                        aria-label="Sepia"></button>
+                    <button class="theme-btn" data-theme="dark" style="background-color: #222222"
+                        aria-label="Dark"></button>
                 </div>
             </div>
-
-            <button
-                class="settings-btn"
-                id="toggleSettings"
-                aria-label="Settings"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"
-                    />
-                </svg>
-            </button>
-
-            <script>
-                const root = document.documentElement;
-                const menu = document.getElementById("settingsMenu");
-                const btn = document.getElementById("toggleSettings");
-
-                const themes = {
-                    light: { bg: "#fdfdfd", text: "#333333" },
-                    sepia: { bg: "#f4ecd8", text: "#5b4636" },
-                    dark: { bg: "#222222", text: "#d1d1d1" },
-                };
-
-                function updateThemeUI(activeTheme) {
-                    document.querySelectorAll(".theme-btn").forEach((btn) => {
-                        if (btn.dataset.theme === activeTheme) {
-                            btn.classList.add("active");
-                        } else {
-                            btn.classList.remove("active");
-                        }
-                    });
-                }
-
-                function applyTheme(themeName) {
-                    const theme = themes[themeName] || themes.light;
-                    root.style.setProperty("--bg-color", theme.bg);
-                    root.style.setProperty("--text-color", theme.text);
-                    root.setAttribute("data-theme", themeName);
-                    updateThemeUI(themeName);
-                    return themeName;
-                }
-
-                function loadSettings() {
-                    // Use the same key 'reader-settings' to share state with chapter.html
-                    const savedSettings =
-                        localStorage.getItem("reader-settings");
-                    if (savedSettings) {
-                        const settings = JSON.parse(savedSettings);
-
-                        // We only apply Theme and Font Family here to keep the UI clean
-                        if (settings.fontFamily) {
-                            root.style.setProperty(
-                                "--font-family",
-                                settings.fontFamily,
-                            );
-                        }
-                        applyTheme(settings.theme || "light");
-                    } else {
-                        applyTheme("light");
-                    }
-                }
-
-                function saveSettings() {
-                    // Retrieve existing settings to avoid overwriting font-size/line-height with nulls
-                    const savedRaw = localStorage.getItem("reader-settings");
-                    let settings = savedRaw
-                        ? JSON.parse(savedRaw)
-                        : { fontSize: 18, lineHeight: 1.6 };
-
-                    const activeBtn =
-                        document.querySelector(".theme-btn.active");
-                    const currentTheme = activeBtn
-                        ? activeBtn.dataset.theme
-                        : "light";
-
-                    settings.theme = currentTheme;
-
-                    localStorage.setItem(
-                        "reader-settings",
-                        JSON.stringify(settings),
-                    );
-                }
-
-                // Event Listeners
-                document.querySelectorAll(".theme-btn").forEach((btn) => {
-                    btn.addEventListener("click", (e) => {
-                        const themeName = e.target.dataset.theme;
-                        applyTheme(themeName);
-                        saveSettings();
-                    });
-                });
-
-                btn.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    menu.classList.toggle("active");
-                });
-
-                document.addEventListener("click", (e) => {
-                    if (
-                        menu.classList.contains("active") &&
-                        !menu.contains(e.target)
-                    ) {
-                        menu.classList.remove("active");
-                    }
-                });
-
-                menu.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                });
-
-                loadSettings();
-            </script>
-            <script>
-                const CHAPTERS_PER_PAGE = 100;
-                const TOTAL_CHAPTERS = 2543;
-
-                const allChapters = Array.from(
-                    { length: TOTAL_CHAPTERS },
-                    (_, i) => ({
-                        id: i + 1,
-                        title: `Chapter Title ${i + 1}`,
-                        url: `chapter${i + 1}.html`,
-                    }),
-                );
-
-                let state = {
-                    sortDesc: false, // false = 1..100, true = 100..1
-                    searchQuery: "",
-                    currentRange: 0, // Index of the range (0 = 1-100)
-                };
-
-                const rangeSelect = document.getElementById("rangeSelect");
-                const chapterList = document.getElementById("chapterList");
-                const searchInput = document.getElementById("searchInput");
-                const sortBtn = document.getElementById("sortBtn");
-                const sortLabel = document.getElementById("sortLabel");
-
-                function renderRanges() {
-                    // Clear existing options
-                    rangeSelect.innerHTML = "";
-
-                    // If searching, hide range selector logic visually (optional, but cleaner)
-                    if (state.searchQuery.length > 0) {
-                        const opt = document.createElement("option");
-                        opt.text = "Search Results";
-                        rangeSelect.add(opt);
-                        rangeSelect.disabled = true;
-                        return;
-                    }
-
-                    rangeSelect.disabled = false;
-                    const totalRanges = Math.ceil(
-                        allChapters.length / CHAPTERS_PER_PAGE,
-                    );
-
-                    for (let i = 0; i < totalRanges; i++) {
-                        const start = i * CHAPTERS_PER_PAGE + 1;
-                        const end = Math.min(
-                            (i + 1) * CHAPTERS_PER_PAGE,
-                            allChapters.length,
-                        );
-                        const opt = document.createElement("option");
-                        opt.value = i;
-                        opt.text = `Ch. ${start} - ${end}`;
-                        if (i === state.currentRange) opt.selected = true;
-                        rangeSelect.add(opt);
-                    }
-                }
-
-                function renderChapters() {
-                    chapterList.innerHTML = "";
-
-                    let filtered = allChapters;
-
-                    // A. Filter by Search
-                    if (state.searchQuery) {
-                        const q = state.searchQuery.toLowerCase();
-                        filtered = allChapters.filter(
-                            (ch) =>
-                                ch.id.toString().includes(q) ||
-                                ch.title.toLowerCase().includes(q),
-                        );
-                    } else {
-                        if (state.sortDesc && !state.searchQuery) {
-                        }
-
-                        const start = state.currentRange * CHAPTERS_PER_PAGE;
-                        const end = start + CHAPTERS_PER_PAGE;
-                        filtered = allChapters.slice(start, end);
-                    }
-
-                    const displayList = [...filtered];
-                    if (state.sortDesc) {
-                        displayList.sort((a, b) => b.id - a.id);
-                    } else {
-                        displayList.sort((a, b) => a.id - b.id);
-                    }
-
-                    if (displayList.length === 0) {
-                        chapterList.innerHTML = `<li class="empty-state">No chapters found.</li>`;
-                        return;
-                    }
-
-                    const fragment = document.createDocumentFragment();
-                    displayList.forEach((ch) => {
-                        const li = document.createElement("li");
-                        li.className = "chapter-item";
-                        li.innerHTML = `
-                                        <a href="${ch.url}">
-                                            <span class="chapter-num">Ch. ${ch.id}</span>
-                                            <span class="chapter-title">${ch.title}</span>
-                                        </a>
-                                    `;
-                        fragment.appendChild(li);
-                    });
-                    chapterList.appendChild(fragment);
-                }
-
-                function updateUI() {
-                    renderRanges();
-                    renderChapters();
-                    sortLabel.textContent = state.sortDesc
-                        ? "Newest First"
-                        : "Oldest First";
-                }
-
-                searchInput.addEventListener("input", (e) => {
-                    state.searchQuery = e.target.value.trim();
-                    updateUI();
-                });
-
-                rangeSelect.addEventListener("change", (e) => {
-                    state.currentRange = parseInt(e.target.value);
-                    searchInput.value = "";
-                    state.searchQuery = "";
-                    updateUI();
-                });
-
-                sortBtn.addEventListener("click", () => {
-                    state.sortDesc = !state.sortDesc;
-                    updateUI();
-                });
-            </script>
         </div>
-    </body>
+
+        <button class="settings-btn" id="toggleSettings" aria-label="Settings">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+            </svg>
+        </button>
+
+        <script>
+            const root = document.documentElement;
+            const menu = document.getElementById("settingsMenu");
+            const btn = document.getElementById("toggleSettings");
+
+            const themes = {
+                light: { bg: "#fdfdfd", text: "#333333" },
+                sepia: { bg: "#f4ecd8", text: "#5b4636" },
+                dark: { bg: "#222222", text: "#d1d1d1" },
+            };
+
+            function updateThemeUI(activeTheme) {
+                document.querySelectorAll(".theme-btn").forEach((btn) => {
+                    if (btn.dataset.theme === activeTheme) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+            }
+
+            function applyTheme(themeName) {
+                const theme = themes[themeName] || themes.light;
+                root.style.setProperty("--bg-color", theme.bg);
+                root.style.setProperty("--text-color", theme.text);
+                root.setAttribute("data-theme", themeName);
+                updateThemeUI(themeName);
+                return themeName;
+            }
+
+            function loadSettings() {
+                // Use the same key 'reader-settings' to share state with chapter.html
+                const savedSettings =
+                    localStorage.getItem("reader-settings");
+                if (savedSettings) {
+                    const settings = JSON.parse(savedSettings);
+
+                    // We only apply Theme and Font Family here to keep the UI clean
+                    if (settings.fontFamily) {
+                        root.style.setProperty(
+                            "--font-family",
+                            settings.fontFamily,
+                        );
+                    }
+                    applyTheme(settings.theme || "light");
+                } else {
+                    applyTheme("light");
+                }
+            }
+
+            function saveSettings() {
+                // Retrieve existing settings to avoid overwriting font-size/line-height with nulls
+                const savedRaw = localStorage.getItem("reader-settings");
+                let settings = savedRaw
+                    ? JSON.parse(savedRaw)
+                    : { fontSize: 18, lineHeight: 1.6 };
+
+                const activeBtn =
+                    document.querySelector(".theme-btn.active");
+                const currentTheme = activeBtn
+                    ? activeBtn.dataset.theme
+                    : "light";
+
+                settings.theme = currentTheme;
+
+                localStorage.setItem(
+                    "reader-settings",
+                    JSON.stringify(settings),
+                );
+            }
+
+            // Event Listeners
+            document.querySelectorAll(".theme-btn").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    const themeName = e.target.dataset.theme;
+                    applyTheme(themeName);
+                    saveSettings();
+                });
+            });
+
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                menu.classList.toggle("active");
+            });
+
+            document.addEventListener("click", (e) => {
+                if (
+                    menu.classList.contains("active") &&
+                    !menu.contains(e.target)
+                ) {
+                    menu.classList.remove("active");
+                }
+            });
+
+            menu.addEventListener("click", (e) => {
+                e.stopPropagation();
+            });
+
+            loadSettings();
+        </script>
+        <script>
+            let allChapters = [];
+            const CHAPTERS_PER_PAGE = 100;
+
+            let state = {
+                sortDesc: false,
+                searchQuery: "",
+                currentRange: 0,
+            };
+
+            const rangeSelect = document.getElementById("rangeSelect");
+            const chapterList = document.getElementById("chapterList");
+            const searchInput = document.getElementById("searchInput");
+            const sortBtn = document.getElementById("sortBtn");
+            const sortLabel = document.getElementById("sortLabel");
+
+            async function init() {
+                try {
+                    const response = await fetch("chapters.json");
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    allChapters = await response.json();
+
+                    updateUI();
+                } catch (error) {
+                    console.error("Unable to fetch data:", error);
+                    chapterList.innerHTML = `<li class="error-state">Error loading chapters.</li>`;
+                }
+            }
+
+            function renderRanges() {
+                rangeSelect.innerHTML = "";
+
+                if (state.searchQuery.length > 0) {
+                    const opt = document.createElement("option");
+                    opt.text = "Search Results";
+                    rangeSelect.add(opt);
+                    rangeSelect.disabled = true;
+                    return;
+                }
+
+                rangeSelect.disabled = false;
+
+                const totalRanges = Math.ceil(allChapters.length / CHAPTERS_PER_PAGE);
+
+                for (let i = 0; i < totalRanges; i++) {
+                    const start = i * CHAPTERS_PER_PAGE + 1;
+                    const end = Math.min(
+                        (i + 1) * CHAPTERS_PER_PAGE,
+                        allChapters.length
+                    );
+                    const opt = document.createElement("option");
+                    opt.value = i;
+                    opt.text = `Ch. ${start} - ${end}`;
+                    if (i === state.currentRange) opt.selected = true;
+                    rangeSelect.add(opt);
+                }
+            }
+
+            function renderChapters() {
+                chapterList.innerHTML = "";
+
+                // Default to the full list
+                let filtered = allChapters;
+
+                // A. Filter by Search
+                if (state.searchQuery) {
+                    const q = state.searchQuery.toLowerCase();
+                    filtered = allChapters.filter((ch) =>
+                        ch.id.toString().includes(q) ||
+                        ch.title.toLowerCase().includes(q)
+                    );
+                } else {
+                    // B. Slice by Range (only if not searching)
+                    const start = state.currentRange * CHAPTERS_PER_PAGE;
+                    const end = start + CHAPTERS_PER_PAGE;
+                    filtered = allChapters.slice(start, end);
+                }
+
+                // Create a copy to sort so we don't mutate the original
+                const displayList = [...filtered];
+
+                if (state.sortDesc) {
+                    displayList.sort((a, b) => b.id - a.id);
+                } else {
+                    displayList.sort((a, b) => a.id - b.id);
+                }
+
+                if (displayList.length === 0) {
+                    chapterList.innerHTML = `<li class="empty-state">No chapters found.</li>`;
+                    return;
+                }
+
+                const fragment = document.createDocumentFragment();
+                displayList.forEach((ch) => {
+                    const li = document.createElement("li");
+                    li.className = "chapter-item";
+                    li.innerHTML = `
+                <a href="${ch.url}">
+                    <span class="chapter-num">Ch. ${ch.id}</span>
+                    <span class="chapter-title">${ch.title}</span>
+                </a>
+            `;
+                    fragment.appendChild(li);
+                });
+                chapterList.appendChild(fragment);
+            }
+
+            function updateUI() {
+                renderRanges();
+                renderChapters();
+                sortLabel.textContent = state.sortDesc ? "Newest First" : "Oldest First";
+            }
+
+            searchInput.addEventListener("input", (e) => {
+                state.searchQuery = e.target.value.trim();
+                updateUI();
+            });
+
+            rangeSelect.addEventListener("change", (e) => {
+                state.currentRange = parseInt(e.target.value);
+                searchInput.value = "";
+                state.searchQuery = "";
+                updateUI();
+            });
+
+            sortBtn.addEventListener("click", () => {
+                state.sortDesc = !state.sortDesc;
+                updateUI();
+            });
+
+            init();
+        </script>
+    </div>
+</body>
+
 </html>
