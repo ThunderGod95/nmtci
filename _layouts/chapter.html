@@ -49,7 +49,12 @@
                 font-size: var(--text-size);
                 line-height: var(--line-height);
                 font-family: var(--font-family);
-                transition: all 0.1s;
+                transition:
+                    font-size 0.1s ease-in-out,
+                    line-height 0.1s ease-in-out,
+                    width 0.1s ease-in-out,
+                    background-color 0.1s ease-in-out,
+                    color 0.1s ease-in-out;
                 overflow-x: hidden;
             }
 
@@ -449,7 +454,7 @@
         <div class="sticky-bar" id="topNav">
             <nav class="chapter-nav">
                 <a class="nav-link nav-prev">← Previous</a>
-                <a class="nav-link nav-toc" href="index.html">Index</a>
+                <a class="nav-link nav-toc" href="../">Index</a>
                 <a class="nav-link nav-next">Next →</a>
             </nav>
         </div>
