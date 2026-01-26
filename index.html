@@ -136,8 +136,8 @@
 
         .sort-btn {
             padding: 0 20px;
-            background-color: var(--text-color);
-            color: var(--bg-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             border: none;
             border-radius: 8px;
             font-weight: 600;
@@ -147,6 +147,7 @@
             align-items: center;
             gap: 8px;
             transition: transform 0.1s;
+            font: inherit;
         }
 
         .sort-btn:active {
@@ -191,6 +192,7 @@
             font-weight: 500;
             overflow: hidden;
             text-overflow: ellipsis;
+            text-wrap: nowrap;
         }
 
         .empty-state {
@@ -198,6 +200,11 @@
             padding: 40px;
             opacity: 0.6;
             font-style: italic;
+        }
+
+        select option {
+            background-color: var(--menu-bg);
+            color: var(--text-color);
         }
 
         .fab-container {
@@ -208,6 +215,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            pointer-events: none;
         }
 
         .settings-btn {
@@ -280,6 +288,11 @@
             opacity: 0.8;
         }
 
+        .settings-btn,
+        .settings-menu {
+            pointer-events: auto;
+        }
+
         .theme-selector {
             display: flex;
             gap: 12px;
@@ -311,6 +324,10 @@
         @media (max-width: 600px) {
             .chapter-list {
                 grid-template-columns: 1fr;
+            }
+
+            .chapter-title {
+                text-wrap: wrap;
             }
 
             .book-title {
@@ -437,13 +454,11 @@
             }
 
             function loadSettings() {
-                // Use the same key 'reader-settings' to share state with chapter.html
                 const savedSettings =
                     localStorage.getItem("reader-settings");
                 if (savedSettings) {
                     const settings = JSON.parse(savedSettings);
 
-                    // We only apply Theme and Font Family here to keep the UI clean
                     if (settings.fontFamily) {
                         root.style.setProperty(
                             "--font-family",
@@ -457,7 +472,6 @@
             }
 
             function saveSettings() {
-                // Retrieve existing settings to avoid overwriting font-size/line-height with nulls
                 const savedRaw = localStorage.getItem("reader-settings");
                 let settings = savedRaw
                     ? JSON.parse(savedRaw)
@@ -477,7 +491,6 @@
                 );
             }
 
-            // Event Listeners
             document.querySelectorAll(".theme-btn").forEach((btn) => {
                 btn.addEventListener("click", (e) => {
                     const themeName = e.target.dataset.theme;
