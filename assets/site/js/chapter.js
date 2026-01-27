@@ -14,8 +14,6 @@ const THEMES = {
     amoled: { bg: "#000000", text: "#b3b3b3" },
 };
 
-const PREV_CHAPTER_NUM = "{{ page.prev }}";
-const NEXT_CHAPTER_NUM = "{{ page.next }}";
 const PREV_CHAPTER_URL = PREV_CHAPTER_NUM ? `${PREV_CHAPTER_NUM}.html` : "";
 const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM ? `${NEXT_CHAPTER_NUM}.html` : "";
 
@@ -393,25 +391,6 @@ function handleScrollFAB() {
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-}
-
-function saveReadingHistory() {
-    const pathSegments = window.location.pathname.split("/");
-    const fileName = pathSegments[pathSegments.length - 1];
-    const chapterId = parseInt(fileName.replace(".html", ""), 10);
-
-    const titleEl = document.querySelector("#content > h1").innerText;
-    const separatorIndex = titleEl.indexOf(": ");
-    const chapterTitle = titleEl.slice(separatorIndex + 2);
-
-    const history = {
-        id: chapterId,
-        title: chapterTitle,
-        url: window.location.href,
-        timestamp: Date.now(),
-    };
-
-    localStorage.setItem("nmtci-last-read", JSON.stringify(history));
 }
 
 audioSettingsBtn.addEventListener("click", (e) => {

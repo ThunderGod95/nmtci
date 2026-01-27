@@ -372,6 +372,33 @@
             </button>
         </div>
 
+        <script>
+            const PREV_CHAPTER_NUM = "{{ page.prev }}";
+            const NEXT_CHAPTER_NUM = "{{ page.next }}";
+
+            function saveReadingHistory() {
+                const pathSegments = window.location.pathname.split("/");
+                const fileName = pathSegments[pathSegments.length - 1];
+                const chapterId = parseInt(fileName.replace(".html", ""), 10);
+
+                const titleEl =
+                    document.querySelector("#content > h1").innerText;
+                const separatorIndex = titleEl.indexOf(": ");
+                const chapterTitle = `{{ page.title }}`;
+
+                const history = {
+                    id: chapterId,
+                    title: chapterTitle,
+                    url: window.location.href,
+                    timestamp: Date.now(),
+                };
+
+                localStorage.setItem(
+                    "nmtci-last-read",
+                    JSON.stringify(history),
+                );
+            }
+        </script>
         <script src="{{ '/assets/site/js/chapter.js' | relative_url }}"></script>
         <script>
             if ("serviceWorker" in navigator) {
