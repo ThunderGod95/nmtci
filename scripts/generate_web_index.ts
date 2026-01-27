@@ -12,13 +12,15 @@ async function generateWebIndex() {
         console.log(`Found ${mdFiles.length} markdown files.`);
 
         for (const file of mdFiles) {
-            const content: string = await Bun.file(`${TARGET_DIR}/${file}`).text();
+            const content: string = await Bun.file(
+                `${TARGET_DIR}/${file}`,
+            ).text();
             const match = content.match(/^#\s+Chapter\s+(\d+):\s*(.+?)$/m);
 
             if (match) {
                 const chapterNum = parseInt(match[1]);
                 const chapterTitle = match[2].trim();
-                const compiledFileName = file.replaceAll(".md", ".html");
+                const compiledFileName = file.replaceAll(".md", "");
 
                 chapters.push({
                     id: chapterNum,
