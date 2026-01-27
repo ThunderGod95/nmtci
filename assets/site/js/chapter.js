@@ -400,7 +400,7 @@ function saveReadingHistory() {
     const fileName = pathSegments[pathSegments.length - 1];
     const chapterId = parseInt(fileName.replace(".html", ""), 10);
 
-    const titleEl = document.getElementsByTagName("h1").innerText;
+    const titleEl = document.querySelector("#content > h1").innerText;
     const separatorIndex = titleEl.indexOf(": ");
     const chapterTitle = titleEl.slice(separatorIndex + 2);
 
