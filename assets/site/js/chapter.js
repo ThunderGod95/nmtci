@@ -14,8 +14,8 @@ const THEMES = {
     amoled: { bg: "#000000", text: "#b3b3b3" },
 };
 
-const PREV_CHAPTER_URL = PREV_CHAPTER_NUM ? `${PREV_CHAPTER_NUM}.html` : "";
-const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM ? `${NEXT_CHAPTER_NUM}.html` : "";
+const PREV_CHAPTER_URL = PREV_CHAPTER_NUM ? `${PREV_CHAPTER_NUM}` : "";
+const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM ? `${NEXT_CHAPTER_NUM}` : "";
 
 const root = document.documentElement;
 const fabContainer = document.querySelector(".fab-container");
