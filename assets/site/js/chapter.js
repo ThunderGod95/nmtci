@@ -17,6 +17,17 @@ const THEMES = {
 const PREV_CHAPTER_URL = PREV_CHAPTER_NUM ? `../${PREV_CHAPTER_NUM}` : "";
 const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM ? `../${NEXT_CHAPTER_NUM}` : "";
 
+(function prefetchChapters() {
+    [NEXT_CHAPTER_URL, PREV_CHAPTER_URL].forEach((url) => {
+        if (url) {
+            const link = document.createElement("link");
+            link.rel = "prefetch";
+            link.href = url;
+            document.head.appendChild(link);
+        }
+    });
+})();
+
 const root = document.documentElement;
 const fabContainer = document.querySelector(".fab-container");
 
