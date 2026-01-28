@@ -115,6 +115,32 @@
                 box-sizing: border-box;
             }
 
+            html {
+                scrollbar-width: thin;
+                scrollbar-color: var(--border-color) transparent;
+                scroll-behavior: smooth;
+            }
+
+            ::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: var(--border-color);
+                border-radius: 20px;
+                border: 2px solid transparent;
+                background-clip: content-box;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background-color: var(--text-color);
+            }
+
             body {
                 margin: 0;
                 padding: 0;
@@ -147,6 +173,46 @@
                 text-indent: var(--para-indent);
                 margin-bottom: var(--para-margin);
                 margin-top: 0;
+            }
+
+            #content a {
+                color: inherit;
+                text-decoration: none;
+                border-bottom: 1px solid var(--border-color);
+                cursor: pointer;
+                font-weight: 600;
+                padding: 2px 4px;
+                margin: 0 -4px;
+                border-radius: 4px;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+                transition:
+                    background-color 0.2s,
+                    border-color 0.2s,
+                    color 0.2s;
+            }
+
+            #content a:hover {
+                background-color: var(--hover-bg);
+                border-bottom-color: var(--text-color);
+                border-radius: 4px;
+                padding: 2px 4px;
+                margin: 0 -4px;
+                color: var(--text-color);
+            }
+
+            #content hr {
+                border: 0;
+                height: 2px;
+                background-image: linear-gradient(
+                    to right,
+                    transparent,
+                    var(--border-color),
+                    transparent
+                );
+                margin: 3em auto;
+                width: 60%;
+                opacity: 0.8;
             }
 
             #progress-container {
@@ -763,7 +829,7 @@
         <div class="sticky-bar" id="topNav">
             <nav class="chapter-nav">
                 <a class="nav-link nav-prev">← Previous</a>
-                <a class="nav-link nav-toc" href="../../">Index</a>
+                <a class="nav-link nav-toc" href="/nmtci/">Index</a>
                 <a class="nav-link nav-next">Next →</a>
             </nav>
         </div>
@@ -872,7 +938,7 @@
 
         <nav class="chapter-nav bottom-nav">
             <a class="nav-link nav-prev">← Previous</a>
-            <a class="nav-link nav-toc" href="../../">Index</a>
+            <a class="nav-link nav-toc" href="/nmtci/">Index</a>
             <a class="nav-link nav-next">Next →</a>
         </nav>
 
