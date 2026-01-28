@@ -4014,5 +4014,245 @@
         "type": "Concept/Term",
         "gender": null,
         "file": 160
+    },
+    {
+        "en": "All-you-can-eat dragon meat",
+        "cn": "龙肉畅吃",
+        "pinyin": "lóng ròu chàng chī",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 161
+    },
+    {
+        "en": "dragon meat",
+        "cn": "龙肉",
+        "pinyin": "lóng ròu",
+        "type": "Item",
+        "gender": null,
+        "file": 161
+    },
+    {
+        "en": "Meng Tao",
+        "cn": "蒙涛",
+        "pinyin": "Méng Tāo",
+        "type": "Person",
+        "gender": "Male",
+        "file": 161
+    },
+    {
+        "en": "Gluttony spiritual root",
+        "cn": "暴食灵根",
+        "pinyin": "bàoshí línggēn",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 161
+    },
+    {
+        "en": "digestive tract modification surgery",
+        "cn": "消化道改造手术",
+        "pinyin": "xiāohuàdào gǎizào shǒushù",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 162
+    },
+    {
+        "en": "Great Toad Qi",
+        "cn": "大蟾气",
+        "pinyin": "dà chán qì",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 162
+    },
+    {
+        "en": "smoke-spewing technique",
+        "cn": "喷烟的操作",
+        "pinyin": "pēnyān de cāozuò",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 162
+    },
+    {
+        "en": "Cauldron-style Digestive System",
+        "cn": "丹炉式消化系统",
+        "pinyin": "dānlú shì xiāohuà xìtǒng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 164
+    },
+    {
+        "en": "Martial Arts Examination",
+        "cn": "武道考试",
+        "pinyin": "Wǔdào kǎoshì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 164
+    },
+    {
+        "en": "Mount Buzhou Shifting Scripture",
+        "cn": "不周搬山经",
+        "pinyin": "Bùzhōu Bān Shān Jīng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Primeval Heart Grand Seal",
+        "cn": "心元大手印",
+        "pinyin": "Xīnyuán Dà Shǒuyìn",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Samsara Myriad Manifestations Palm",
+        "cn": "森罗万象掌",
+        "pinyin": "Sēnluó Wànxiàng Zhǎng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Blood-Scattering Demon-Slaying Grand Art",
+        "cn": "散血屠魔大法",
+        "pinyin": "Sànxuè Túmó Dàfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Demonic Disintegration Grand Art",
+        "cn": "天魔解体大法",
+        "pinyin": "Tiānmó Jiětǐ Dàfǎ",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Myriad Sword Everlasting Art",
+        "cn": "万剑无终诀",
+        "pinyin": "Wànjiàn Wúzhōng Jué",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Hundred Transformations Thousand Illusions Heart Art",
+        "cn": "百变千幻心诀",
+        "pinyin": "Bǎibiàn Qiānhuàn Xīn Jué",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Spring and Autumn Endless Zen",
+        "cn": "春秋无尽禅",
+        "pinyin": "Chūnqiū Wújìn Chán",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Titanium Body Tempering Formula",
+        "cn": "钛金炼体要诀",
+        "pinyin": "Tàijīn Liàntǐ Yàojuē",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Great Heavenly Dragon Force",
+        "cn": "大天龙神力",
+        "pinyin": "Dà Tiānlóng Shénlì",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Astral Qi Art",
+        "cn": "天罡气功",
+        "pinyin": "Tiāngāng Qìgōng",
+        "type": "Technique/Art/Method/Incantation/Spell",
+        "gender": null,
+        "file": 165
+    },
+    {
+        "en": "Longevity Mana",
+        "cn": "长生法力",
+        "pinyin": "chángshēng fǎlì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 166
+    },
+    {
+        "en": "sword intent",
+        "cn": "剑意",
+        "pinyin": "jiàn yì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 166
+    },
+    {
+        "en": "The intent precedes the thought, the sword follows the intent",
+        "cn": "意在念先，剑随意动",
+        "pinyin": "Yì zài niàn xiān, jiàn suí yì dòng",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 168
+    },
+    {
+        "en": "Everlasting Sword Intent",
+        "cn": "无终剑意",
+        "pinyin": "Wúzhōng jiàn yì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 168
+    },
+    {
+        "en": "pure yang astral qi",
+        "cn": "纯阳罡气",
+        "pinyin": "chúnyáng gāngqì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 168
+    },
+    {
+        "en": "yang astral qi",
+        "cn": "阳罡气",
+        "pinyin": "yáng gāngqì",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 168
+    },
+    {
+        "en": "reversal surgery",
+        "cn": "逆反绝育手术",
+        "pinyin": "nìfǎn juéyù shǒushù",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 168
+    },
+    {
+        "en": "body tempering arts track",
+        "cn": "体育赛道",
+        "pinyin": "tǐyù sàidào",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 169
+    },
+    {
+        "en": "martial arts track",
+        "cn": "武功赛道",
+        "pinyin": "wǔgōng sàidào",
+        "type": "Concept/Term",
+        "gender": null,
+        "file": 169
+    },
+    {
+        "en": "Red Pagoda Tower",
+        "cn": "红塔大厦",
+        "pinyin": "Hóng Tǎ Dàshà",
+        "type": "Place",
+        "gender": null,
+        "file": 170
     }
 ]

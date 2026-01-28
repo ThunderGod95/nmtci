@@ -1,7 +1,9 @@
-const CACHE_NAME = "nmtci-cache-v9";
+const CACHE_NAME = "nmtci-cache-v10";
 const ASSETS = [
     "/nmtci/",
     "/nmtci/index.html",
+    "/nmtci/assets/site/css/styles.css",
+    "/nmtci/assets/site/js/index.js",
     "/nmtci/offline.html",
     "/nmtci/assets/site/js/chapter.js",
     "/nmtci/assets/nmtci.jpg",

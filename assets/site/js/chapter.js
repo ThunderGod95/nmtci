@@ -1,551 +1,559 @@
-const STORAGE_KEY_SETTINGS = "reader-settings";
-const STORAGE_KEY_SCROLL_PREFIX = "reader-scroll-";
-const SCROLL_KEY =
-    STORAGE_KEY_SCROLL_PREFIX +
-    window.location.pathname +
-    window.location.search;
-
-const THEMES = {
-    light: { bg: "#fdfdfd", text: "#333333" },
-    sepia: { bg: "#f4ecd8", text: "#5b4636" },
-    dark: { bg: "#222222", text: "#d1d1d1" },
-    midnight: { bg: "#2b323b", text: "#c4cdd5" },
-    forest: { bg: "#e8f5e9", text: "#2d3b2d" },
-    amoled: { bg: "#000000", text: "#b3b3b3" },
+const CONFIG = {
+    storageKeys: {
+        settings: "reader-settings",
+        audioSettings: "reader-audio-settings",
+        scrollPrefix: "reader-scroll-",
+    },
+    themes: {
+        light: { bg: "#fdfdfd", text: "#333333" },
+        sepia: { bg: "#f4ecd8", text: "#5b4636" },
+        dark: { bg: "#222222", text: "#d1d1d1" },
+        midnight: { bg: "#2b323b", text: "#c4cdd5" },
+        forest: { bg: "#e8f5e9", text: "#2d3b2d" },
+        amoled: { bg: "#000000", text: "#b3b3b3" },
+    },
+    selectors: {
+        contentDiv: "#content",
+        paragraphs: "#content p",
+    },
 };
 
-const PREV_CHAPTER_URL = PREV_CHAPTER_NUM ? `../${PREV_CHAPTER_NUM}/` : "";
-const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM ? `../${NEXT_CHAPTER_NUM}/` : "";
+const DOM = {
+    root: document.documentElement,
+    body: document.body,
 
-(function prefetchChapters() {
-    [NEXT_CHAPTER_URL, PREV_CHAPTER_URL].forEach((url) => {
-        if (url) {
-            const link = document.createElement("link");
-            link.rel = "prefetch";
-            link.href = url;
-            document.head.appendChild(link);
-        }
-    });
-})();
+    navBar: document.getElementById("topNav"),
+    sentinel: document.getElementById("sentinel"),
+    prevLinks: document.querySelectorAll(".nav-prev"),
+    nextLinks: document.querySelectorAll(".nav-next"),
+    fabContainer: document.querySelector(".fab-container"),
+    progressBar: document.getElementById("progress-bar"),
 
-const root = document.documentElement;
-const fabContainer = document.querySelector(".fab-container");
+    menu: document.getElementById("settingsMenu"),
+    toggleBtn: document.getElementById("toggleSettings"),
+    themeBtns: document.querySelectorAll(".theme-btn"),
+    inputs: {
+        fontSize: document.getElementById("input-fontsize"),
+        lineHeight: document.getElementById("input-lineheight"),
+        fontFamily: document.getElementById("input-font"),
+        spacing: document.getElementById("input-spacing"),
+        paraStyle: document.getElementById("input-para-style"),
+    },
+    displays: {
+        fontSize: document.getElementById("fs-val"),
+        lineHeight: document.getElementById("lh-val"),
+        spacing: document.getElementById("spacing-val"),
+    },
 
-// Navigation
-const navBar = document.getElementById("topNav");
-const sentinel = document.getElementById("sentinel");
-const prevLinks = document.querySelectorAll(".nav-prev");
-const nextLinks = document.querySelectorAll(".nav-next");
-
-// Settings Menu UI
-const menu = document.getElementById("settingsMenu");
-const toggleBtn = document.getElementById("toggleSettings");
-const themeBtns = document.querySelectorAll(".theme-btn");
-const progressBar = document.getElementById("progress-bar");
-
-// Inputs & Displays
-const inputs = {
-    fontSize: document.getElementById("input-fontsize"),
-    lineHeight: document.getElementById("input-lineheight"),
-    fontFamily: document.getElementById("input-font"),
-    spacing: document.getElementById("input-spacing"),
-    paraStyle: document.getElementById("input-para-style"),
+    audioBtn: document.getElementById("toggleAudio"),
+    audioMenu: document.getElementById("audioSettingsMenu"),
+    audioSettingsBtn: document.getElementById("toggleAudioSettings"),
+    voiceSelect: document.getElementById("input-voice"),
+    rateInput: document.getElementById("input-rate"),
+    pitchInput: document.getElementById("input-pitch"),
+    rateValDisplay: document.getElementById("rate-val"),
+    pitchValDisplay: document.getElementById("pitch-val"),
+    audioStatusText: document.getElementById("audio-status-text"),
+    iconPlay: document.getElementById("icon-play"),
+    iconPause: document.getElementById("icon-pause"),
+    audioWrapper: document.querySelector(".audio-toolbar-wrapper"),
 };
 
-const displays = {
-    fontSize: document.getElementById("fs-val"),
-    lineHeight: document.getElementById("lh-val"),
-    spacing: document.getElementById("spacing-val"),
-};
+const NavigationManager = {
+    prevUrl: PREV_CHAPTER_NUM ? `../${PREV_CHAPTER_NUM}/` : "",
+    nextUrl: NEXT_CHAPTER_NUM ? `../${NEXT_CHAPTER_NUM}/` : "",
 
-// Audio
-const audioBtn = document.getElementById("toggleAudio");
-const iconPlay = document.getElementById("icon-play");
-const iconPause = document.getElementById("icon-pause");
-const voiceSelect = document.getElementById("input-voice");
-const rateInput = document.getElementById("input-rate");
-const pitchInput = document.getElementById("input-pitch");
-const rateValDisplay = document.getElementById("rate-val");
-const pitchValDisplay = document.getElementById("pitch-val");
-const audioSettingsBtn = document.getElementById("toggleAudioSettings");
-const audioMenu = document.getElementById("audioSettingsMenu");
-const audioStatusText = document.getElementById("audio-status-text");
+    init() {
+        this.updateLinks();
+        this.prefetch();
+        this.bindEvents();
+    },
 
-let lastScrollTop = 0;
-let synth = window.speechSynthesis;
-let currentUtterance = null;
-let isPlaying = false;
-let isPaused = false;
-let paraObjects = [];
-let currentParaIndex = 0;
-let voices = [];
+    updateLinks() {
+        const setLinks = (nodes, url) => {
+            nodes.forEach((link) => {
+                if (url) {
+                    link.href = url;
+                    link.classList.remove("disabled");
+                } else {
+                    link.removeAttribute("href");
+                    link.classList.add("disabled");
+                }
+            });
+        };
+        setLinks(DOM.prevLinks, this.prevUrl);
+        setLinks(DOM.nextLinks, this.nextUrl);
+    },
 
-function populateVoiceList() {
-    voices = synth.getVoices();
-    voiceSelect.innerHTML = "";
-
-    const englishVoices = voices.filter((v) => v.lang.includes("en"));
-
-    englishVoices.forEach((voice, index) => {
-        const option = document.createElement("option");
-        option.textContent = `${voice.name} (${voice.lang})`;
-        const globalIndex = voices.indexOf(voice);
-        option.setAttribute("data-index", globalIndex);
-        voiceSelect.appendChild(option);
-    });
-
-    loadAudioSettings();
-
-    if (voiceSelect.selectedIndex === -1 && voiceSelect.options.length > 0) {
-        voiceSelect.selectedIndex = 0;
-    }
-}
-
-if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = populateVoiceList;
-} else {
-    populateVoiceList();
-}
-
-function saveAudioSettings() {
-    const settings = {
-        rate: rateInput.value,
-        pitch: pitchInput.value,
-        voiceName: voiceSelect.selectedOptions[0]?.textContent,
-    };
-    localStorage.setItem("reader-audio-settings", JSON.stringify(settings));
-}
-
-function loadAudioSettings() {
-    const saved = JSON.parse(localStorage.getItem("reader-audio-settings"));
-    if (saved) {
-        rateInput.value = saved.rate;
-        pitchInput.value = saved.pitch;
-        rateValDisplay.textContent = saved.rate + "x";
-        pitchValDisplay.textContent = saved.pitch;
-
-        for (let i = 0; i < voiceSelect.options.length; i++) {
-            if (voiceSelect.options[i].textContent === saved.voiceName) {
-                voiceSelect.selectedIndex = i;
-                break;
-            }
-        }
-    }
-}
-
-function loadParagraphs() {
-    const contentDiv = document.getElementById("content");
-    paraObjects = Array.from(contentDiv.getElementsByTagName("p"))
-        .filter((p) => p.innerText.trim().length > 0)
-        .map((p) => ({ element: p, text: p.innerText }));
-}
-
-function clearHighlights() {
-    paraObjects.forEach((obj) =>
-        obj.element.classList.remove("active-reading"),
-    );
-}
-
-function speakParagraph(index) {
-    if (index > paraObjects.length) {
-        stopAudio();
-        return;
-    }
-
-    if (currentUtterance) {
-        currentUtterance.onend = null;
-        currentUtterance.onerror = null;
-    }
-
-    synth.cancel();
-
-    currentParaIndex = index;
-    const pObj = paraObjects[index];
-
-    clearHighlights();
-    pObj.element.classList.add("active-reading");
-    pObj.element.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-    });
-
-    currentUtterance = new SpeechSynthesisUtterance(pObj.text);
-
-    const selectedOption = voiceSelect.selectedOptions[0];
-    if (selectedOption) {
-        const voiceIndex = selectedOption.getAttribute("data-index");
-        currentUtterance.voice = voices[voiceIndex];
-    }
-    currentUtterance.rate = parseFloat(rateInput.value);
-    currentUtterance.pitch = parseFloat(pitchInput.value);
-
-    currentUtterance.onend = () => {
-        if (isPlaying && !isPaused) {
-            speakParagraph(currentParaIndex + 1);
-        }
-    };
-
-    currentUtterance.onerror = (e) => {
-        if (e.error === "interrupted" || e.error === "canceled") return;
-
-        console.error("Audio error", e);
-        stopAudio();
-    };
-
-    synth.speak(currentUtterance);
-}
-
-function toggleAudio() {
-    if (!isPlaying) {
-        loadParagraphs();
-        if (paraObjects.length === 0) return;
-
-        isPlaying = true;
-        isPaused = false;
-        updateAudioUI();
-        speakParagraph(currentParaIndex);
-    } else if (isPlaying && !isPaused) {
-        synth.pause();
-        isPaused = true;
-        updateAudioUI();
-    } else if (isPlaying && isPaused) {
-        if (synth.paused) {
-            synth.resume();
-        } else {
-            speakParagraph(currentParaIndex);
-        }
-        isPaused = false;
-        updateAudioUI();
-    }
-}
-
-function stopAudio() {
-    synth.cancel();
-    isPlaying = false;
-    isPaused = false;
-    currentParaIndex = 0;
-    clearHighlights();
-    updateAudioUI();
-}
-
-function updateAudioUI() {
-    const wrapper = document.querySelector(".audio-toolbar-wrapper");
-    const statusText = document.getElementById("audio-status-text");
-
-    if (isPlaying) {
-        wrapper.classList.add("floating");
-    } else {
-        wrapper.classList.remove("floating");
-    }
-
-    if (isPlaying && !isPaused) {
-        iconPlay.style.display = "none";
-        iconPause.style.display = "block";
-        statusText.textContent = "Pause";
-    } else if (isPlaying && isPaused) {
-        iconPlay.style.display = "block";
-        iconPause.style.display = "none";
-        statusText.textContent = "Resume";
-    } else {
-        iconPlay.style.display = "block";
-        iconPause.style.display = "none";
-        statusText.textContent = "Listen";
-    }
-}
-
-function applyTheme(themeName) {
-    const theme = THEMES[themeName] || THEMES.light;
-
-    root.style.setProperty("--bg-color", theme.bg);
-    root.style.setProperty("--text-color", theme.text);
-    root.setAttribute("data-theme", themeName);
-
-    themeBtns.forEach((btn) => {
-        if (btn.dataset.theme === themeName) {
-            btn.classList.add("active");
-        } else {
-            btn.classList.remove("active");
-        }
-    });
-
-    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-    if (metaThemeColor) {
-        metaThemeColor.setAttribute("content", theme.bg);
-    }
-
-    return themeName;
-}
-
-function applyParaStyle(style) {
-    if (style === "indent") {
-        root.style.setProperty("--para-indent", "2em");
-        root.style.setProperty("--para-margin", "0");
-    } else {
-        root.style.setProperty("--para-indent", "0");
-        root.style.setProperty("--para-margin", "1em");
-    }
-}
-
-function saveSettings() {
-    const activeBtn = document.querySelector(".theme-btn.active");
-    const currentTheme = activeBtn ? activeBtn.dataset.theme : "light";
-
-    const settings = {
-        fontSize: inputs.fontSize.value,
-        lineHeight: inputs.lineHeight.value,
-        theme: currentTheme,
-        fontFamily: inputs.fontFamily.value,
-        letterSpacing: inputs.spacing.value,
-        paraStyle: inputs.paraStyle.value,
-    };
-
-    localStorage.setItem(STORAGE_KEY_SETTINGS, JSON.stringify(settings));
-}
-
-function loadSettings() {
-    const savedSettings = localStorage.getItem(STORAGE_KEY_SETTINGS);
-
-    if (savedSettings) {
-        const settings = JSON.parse(savedSettings);
-
-        root.style.setProperty("--text-size", settings.fontSize + "px");
-        root.style.setProperty("--line-height", settings.lineHeight);
-
-        if (settings.fontFamily) {
-            root.style.setProperty("--font-family", settings.fontFamily);
-            inputs.fontFamily.value = settings.fontFamily;
-        }
-
-        if (settings.letterSpacing) {
-            root.style.setProperty(
-                "--letter-spacing",
-                settings.letterSpacing + "px",
-            );
-            inputs.spacing.value = settings.letterSpacing;
-            displays.spacing.textContent = settings.letterSpacing + "px";
-        }
-
-        if (settings.paraStyle) {
-            inputs.paraStyle.value = settings.paraStyle;
-            applyParaStyle(settings.paraStyle);
-        }
-
-        inputs.fontSize.value = settings.fontSize;
-        inputs.lineHeight.value = settings.lineHeight;
-        displays.fontSize.textContent = settings.fontSize + "px";
-        displays.lineHeight.textContent = settings.lineHeight;
-
-        applyTheme(settings.theme || "light");
-    } else {
-        applyTheme("light");
-    }
-
-    const savedScroll = localStorage.getItem(SCROLL_KEY);
-    if (savedScroll) {
-        setTimeout(() => {
-            window.scrollTo(0, parseInt(savedScroll));
-        }, 100);
-    }
-}
-
-function changeFontSize(delta) {
-    const currentVal = parseInt(inputs.fontSize.value);
-    const minVal = parseInt(inputs.fontSize.min);
-    const maxVal = parseInt(inputs.fontSize.max);
-
-    let newVal = currentVal + delta;
-
-    if (newVal >= minVal && newVal <= maxVal) {
-        inputs.fontSize.value = newVal;
-        inputs.fontSize.dispatchEvent(new Event("input"));
-    }
-}
-
-function updateNavigation() {
-    const updateLinks = (links, url) => {
-        links.forEach((link) => {
-            if (url && url.trim() !== "") {
+    prefetch() {
+        [this.nextUrl, this.prevUrl].forEach((url) => {
+            if (url) {
+                const link = document.createElement("link");
+                link.rel = "prefetch";
                 link.href = url;
-                link.classList.remove("disabled");
-            } else {
-                link.removeAttribute("href");
-                link.classList.add("disabled");
+                document.head.appendChild(link);
             }
         });
-    };
-
-    updateLinks(prevLinks, PREV_CHAPTER_URL);
-    updateLinks(nextLinks, NEXT_CHAPTER_URL);
-}
-
-function updateProgress() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-
-    progressBar.style.width = scrollPercent + "%";
-    localStorage.setItem(SCROLL_KEY, scrollTop);
-}
-
-function handleScrollFAB() {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-    if (Math.abs(scrollTop - lastScrollTop) < 10) return;
-
-    const isScrollingDown = scrollTop > lastScrollTop;
-    const isMenuOpen = menu.classList.contains("active");
-
-    if (isScrollingDown && scrollTop > 50 && !isMenuOpen) {
-        fabContainer.classList.add("fab-hidden");
-    } else if (!isScrollingDown) {
-        fabContainer.classList.remove("fab-hidden");
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-}
-
-audioSettingsBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    audioMenu.classList.toggle("active");
-    menu.classList.remove("active");
-});
-
-document.addEventListener("click", (e) => {
-    if (
-        audioMenu.classList.contains("active") &&
-        !audioMenu.contains(e.target) &&
-        e.target !== audioSettingsBtn
-    ) {
-        audioMenu.classList.remove("active");
-    }
-});
-
-audioMenu.addEventListener("click", (e) => {
-    e.stopPropagation();
-});
-
-rateInput.addEventListener("input", (e) => {
-    rateValDisplay.textContent = e.target.value + "x";
-    saveAudioSettings();
-    if (isPlaying && !isPaused) speakParagraph(currentParaIndex);
-});
-
-pitchInput.addEventListener("input", (e) => {
-    pitchValDisplay.textContent = e.target.value;
-    saveAudioSettings();
-    if (isPlaying && !isPaused) speakParagraph(currentParaIndex);
-});
-
-voiceSelect.addEventListener("change", () => {
-    saveAudioSettings();
-    if (isPlaying && !isPaused) speakParagraph(currentParaIndex);
-});
-
-audioBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleAudio();
-});
-
-window.addEventListener("beforeunload", () => {
-    synth.cancel();
-});
-
-inputs.fontSize.addEventListener("input", (e) => {
-    const val = e.target.value;
-    root.style.setProperty("--text-size", val + "px");
-    displays.fontSize.textContent = val + "px";
-    saveSettings();
-});
-
-inputs.lineHeight.addEventListener("input", (e) => {
-    const val = e.target.value;
-    root.style.setProperty("--line-height", val);
-    displays.lineHeight.textContent = val;
-    saveSettings();
-});
-
-inputs.spacing.addEventListener("input", (e) => {
-    const val = e.target.value;
-    root.style.setProperty("--letter-spacing", val + "px");
-    displays.spacing.textContent = val + "px";
-    saveSettings();
-});
-
-inputs.fontFamily.addEventListener("change", (e) => {
-    root.style.setProperty("--font-family", e.target.value);
-    saveSettings();
-});
-
-inputs.paraStyle.addEventListener("change", (e) => {
-    applyParaStyle(e.target.value);
-    saveSettings();
-});
-
-themeBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        applyTheme(e.target.dataset.theme);
-        saveSettings();
-    });
-});
-
-toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    menu.classList.toggle("active");
-});
-
-document.addEventListener("click", (e) => {
-    if (menu.classList.contains("active") && !menu.contains(e.target)) {
-        menu.classList.remove("active");
-    }
-});
-
-menu.addEventListener("click", (e) => {
-    e.stopPropagation();
-});
-
-document.addEventListener("keydown", (e) => {
-    switch (e.key) {
-        case "ArrowLeft":
-            if (PREV_CHAPTER_URL) window.location.href = PREV_CHAPTER_URL;
-            break;
-        case "ArrowRight":
-            if (NEXT_CHAPTER_URL) window.location.href = NEXT_CHAPTER_URL;
-            break;
-        case "-":
-        case "_":
-            changeFontSize(-1);
-            break;
-        case "=":
-        case "+":
-            changeFontSize(1);
-            break;
-    }
-});
-
-window.addEventListener(
-    "scroll",
-    () => {
-        updateProgress();
-        handleScrollFAB();
     },
-    { passive: true },
-);
 
-window.addEventListener("resize", updateProgress);
+    bindEvents() {
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft" && this.prevUrl)
+                window.location.href = this.prevUrl;
+            if (e.key === "ArrowRight" && this.nextUrl)
+                window.location.href = this.nextUrl;
+        });
+    },
+};
 
-const navObserver = new IntersectionObserver((entries) => {
-    if (!entries[0].isIntersecting) {
-        navBar.classList.add("stuck");
-    } else {
-        navBar.classList.remove("stuck");
-    }
+const ThemeManager = {
+    init() {
+        this.load();
+        this.bindEvents();
+    },
+
+    bindEvents() {
+        DOM.toggleBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            DOM.menu.classList.toggle("active");
+            DOM.audioMenu.classList.remove("active");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (
+                DOM.menu.classList.contains("active") &&
+                !DOM.menu.contains(e.target)
+            ) {
+                DOM.menu.classList.remove("active");
+            }
+        });
+        DOM.menu.addEventListener("click", (e) => e.stopPropagation());
+
+        DOM.themeBtns.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                this.applyTheme(e.target.dataset.theme);
+                this.save();
+            });
+        });
+
+        DOM.inputs.fontSize.addEventListener("input", (e) => {
+            this.updateCSS("--text-size", e.target.value + "px");
+            DOM.displays.fontSize.textContent = e.target.value + "px";
+            this.save();
+        });
+
+        DOM.inputs.lineHeight.addEventListener("input", (e) => {
+            this.updateCSS("--line-height", e.target.value);
+            DOM.displays.lineHeight.textContent = e.target.value;
+            this.save();
+        });
+
+        DOM.inputs.spacing.addEventListener("input", (e) => {
+            this.updateCSS("--letter-spacing", e.target.value + "px");
+            DOM.displays.spacing.textContent = e.target.value + "px";
+            this.save();
+        });
+
+        DOM.inputs.fontFamily.addEventListener("change", (e) => {
+            this.updateCSS("--font-family", e.target.value);
+            this.save();
+        });
+
+        DOM.inputs.paraStyle.addEventListener("change", (e) => {
+            this.applyParaStyle(e.target.value);
+            this.save();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (["-", "_"].includes(e.key)) this.changeFontSize(-1);
+            if (["=", "+"].includes(e.key)) this.changeFontSize(1);
+        });
+    },
+
+    updateCSS(prop, value) {
+        DOM.root.style.setProperty(prop, value);
+    },
+
+    applyTheme(themeName) {
+        const theme = CONFIG.themes[themeName] || CONFIG.themes.light;
+        this.updateCSS("--bg-color", theme.bg);
+        this.updateCSS("--text-color", theme.text);
+        DOM.root.setAttribute("data-theme", themeName);
+
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", theme.bg);
+
+        DOM.themeBtns.forEach((btn) => {
+            btn.classList.toggle("active", btn.dataset.theme === themeName);
+        });
+    },
+
+    applyParaStyle(style) {
+        if (style === "indent") {
+            this.updateCSS("--para-indent", "2em");
+            this.updateCSS("--para-margin", "0");
+        } else {
+            this.updateCSS("--para-indent", "0");
+            this.updateCSS("--para-margin", "1em");
+        }
+    },
+
+    changeFontSize(delta) {
+        const current = parseInt(DOM.inputs.fontSize.value);
+        const min = parseInt(DOM.inputs.fontSize.min);
+        const max = parseInt(DOM.inputs.fontSize.max);
+        const newVal = current + delta;
+
+        if (newVal >= min && newVal <= max) {
+            DOM.inputs.fontSize.value = newVal;
+            DOM.inputs.fontSize.dispatchEvent(new Event("input"));
+        }
+    },
+
+    save() {
+        const activeBtn = document.querySelector(".theme-btn.active");
+        const settings = {
+            fontSize: DOM.inputs.fontSize.value,
+            lineHeight: DOM.inputs.lineHeight.value,
+            theme: activeBtn ? activeBtn.dataset.theme : "light",
+            fontFamily: DOM.inputs.fontFamily.value,
+            letterSpacing: DOM.inputs.spacing.value,
+            paraStyle: DOM.inputs.paraStyle.value,
+        };
+        localStorage.setItem(
+            CONFIG.storageKeys.settings,
+            JSON.stringify(settings),
+        );
+    },
+
+    load() {
+        const saved = localStorage.getItem(CONFIG.storageKeys.settings);
+        if (saved) {
+            const s = JSON.parse(saved);
+
+            this.updateCSS("--text-size", s.fontSize + "px");
+            this.updateCSS("--line-height", s.lineHeight);
+            if (s.fontFamily) this.updateCSS("--font-family", s.fontFamily);
+            if (s.letterSpacing) {
+                this.updateCSS("--letter-spacing", s.letterSpacing + "px");
+                DOM.inputs.spacing.value = s.letterSpacing;
+                DOM.displays.spacing.textContent = s.letterSpacing + "px";
+            }
+
+            DOM.inputs.fontSize.value = s.fontSize;
+            DOM.inputs.lineHeight.value = s.lineHeight;
+            DOM.displays.fontSize.textContent = s.fontSize + "px";
+            DOM.displays.lineHeight.textContent = s.lineHeight;
+
+            if (s.paraStyle) {
+                DOM.inputs.paraStyle.value = s.paraStyle;
+                this.applyParaStyle(s.paraStyle);
+            }
+
+            this.applyTheme(s.theme || "light");
+        } else {
+            this.applyTheme("light");
+        }
+    },
+};
+
+const AudioManager = {
+    synth: window.speechSynthesis,
+    utterance: null,
+    isPlaying: false,
+    isPaused: false,
+    voices: [],
+    paraObjects: [],
+    currentIndex: 0,
+
+    init() {
+        this.populateVoices();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = () => this.populateVoices();
+        }
+        this.loadSettings();
+        this.bindEvents();
+    },
+
+    bindEvents() {
+        DOM.audioBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            this.toggle();
+        });
+
+        DOM.audioSettingsBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            DOM.audioMenu.classList.toggle("active");
+            DOM.menu.classList.remove("active");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (
+                DOM.audioMenu.classList.contains("active") &&
+                !DOM.audioMenu.contains(e.target) &&
+                e.target !== DOM.audioSettingsBtn
+            ) {
+                DOM.audioMenu.classList.remove("active");
+            }
+        });
+        DOM.audioMenu.addEventListener("click", (e) => e.stopPropagation());
+
+        DOM.rateInput.addEventListener("input", (e) => {
+            DOM.rateValDisplay.textContent = e.target.value + "x";
+            this.saveSettings();
+            if (this.isPlaying && !this.isPaused) this.speak(this.currentIndex);
+        });
+
+        DOM.pitchInput.addEventListener("input", (e) => {
+            DOM.pitchValDisplay.textContent = e.target.value;
+            this.saveSettings();
+            if (this.isPlaying && !this.isPaused) this.speak(this.currentIndex);
+        });
+
+        DOM.voiceSelect.addEventListener("change", () => {
+            this.saveSettings();
+            if (this.isPlaying && !this.isPaused) this.speak(this.currentIndex);
+        });
+
+        window.addEventListener("beforeunload", () => this.synth.cancel());
+    },
+
+    populateVoices() {
+        this.voices = this.synth.getVoices();
+        DOM.voiceSelect.innerHTML = "";
+
+        const englishVoices = this.voices.filter((v) => v.lang.includes("en"));
+
+        englishVoices.forEach((voice) => {
+            const option = document.createElement("option");
+            option.textContent = `${voice.name} (${voice.lang})`;
+            option.setAttribute("data-index", this.voices.indexOf(voice));
+            DOM.voiceSelect.appendChild(option);
+        });
+
+        this.loadSettings();
+    },
+
+    loadParagraphs() {
+        const contentDiv = document.querySelector(CONFIG.selectors.contentDiv);
+        this.paraObjects = Array.from(contentDiv.getElementsByTagName("p"))
+            .filter((p) => {
+                const text = p.innerText.trim();
+                return text.length > 0 && !text.match(/^\d+$/);
+            })
+            .map((p) => ({ element: p, text: p.innerText }));
+    },
+
+    toggle() {
+        if (!this.isPlaying) {
+            this.loadParagraphs();
+            if (this.paraObjects.length === 0) return;
+            this.isPlaying = true;
+            this.isPaused = false;
+            this.updateUI();
+            this.speak(this.currentIndex);
+        } else if (this.isPlaying && !this.isPaused) {
+            this.synth.pause();
+            this.isPaused = true;
+            this.updateUI();
+        } else if (this.isPlaying && this.isPaused) {
+            if (this.synth.paused) this.synth.resume();
+            else this.speak(this.currentIndex);
+            this.isPaused = false;
+            this.updateUI();
+        }
+    },
+
+    speak(index) {
+        if (index >= this.paraObjects.length) {
+            this.stop();
+            return;
+        }
+
+        this.synth.cancel();
+
+        setTimeout(() => {
+            this.currentIndex = index;
+            const pObj = this.paraObjects[index];
+
+            this.clearHighlights();
+            pObj.element.classList.add("active-reading");
+            pObj.element.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+
+            this.utterance = new SpeechSynthesisUtterance(pObj.text);
+
+            const selectedOption = DOM.voiceSelect.selectedOptions[0];
+            if (selectedOption) {
+                const voiceIndex = selectedOption.getAttribute("data-index");
+                this.utterance.voice = this.voices[voiceIndex];
+                this.utterance.lang = this.voices[voiceIndex]?.lang;
+            }
+            this.utterance.rate = parseFloat(DOM.rateInput.value);
+            this.utterance.pitch = parseFloat(DOM.pitchInput.value);
+
+            this.utterance.onend = () => {
+                if (this.isPlaying && !this.isPaused)
+                    this.speak(this.currentIndex + 1);
+            };
+
+            this.utterance.onerror = (e) => {
+                if (e.error !== "interrupted" && e.error !== "canceled") {
+                    console.error("Audio error", e);
+                    this.stop();
+                }
+            };
+
+            this.synth.speak(this.utterance);
+        }, 50);
+    },
+
+    stop() {
+        this.synth.cancel();
+        this.isPlaying = false;
+        this.isPaused = false;
+        this.currentIndex = 0;
+        this.clearHighlights();
+        this.updateUI();
+    },
+
+    clearHighlights() {
+        this.paraObjects.forEach((obj) =>
+            obj.element.classList.remove("active-reading"),
+        );
+    },
+
+    updateUI() {
+        if (this.isPlaying) DOM.audioWrapper.classList.add("floating");
+        else DOM.audioWrapper.classList.remove("floating");
+
+        if (this.isPlaying && !this.isPaused) {
+            DOM.iconPlay.style.display = "none";
+            DOM.iconPause.style.display = "block";
+            DOM.audioStatusText.textContent = "Pause";
+        } else if (this.isPlaying && this.isPaused) {
+            DOM.iconPlay.style.display = "block";
+            DOM.iconPause.style.display = "none";
+            DOM.audioStatusText.textContent = "Resume";
+        } else {
+            DOM.iconPlay.style.display = "block";
+            DOM.iconPause.style.display = "none";
+            DOM.audioStatusText.textContent = "Listen";
+        }
+    },
+
+    saveSettings() {
+        const settings = {
+            rate: DOM.rateInput.value,
+            pitch: DOM.pitchInput.value,
+            voiceName: DOM.voiceSelect.selectedOptions[0]?.textContent,
+        };
+        localStorage.setItem(
+            CONFIG.storageKeys.audioSettings,
+            JSON.stringify(settings),
+        );
+    },
+
+    loadSettings() {
+        const saved = JSON.parse(
+            localStorage.getItem(CONFIG.storageKeys.audioSettings),
+        );
+        if (saved) {
+            DOM.rateInput.value = saved.rate;
+            DOM.pitchInput.value = saved.pitch;
+            DOM.rateValDisplay.textContent = saved.rate + "x";
+            DOM.pitchValDisplay.textContent = saved.pitch;
+
+            for (let i = 0; i < DOM.voiceSelect.options.length; i++) {
+                if (
+                    DOM.voiceSelect.options[i].textContent === saved.voiceName
+                ) {
+                    DOM.voiceSelect.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+    },
+};
+
+const ScrollManager = {
+    lastScrollTop: 0,
+    scrollKey:
+        CONFIG.storageKeys.scrollPrefix +
+        window.location.pathname +
+        window.location.search,
+
+    init() {
+        this.setupObserver();
+        this.restorePosition();
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                this.updateProgress();
+                this.handleFab();
+            },
+            { passive: true },
+        );
+
+        window.addEventListener("resize", () => this.updateProgress());
+    },
+
+    restorePosition() {
+        const saved = localStorage.getItem(this.scrollKey);
+        if (saved) {
+            setTimeout(() => window.scrollTo(0, parseInt(saved)), 100);
+        }
+    },
+
+    updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+
+        DOM.progressBar.style.width = scrollPercent + "%";
+        localStorage.setItem(this.scrollKey, scrollTop);
+    },
+
+    handleFab() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (Math.abs(scrollTop - this.lastScrollTop) < 10) return;
+
+        const isScrollingDown = scrollTop > this.lastScrollTop;
+        const isMenuOpen = DOM.menu.classList.contains("active");
+
+        if (isScrollingDown && scrollTop > 50 && !isMenuOpen) {
+            DOM.fabContainer.classList.add("fab-hidden");
+        } else if (!isScrollingDown) {
+            DOM.fabContainer.classList.remove("fab-hidden");
+        }
+
+        this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    },
+
+    setupObserver() {
+        const navObserver = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) DOM.navBar.classList.add("stuck");
+            else DOM.navBar.classList.remove("stuck");
+        });
+        navObserver.observe(DOM.sentinel);
+    },
+};
+
+const HistoryManager = {
+    init() {
+        if (typeof saveReadingHistory === "function") {
+            saveReadingHistory();
+        }
+    },
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    NavigationManager.init();
+    ThemeManager.init();
+    AudioManager.init();
+    ScrollManager.init();
+    HistoryManager.init();
 });
-
-function init() {
-    updateNavigation();
-    loadSettings();
-    navObserver.observe(sentinel);
-    saveReadingHistory();
-}
-
-init();
