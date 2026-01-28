@@ -98,6 +98,7 @@ layout: null
                 rel="stylesheet"
             />
         </noscript>
+        <link rel="stylesheet" href="assets/site/css/styles.css" />
         <link
             rel="stylesheet"
             href="{{ '/assets/site/css/styles.css' | relative_url }}"
@@ -665,6 +666,10 @@ layout: null
             </button>
         </div>
 
+        <div id="toc-container">
+            <ul class="chapter-list" id="chapterList"></ul>
+        </div>
+
         <div class="fab-container" style="gap: 20px">
             <div
                 style="
@@ -736,7 +741,7 @@ layout: null
                     class="settings-btn"
                     id="installFab"
                     aria-label="Install App"
-                    style="display: flex; pointer-events: auto"
+                    style="display: none; pointer-events: auto"
                 >
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
@@ -829,7 +834,7 @@ layout: null
 
         <script src="{{ '/assets/site/js/index.js' | relative_url }}"></script>
         <script>
-            registerServiceWorker() {
+            function registerServiceWorker() {
                 if ("serviceWorker" in navigator) {
                     window.addEventListener("load", () => {
                         navigator.serviceWorker
@@ -837,7 +842,9 @@ layout: null
                             .then((reg) =>
                                 console.log("Service Worker registered!", reg),
                             )
-                            .catch((err) => console.log("Registration failed:", err));
+                            .catch((err) =>
+                                console.log("Registration failed:", err),
+                            );
                     });
                 }
             }
