@@ -1,4 +1,4 @@
-const CACHE_NAME = "nmtci-cache-v8";
+const CACHE_NAME = "nmtci-cache-v9";
 const ASSETS = [
     "/nmtci/",
     "/nmtci/index.html",
@@ -84,9 +84,24 @@ self.addEventListener("fetch", (event) => {
                         networkResponse.type === "basic"
                     ) {
                         const responseToCache = networkResponse.clone();
-                        caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, responseToCache);
-                        });
+
+                        if (responseToCache.redirected) {
+                            const cleanResponse = new Response(
+                                responseToCache.body,
+                                {
+                                    status: responseToCache.status,
+                                    statusText: responseToCache.statusText,
+                                    headers: responseToCache.headers,
+                                },
+                            );
+                            caches.open(CACHE_NAME).then((cache) => {
+                                cache.put(event.request, cleanResponse);
+                            });
+                        } else {
+                            caches.open(CACHE_NAME).then((cache) => {
+                                cache.put(event.request, responseToCache);
+                            });
+                        }
                     }
                     return networkResponse;
                 })

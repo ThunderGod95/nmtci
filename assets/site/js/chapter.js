@@ -14,8 +14,8 @@ const THEMES = {
     amoled: { bg: "#000000", text: "#b3b3b3" },
 };
 
-const PREV_CHAPTER_URL = PREV_CHAPTER_NUM ? `../${PREV_CHAPTER_NUM}` : "";
-const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM ? `../${NEXT_CHAPTER_NUM}` : "";
+const PREV_CHAPTER_URL = PREV_CHAPTER_NUM ? `../${PREV_CHAPTER_NUM}/` : "";
+const NEXT_CHAPTER_URL = NEXT_CHAPTER_NUM ? `../${NEXT_CHAPTER_NUM}/` : "";
 
 (function prefetchChapters() {
     [NEXT_CHAPTER_URL, PREV_CHAPTER_URL].forEach((url) => {

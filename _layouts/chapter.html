@@ -1124,13 +1124,10 @@
             const NEXT_CHAPTER_NUM = "{{ page.next }}";
 
             function saveReadingHistory() {
-                const pathSegments = window.location.pathname.split("/");
-                const fileName = pathSegments[pathSegments.length - 1];
+                const cleanPath = window.location.pathname.replace(/\/$/, "");
+                const fileName = cleanPath.split("/").pop();
                 const chapterId = parseInt(fileName.replace(".html", ""), 10);
 
-                const titleEl =
-                    document.querySelector("#content > h1").innerText;
-                const separatorIndex = titleEl.indexOf(": ");
                 const chapterTitle = `{{ page.title }}`;
 
                 const history = {
