@@ -1,4 +1,4 @@
-const CACHE_NAME = "nmtci-cache-v14";
+const CACHE_NAME = "nmtci-cache-v15";
 const ASSETS = [
     "/nmtci/",
     "/nmtci/index.html",
@@ -14,9 +14,7 @@ const ASSETS = [
 
 self.addEventListener("install", (event) => {
     self.skipWaiting();
-    event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)),
-    );
+    event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
 });
 
 self.addEventListener("activate", (event) => {
@@ -48,14 +46,9 @@ self.addEventListener("fetch", (event) => {
                     fetch(event.request).then((networkResponse) => {
                         if (networkResponse.ok) {
                             const responseToCache = networkResponse.clone();
-                            const cacheUpdate = caches
-                                .open(CACHE_NAME)
-                                .then((cache) => {
-                                    return cache.put(
-                                        event.request,
-                                        responseToCache,
-                                    );
-                                });
+                            const cacheUpdate = caches.open(CACHE_NAME).then((cache) => {
+                                return cache.put(event.request, responseToCache);
+                            });
                             event.waitUntil(cacheUpdate);
                         }
                         return networkResponse;
@@ -72,14 +65,9 @@ self.addEventListener("fetch", (event) => {
                 .then((networkResponse) => {
                     if (networkResponse && networkResponse.status === 200) {
                         const responseToCache = networkResponse.clone();
-                        const cacheUpdate = caches
-                            .open(CACHE_NAME)
-                            .then((cache) => {
-                                return cache.put(
-                                    event.request,
-                                    responseToCache,
-                                );
-                            });
+                        const cacheUpdate = caches.open(CACHE_NAME).then((cache) => {
+                            return cache.put(event.request, responseToCache);
+                        });
                         event.waitUntil(cacheUpdate);
                     }
                     return networkResponse;
@@ -101,23 +89,18 @@ self.addEventListener("fetch", (event) => {
                     if (
                         networkResponse &&
                         networkResponse.status === 200 &&
-                        (networkResponse.type === "basic" ||
-                            networkResponse.type === "cors")
+                        (networkResponse.type === "basic" || networkResponse.type === "cors")
                     ) {
                         const responseToCache = networkResponse.clone();
 
                         const cacheUpdate = new Promise((resolve) => {
                             if (responseToCache.redirected) {
                                 responseToCache.blob().then((bodyBlob) => {
-                                    const cleanResponse = new Response(
-                                        bodyBlob,
-                                        {
-                                            status: responseToCache.status,
-                                            statusText:
-                                                responseToCache.statusText,
-                                            headers: responseToCache.headers,
-                                        },
-                                    );
+                                    const cleanResponse = new Response(bodyBlob, {
+                                        status: responseToCache.status,
+                                        statusText: responseToCache.statusText,
+                                        headers: responseToCache.headers,
+                                    });
                                     caches.open(CACHE_NAME).then((cache) => {
                                         cache.put(event.request, cleanResponse);
                                         resolve();
