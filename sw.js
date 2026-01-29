@@ -1,11 +1,11 @@
-const CACHE_NAME = "nmtci-cache-v11";
+const CACHE_NAME = "nmtci-cache-v13";
 const ASSETS = [
     "/nmtci/",
     "/nmtci/index.html",
     "/nmtci/assets/site/css/styles.css",
     "/nmtci/assets/site/js/index.js",
-    "/nmtci/offline.html",
     "/nmtci/assets/site/js/chapter.js",
+    "/nmtci/offline.html",
     "/nmtci/assets/nmtci.jpg",
     "/nmtci/assets/icons/favicon-96x96.png",
     "/nmtci/assets/icons/favicon.svg",
@@ -46,10 +46,19 @@ self.addEventListener("fetch", (event) => {
                 return (
                     cached ||
                     fetch(event.request).then((networkResponse) => {
-                        return caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, networkResponse.clone());
-                            return networkResponse;
-                        });
+                        if (networkResponse.ok) {
+                            const responseToCache = networkResponse.clone();
+                            const cacheUpdate = caches
+                                .open(CACHE_NAME)
+                                .then((cache) => {
+                                    return cache.put(
+                                        event.request,
+                                        responseToCache,
+                                    );
+                                });
+                            event.waitUntil(cacheUpdate);
+                        }
+                        return networkResponse;
                     })
                 );
             }),
@@ -63,14 +72,23 @@ self.addEventListener("fetch", (event) => {
                 .then((networkResponse) => {
                     if (networkResponse && networkResponse.status === 200) {
                         const responseToCache = networkResponse.clone();
-                        caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, responseToCache);
-                        });
+                        const cacheUpdate = caches
+                            .open(CACHE_NAME)
+                            .then((cache) => {
+                                return cache.put(
+                                    event.request,
+                                    responseToCache,
+                                );
+                            });
+                        event.waitUntil(cacheUpdate);
                     }
                     return networkResponse;
                 })
                 .catch(() => {
-                    return caches.match(event.request);
+                    return caches.match(event.request, {
+                        ignoreSearch: true,
+                        ignoreVary: true,
+                    });
                 }),
         );
         return;
@@ -83,32 +101,45 @@ self.addEventListener("fetch", (event) => {
                     if (
                         networkResponse &&
                         networkResponse.status === 200 &&
-                        networkResponse.type === "basic"
+                        (networkResponse.type === "basic" ||
+                            networkResponse.type === "cors")
                     ) {
                         const responseToCache = networkResponse.clone();
 
-                        if (responseToCache.redirected) {
-                            const cleanResponse = new Response(
-                                responseToCache.body,
-                                {
-                                    status: responseToCache.status,
-                                    statusText: responseToCache.statusText,
-                                    headers: responseToCache.headers,
-                                },
-                            );
-                            caches.open(CACHE_NAME).then((cache) => {
-                                cache.put(event.request, cleanResponse);
-                            });
-                        } else {
-                            caches.open(CACHE_NAME).then((cache) => {
-                                cache.put(event.request, responseToCache);
-                            });
-                        }
+                        const cacheUpdate = new Promise((resolve) => {
+                            if (responseToCache.redirected) {
+                                responseToCache.blob().then((bodyBlob) => {
+                                    const cleanResponse = new Response(
+                                        bodyBlob,
+                                        {
+                                            status: responseToCache.status,
+                                            statusText:
+                                                responseToCache.statusText,
+                                            headers: responseToCache.headers,
+                                        },
+                                    );
+                                    caches.open(CACHE_NAME).then((cache) => {
+                                        cache.put(event.request, cleanResponse);
+                                        resolve();
+                                    });
+                                });
+                            } else {
+                                caches.open(CACHE_NAME).then((cache) => {
+                                    cache.put(event.request, responseToCache);
+                                    resolve();
+                                });
+                            }
+                        });
+
+                        event.waitUntil(cacheUpdate);
                     }
                     return networkResponse;
                 })
                 .catch((error) => {
-                    if (event.request.mode === "navigate") {
+                    if (
+                        event.request.mode === "navigate" ||
+                        event.request.destination === "document"
+                    ) {
                         return caches.match("/nmtci/offline.html");
                     }
                 });
