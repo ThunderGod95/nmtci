@@ -25,7 +25,7 @@ async function generateWebIndex() {
                 chapters.push({
                     id: chapterNum,
                     title: chapterTitle,
-                    url: `${TARGET_DIR}/${compiledFileName}`,
+                    url: `.${TARGET_DIR}/${compiledFileName}`,
                 });
             }
         }
