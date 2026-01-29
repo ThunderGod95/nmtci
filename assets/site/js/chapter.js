@@ -67,6 +67,7 @@ const NavigationManager = {
         this.updateLinks();
         this.prefetch();
         this.bindEvents();
+        this.syncNavigation();
     },
 
     updateLinks() {
@@ -85,15 +86,83 @@ const NavigationManager = {
         setLinks(DOM.nextLinks, this.nextUrl);
     },
 
-    prefetch() {
-        [this.nextUrl, this.prevUrl].forEach((url) => {
-            if (url) {
-                const link = document.createElement("link");
-                link.rel = "prefetch";
-                link.href = url;
-                document.head.appendChild(link);
+    async syncNavigation() {
+        const pathSegments = window.location.pathname
+            .replace(/\/$/, "")
+            .split("/");
+        const currentId = parseInt(pathSegments.pop());
+        if (isNaN(currentId)) return;
+
+        const idealPrevId = currentId - 1;
+        const idealNextId = currentId + 1;
+
+        const isPrevAligned =
+            !this.prevUrl || this.prevUrl.includes(`/${idealPrevId}/`);
+        const isNextAligned =
+            !this.nextUrl || this.nextUrl.includes(`/${idealNextId}/`);
+
+        if (isPrevAligned && isNextAligned) {
+            return;
+        }
+
+        try {
+            const response = await fetch("/nmtci/chapters.json");
+            if (!response.ok) return;
+
+            const chapters = await response.json();
+
+            const currentIndex = chapters.findIndex((c) => c.id === currentId);
+            if (currentIndex === -1) return;
+
+            let updatesMade = false;
+
+            if (currentIndex > 0) {
+                const prevChapter = chapters[currentIndex - 1];
+                const realPrevUrl = prevChapter.url || `../${prevChapter.id}/`;
+
+                if (this.prevUrl !== realPrevUrl) {
+                    this.prevUrl = realPrevUrl;
+                    updatesMade = true;
+                }
             }
-        });
+
+            if (currentIndex < chapters.length - 1) {
+                const nextChapter = chapters[currentIndex + 1];
+                const realNextUrl = nextChapter.url || `../${nextChapter.id}/`;
+
+                if (this.nextUrl !== realNextUrl) {
+                    this.nextUrl = realNextUrl;
+                    updatesMade = true;
+                }
+            }
+
+            if (updatesMade) {
+                this.updateLinks();
+                this.prefetch();
+                console.log("Navigation healed:", {
+                    prev: this.prevUrl,
+                    next: this.nextUrl,
+                });
+            }
+        } catch (e) {
+            console.warn("Navigation sync failed:", e);
+        }
+    },
+
+    prefetchUrl(url) {
+        if (!url) return;
+        if (document.head.querySelector(`link[rel="prefetch"][href="${url}"]`))
+            return;
+
+        const link = document.createElement("link");
+        link.rel = "prefetch";
+        link.href = url;
+        document.head.appendChild(link);
+    },
+
+    prefetch() {
+        this.prefetchUrl(this.prevUrl);
+        this.prefetchUrl(this.nextUrl);
     },
 
     bindEvents() {
