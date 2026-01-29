@@ -87,19 +87,15 @@ const NavigationManager = {
     },
 
     async syncNavigation() {
-        const pathSegments = window.location.pathname
-            .replace(/\/$/, "")
-            .split("/");
+        const pathSegments = window.location.pathname.replace(/\/$/, "").split("/");
         const currentId = parseInt(pathSegments.pop());
         if (isNaN(currentId)) return;
 
         const idealPrevId = currentId - 1;
         const idealNextId = currentId + 1;
 
-        const isPrevAligned =
-            !this.prevUrl || this.prevUrl.includes(`/${idealPrevId}/`);
-        const isNextAligned =
-            !this.nextUrl || this.nextUrl.includes(`/${idealNextId}/`);
+        const isPrevAligned = !this.prevUrl || this.prevUrl.includes(`/${idealPrevId}/`);
+        const isNextAligned = !this.nextUrl || this.nextUrl.includes(`/${idealNextId}/`);
 
         if (isPrevAligned && isNextAligned) {
             return;
@@ -118,20 +114,16 @@ const NavigationManager = {
 
             if (currentIndex > 0) {
                 const prevChapter = chapters[currentIndex - 1];
-                const realPrevUrl = prevChapter.url || `../${prevChapter.id}/`;
-
-                if (this.prevUrl !== realPrevUrl) {
-                    this.prevUrl = realPrevUrl;
+                if (prevChapter.url && this.prevUrl !== prevChapter.url) {
+                    this.prevUrl = prevChapter.url;
                     updatesMade = true;
                 }
             }
 
             if (currentIndex < chapters.length - 1) {
                 const nextChapter = chapters[currentIndex + 1];
-                const realNextUrl = nextChapter.url || `../${nextChapter.id}/`;
-
-                if (this.nextUrl !== realNextUrl) {
-                    this.nextUrl = realNextUrl;
+                if (nextChapter.url && this.nextUrl !== nextChapter.url) {
+                    this.nextUrl = nextChapter.url;
                     updatesMade = true;
                 }
             }
@@ -151,8 +143,7 @@ const NavigationManager = {
 
     prefetchUrl(url) {
         if (!url) return;
-        if (document.head.querySelector(`link[rel="prefetch"][href="${url}"]`))
-            return;
+        if (document.head.querySelector(`link[rel="prefetch"][href="${url}"]`)) return;
 
         const link = document.createElement("link");
         link.rel = "prefetch";
@@ -167,10 +158,8 @@ const NavigationManager = {
 
     bindEvents() {
         document.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowLeft" && this.prevUrl)
-                window.location.href = this.prevUrl;
-            if (e.key === "ArrowRight" && this.nextUrl)
-                window.location.href = this.nextUrl;
+            if (e.key === "ArrowLeft" && this.prevUrl) window.location.href = this.prevUrl;
+            if (e.key === "ArrowRight" && this.nextUrl) window.location.href = this.nextUrl;
         });
     },
 };
@@ -189,10 +178,7 @@ const ThemeManager = {
         });
 
         document.addEventListener("click", (e) => {
-            if (
-                DOM.menu.classList.contains("active") &&
-                !DOM.menu.contains(e.target)
-            ) {
+            if (DOM.menu.classList.contains("active") && !DOM.menu.contains(e.target)) {
                 DOM.menu.classList.remove("active");
             }
         });
@@ -289,10 +275,7 @@ const ThemeManager = {
             letterSpacing: DOM.inputs.spacing.value,
             paraStyle: DOM.inputs.paraStyle.value,
         };
-        localStorage.setItem(
-            CONFIG.storageKeys.settings,
-            JSON.stringify(settings),
-        );
+        localStorage.setItem(CONFIG.storageKeys.settings, JSON.stringify(settings));
     },
 
     load() {
@@ -464,8 +447,7 @@ const AudioManager = {
             this.utterance.pitch = parseFloat(DOM.pitchInput.value);
 
             this.utterance.onend = () => {
-                if (this.isPlaying && !this.isPaused)
-                    this.speak(this.currentIndex + 1);
+                if (this.isPlaying && !this.isPaused) this.speak(this.currentIndex + 1);
             };
 
             this.utterance.onerror = (e) => {
@@ -489,9 +471,7 @@ const AudioManager = {
     },
 
     clearHighlights() {
-        this.paraObjects.forEach((obj) =>
-            obj.element.classList.remove("active-reading"),
-        );
+        this.paraObjects.forEach((obj) => obj.element.classList.remove("active-reading"));
     },
 
     updateUI() {
@@ -519,16 +499,11 @@ const AudioManager = {
             pitch: DOM.pitchInput.value,
             voiceName: DOM.voiceSelect.selectedOptions[0]?.textContent,
         };
-        localStorage.setItem(
-            CONFIG.storageKeys.audioSettings,
-            JSON.stringify(settings),
-        );
+        localStorage.setItem(CONFIG.storageKeys.audioSettings, JSON.stringify(settings));
     },
 
     loadSettings() {
-        const saved = JSON.parse(
-            localStorage.getItem(CONFIG.storageKeys.audioSettings),
-        );
+        const saved = JSON.parse(localStorage.getItem(CONFIG.storageKeys.audioSettings));
         if (saved) {
             DOM.rateInput.value = saved.rate;
             DOM.pitchInput.value = saved.pitch;
@@ -536,9 +511,7 @@ const AudioManager = {
             DOM.pitchValDisplay.textContent = saved.pitch;
 
             for (let i = 0; i < DOM.voiceSelect.options.length; i++) {
-                if (
-                    DOM.voiceSelect.options[i].textContent === saved.voiceName
-                ) {
+                if (DOM.voiceSelect.options[i].textContent === saved.voiceName) {
                     DOM.voiceSelect.selectedIndex = i;
                     break;
                 }
@@ -549,10 +522,7 @@ const AudioManager = {
 
 const ScrollManager = {
     lastScrollTop: 0,
-    scrollKey:
-        CONFIG.storageKeys.scrollPrefix +
-        window.location.pathname +
-        window.location.search,
+    scrollKey: CONFIG.storageKeys.scrollPrefix + window.location.pathname + window.location.search,
 
     init() {
         this.setupObserver();

@@ -16,6 +16,7 @@ async function generateWebIndex() {
                 `${TARGET_DIR}/${file}`,
             ).text();
             const match = content.match(/^#\s+Chapter\s+(\d+):\s*(.+?)$/m);
+            const folder = TARGET_DIR.replace("./", "");
 
             if (match) {
                 const chapterNum = parseInt(match[1]);
@@ -25,7 +26,7 @@ async function generateWebIndex() {
                 chapters.push({
                     id: chapterNum,
                     title: chapterTitle,
-                    url: `../.${TARGET_DIR}/${compiledFileName}`,
+                    url: `/nmtci/${folder}/${compiledFileName}`,
                 });
             }
         }
