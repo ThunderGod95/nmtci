@@ -1,23 +1,23 @@
 # No Money To Cultivate Immortality? (没钱修什么仙？ | méi qián xiū shén me xiān?) - English Translation
 
 <p align="center">
-  <img src="./assets/nmtci.jpg" alt="Novel Cover" width="300">
+  <img src="./assets/img/nmtci.jpg" alt="Novel Cover" width="300">
 </p>
 
 Welcome to the unofficial fan translation repository for **No Money To Cultivate Immortality?**! This project is focused on providing high-quality English translations of the novel.
 
 ## About the Novel
 
--   **Original Title:** 没钱修什么仙？
--   **Author:** Bear Wolf Dog (熊狼狗)
--   **Genre:** Action, Fantasy, Martial Arts, Romance, School Life, Sci-fi, Shounen, Supernatural, Xianxia
--   **Original Source:** [[Qidian]](https://www.qidian.com/book/1042256511/)
+- **Original Title:** 没钱修什么仙？
+- **Author:** Bear Wolf Dog (熊狼狗)
+- **Genre:** Action, Fantasy, Martial Arts, Romance, School Life, Sci-fi, Shounen, Supernatural, Xianxia
+- **Original Source:** [[Qidian]](https://www.qidian.com/book/1042256511/)
 
 ### Translation Scope & Status
 
 This repository **does not contain the full novel**. It is a fan translation focusing on the following chapters:
 
--   **Arc 1 (1 - 160):** Ongoing
+- **Arc 1 (1 - 160):** Ongoing
 
 **Overall Status:** Ongoing
 
@@ -39,13 +39,13 @@ This is the recommended way to download. We compile completed volumes (and major
 
 You can read the individual chapters directly in this repository. All translated chapters (starting from Volume 5) are located in the `translations` folder.
 
--   [**Browse All Chapters**](./translations/)
+- [**Browse All Chapters**](./translations/)
 
 ### 3. Download Ebooks (From `bundled` Folder)
 
 Alternatively, the latest compiled ebook files are also stored directly in the `bundled` folder of this repository.
 
--   [**Browse Ebook Files**](./bundled/)
+- [**Browse Ebook Files**](./bundled/)
 
 ---
 
@@ -57,15 +57,15 @@ We welcome all contributions! This is a community project, and we value any help
 
 If you find a typo, grammatical error, broken link, or a mistranslation, please let us know! You can report issues in two main ways:
 
--   **Discord Server (Preferred):** You can join **[No Money to Cultivate Immortality? Discord Server](https://discord.gg/Xgqd2UPjxB)** and report the issue in the appropriate channel.
--   **GitHub Issues:** Another way for us to track bugs is by [**opening an Issue**](https://github.com/ThunderGod95/nmtci/issues) directly in this repository.
+- **Discord Server (Preferred):** You can join **[No Money to Cultivate Immortality? Discord Server](https://discord.gg/Xgqd2UPjxB)** and report the issue in the appropriate channel.
+- **GitHub Issues:** Another way for us to track bugs is by [**opening an Issue**](https://github.com/ThunderGod95/nmtci/issues) directly in this repository.
 
 When reporting an issue (on either platform), please try to:
 
--   Use a clear title or summary (e.g., "Typo in Arc 1, Chapter 15").
--   Include the volume and chapter number.
--   Quote the incorrect sentence.
--   Provide the correction if you know it.
+- Use a clear title or summary (e.g., "Typo in Arc 1, Chapter 15").
+- Include the volume and chapter number.
+- Quote the incorrect sentence.
+- Provide the correction if you know it.
 
 ### 2. Suggest Terminology
 

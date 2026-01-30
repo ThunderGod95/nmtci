@@ -280,32 +280,69 @@ const ThemeManager = {
 
     load() {
         const saved = localStorage.getItem(CONFIG.storageKeys.settings);
-        if (saved) {
-            const s = JSON.parse(saved);
 
-            this.updateCSS("--text-size", s.fontSize + "px");
-            this.updateCSS("--line-height", s.lineHeight);
-            if (s.fontFamily) this.updateCSS("--font-family", s.fontFamily);
-            if (s.letterSpacing) {
-                this.updateCSS("--letter-spacing", s.letterSpacing + "px");
-                DOM.inputs.spacing.value = s.letterSpacing;
-                DOM.displays.spacing.textContent = s.letterSpacing + "px";
-            }
-
-            DOM.inputs.fontSize.value = s.fontSize;
-            DOM.inputs.lineHeight.value = s.lineHeight;
-            DOM.displays.fontSize.textContent = s.fontSize + "px";
-            DOM.displays.lineHeight.textContent = s.lineHeight;
-
-            if (s.paraStyle) {
-                DOM.inputs.paraStyle.value = s.paraStyle;
-                this.applyParaStyle(s.paraStyle);
-            }
-
-            this.applyTheme(s.theme || "light");
-        } else {
+        if (!saved) {
             this.applyTheme("light");
+            return;
         }
+
+        const s = JSON.parse(saved);
+
+        const settingsMap = [
+            {
+                key: "fontSize",
+                css: "--text-size",
+                unit: "px",
+                input: "fontSize",
+                display: "fontSize",
+            },
+            {
+                key: "lineHeight",
+                css: "--line-height",
+                unit: "",
+                input: "lineHeight",
+                display: "lineHeight",
+            },
+            {
+                key: "fontFamily",
+                css: "--font-family",
+                unit: "",
+                input: "fontFamily",
+                display: null,
+            },
+            {
+                key: "letterSpacing",
+                css: "--letter-spacing",
+                unit: "px",
+                input: "spacing",
+                display: "spacing",
+            },
+        ];
+
+        settingsMap.forEach((config) => {
+            const val = s[config.key];
+
+            if (val) {
+                const valWithUnit = val + config.unit;
+
+                this.updateCSS(config.css, valWithUnit);
+
+                if (DOM.inputs[config.input]) {
+                    DOM.inputs[config.input].value = val;
+                }
+
+                if (config.display && DOM.displays[config.display]) {
+                    DOM.displays[config.display].textContent = valWithUnit;
+                }
+            }
+        });
+
+        if (s.paraStyle) {
+            this.applyParaStyle(s.paraStyle);
+            if (DOM.inputs.paraStyle) DOM.inputs.paraStyle.value = s.paraStyle;
+        }
+
+        this.applyTheme(s.theme || "light");
     },
 };
 
