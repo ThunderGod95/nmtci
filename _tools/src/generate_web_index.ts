@@ -1,44 +1,87 @@
 import { readdir } from "node:fs/promises";
+import { basename, extname, join, resolve } from "node:path";
 
-const TARGET_DIR = "./translations";
-const OUTPUT_FILE = "./chapters.json";
+const SCRIPT_DIR = import.meta.dir;
+const PROJECT_ROOT = resolve(SCRIPT_DIR, "../..");
 
-async function generateWebIndex() {
+const CONFIG = {
+    targetDir: join(PROJECT_ROOT, "translations"),
+    outputFile: join(PROJECT_ROOT, "chapters.json"),
+    chapterPattern: /^#{1,6}\s+Chapter\s+([\d\.]+)(?:\s*[:\-–])?\s*(.*)$/im,
+    urlPrefix: "/nmtci/translations",
+} as const;
+
+interface Chapter {
+    id: number;
+    title: string;
+    url: string;
+}
+
+async function parseChapterFile(fileName: string): Promise<Chapter | null> {
+    const filePath = join(CONFIG.targetDir, fileName);
+
     try {
-        const files = await readdir(TARGET_DIR);
-        const mdFiles: string[] = files.filter((file) => file.endsWith(".md"));
-        const chapters = [];
+        const file = Bun.file(filePath);
+        const content = await file.text();
+        const match = content.match(CONFIG.chapterPattern);
 
-        console.log(`Found ${mdFiles.length} markdown files.`);
-
-        for (const file of mdFiles) {
-            const content: string = await Bun.file(
-                `${TARGET_DIR}/${file}`,
-            ).text();
-            const match = content.match(/^#\s+Chapter\s+(\d+):\s*(.+?)$/m);
-            const folder = TARGET_DIR.replace("./", "");
-
-            if (match) {
-                const chapterNum = parseInt(match[1]);
-                const chapterTitle = match[2].trim();
-                const compiledFileName = file.replaceAll(".md", "");
-
-                chapters.push({
-                    id: chapterNum,
-                    title: chapterTitle,
-                    url: `/nmtci/${folder}/${compiledFileName}`,
-                });
-            }
+        if (!match) {
+            console.warn(`[WARN] Skipping "${fileName}": No valid chapter header found.`);
+            return null;
         }
 
-        chapters.sort((a, b) => a.id - b.id);
+        const [, idStr, rawTitle] = match;
+        const cleanFileName = basename(fileName, extname(fileName));
 
-        await Bun.write(OUTPUT_FILE, JSON.stringify(chapters, null, 2));
-        console.log(
-            `Successfully indexed ${chapters.length} chapters to ${OUTPUT_FILE}`,
-        );
+        if (!idStr) {
+            console.warn(`[WARN] Skipping "${fileName}": Match found but ID is missing.`);
+            return null;
+        }
+
+        return {
+            id: parseFloat(idStr),
+            title: (rawTitle || "").trim(),
+            url: `${CONFIG.urlPrefix}/${cleanFileName}`,
+        };
     } catch (error) {
-        console.error("Error generating index:", error);
+        console.error(`[ERROR] Failed to read file "${fileName}":`, error);
+        return null;
+    }
+}
+
+async function writeIndexFile(chapters: Chapter[]): Promise<void> {
+    try {
+        await Bun.write(CONFIG.outputFile, JSON.stringify(chapters, null, 2));
+        console.log(`\nSuccess: Indexed ${chapters.length} chapters to "${CONFIG.outputFile}"`);
+    } catch (error) {
+        throw new Error(`Failed to write output file: ${error instanceof Error ? error.message : error}`);
+    }
+}
+
+async function generateWebIndex() {
+    console.log(`Script location: ${SCRIPT_DIR}`);
+    console.log(`Resolved Root:   ${PROJECT_ROOT}`);
+    console.log(`Scanning:        ${CONFIG.targetDir}...`);
+
+    try {
+        const allFiles = await readdir(CONFIG.targetDir);
+        const mdFiles = allFiles.filter((file) => file.endsWith(".md"));
+
+        if (mdFiles.length === 0) {
+            console.warn("No markdown files found in the target directory.");
+            return;
+        }
+
+        const results = await Promise.all(mdFiles.map(parseChapterFile));
+
+        const validChapters = results
+            .filter((c): c is Chapter => c !== null)
+            .sort((a, b) => a.id - b.id);
+
+        await writeIndexFile(validChapters);
+    } catch (error) {
+        console.error("\nFatal Error:", error);
+        process.exit(1);
     }
 }
 
