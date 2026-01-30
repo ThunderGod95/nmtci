@@ -10,6 +10,8 @@ defaults:
           layout: "chapter"
 
 markdown: kramdown
+kramdown:
+    smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
 permalink: pretty
 
 exclude:
