@@ -106,4 +106,4 @@ jobs:
                   PAGE_URL: ${{ steps.deployment.outputs.page_url }}
                   PREVIOUS_CHAPTERS_PATH: "previous_state/chapters.json"
                   CURRENT_CHAPTERS_PATH: "chapters.json"
-              run: bun run _tools/src/discord-notify.ts
+              run: bun run _tools/src/discord_notify.ts
