@@ -26,18 +26,27 @@
     </noscript>
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
     <style>
+        body {
+            touch-action: pan-y;
+        }
+
         #content {
             max-width: 800px;
+            font-family: var(--font-family);
+            font-size: var(--text-size);
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
             margin: 0 auto;
             padding: 40px 20px;
             padding-top: 0;
             content-visibility: auto;
             contain-intrinsic-size: 1000px;
+            transition: all .05s ease-in-out;
         }
 
         #content p {
             text-indent: var(--para-indent);
-            margin-bottom: var(--para-margin);
+            margin-bottom: 1em;
             margin-top: 0;
         }
 

@@ -278,10 +278,6 @@ layout: null
             display: none;
         }
 
-        .resume-hidden {
-            display: none;
-        }
-
         #resumeBtn {
             background-color: var(--text-color);
             color: var(--bg-color);
@@ -346,6 +342,10 @@ layout: null
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 200px;
+        }
+
+        #resumeBtn.resume-hidden {
+            display: none !important;
         }
 
         @media (max-width: 600px) {

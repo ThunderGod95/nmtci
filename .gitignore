@@ -1,1 +1,15 @@
-.backup
+# Ignore the build output
+_site/
+
+# Ignore the local Ruby environment files
+Gemfile
+Gemfile.lock
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ignore system files (optional but good practice)
+.DS_Store
+Thumbs.db
+
+translations/.backup
